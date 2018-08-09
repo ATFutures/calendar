@@ -13,7 +13,8 @@ This file is documented at: \href{https://www.gov.uk/government/publications/ope
 }
 \examples{
 # dataset was stored as follows:
-# download.file("https://www.gov.uk/bank-holidays/england-and-wales.ics", "inst/extdata/england-and-wales.ics")
+# download.file("https://www.gov.uk/bank-holidays/england-and-wales.ics",
+# "inst/extdata/england-and-wales.ics")
 # ics_read(system.file("extdata", "england-and-wales.ics", package = "ical"))
 # holidays = "holidays"
 # usethis::use_data(holidays)

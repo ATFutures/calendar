@@ -9,7 +9,7 @@ Authors@R: c(
     )
 Description: What the package does (one paragraph).
 Depends: R (>= 3.5.0)
-License: What license is it under?
+License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
