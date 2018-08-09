@@ -17,5 +17,6 @@ Read ics file
 }
 \examples{
 f <- system.file("extdata", "england-and-wales.ics", package = "ical")
-ic_read(f)
+ics_df = ic_read(f)
+head(ics_df)
 }

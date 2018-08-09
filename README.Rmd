@@ -23,7 +23,15 @@ The goal of ical is to work with .ics file in R.
 Recently the UK Government endorsed the iCal format in a [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events) Open Standards for Government' series.
 [An example .ics file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is provided by the .gov.uk domain, which shows holidays in England and Wales.
 
-<!-- ## Installation -->
+## Installation
+
+```{r, eval=FALSE}
+devtools::install_github("ATFutures/ical")
+```
+
+```{r}
+library(ical)
+```
 
 <!-- You can install the released version of ical from [CRAN](https://CRAN.R-project.org) with: -->
 
@@ -33,19 +41,19 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
-## basic example code
+ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
+readLines(ics_file, n = 9) # check it's in the ICS format
+ics_df = ic_read(ics_file) # read it in
+head(ics_df) # check the results
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+What class is each column?
 
 ```{r cars}
-summary(cars)
+vapply(ics_df, class, character(1))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
 
 ## Related projects
 
