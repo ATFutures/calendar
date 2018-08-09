@@ -37,3 +37,8 @@ summary(cars)
 ```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+
+Related projects
+----------------
+
+-   A Python package for working with ics files: <https://github.com/C4ptainCrunch/ics.py>
