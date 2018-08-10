@@ -7,11 +7,21 @@
 \format{An object of class \code{character} of length 1.}
 \usage{
 holidays
+
+holidays
 }
 \description{
 This file is documented at: \href{https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events}{gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events}
+
+This file is documented at: \href{https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events}{gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events}
 }
 \examples{
+# dataset was stored as follows:
+# download.file("https://www.gov.uk/bank-holidays/england-and-wales.ics",
+# "inst/extdata/england-and-wales.ics")
+# ics_read(system.file("extdata", "england-and-wales.ics", package = "ical"))
+# holidays = "holidays"
+# usethis::use_data(holidays)
 # dataset was stored as follows:
 # download.file("https://www.gov.uk/bank-holidays/england-and-wales.ics",
 # "inst/extdata/england-and-wales.ics")
