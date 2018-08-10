@@ -2,10 +2,9 @@ Package: ical
 Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
 Authors@R: c(
-      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut"), 
-             comment = "StackOverflow inspiration"),
-      person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre")),
-      person("Layik", "Hama", comment="First package!", role = c("ctb"))
+    person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0001-5679-6536")),
+    person("Layik", "Hama", comment="First package!", role = c("ctb"))
     )
 Description: What the package does (one paragraph).
 Depends: R (>= 3.5.0)
