@@ -41,39 +41,21 @@ readLines(ics_file, n = 9) # check it's in the ICS format
 #> [9] "SUMMARY:New Year’s Day"
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
-#>    id 2.BEGIN 2.DTEND;VALUE=DATE 2.DTSTART;VALUE=DATE
-#> 1   1  VEVENT           20120103             20120102
-#> 9   2  VEVENT           20120407             20120406
-#> 17  3  VEVENT           20120410             20120409
-#> 25  4  VEVENT           20120508             20120507
-#> 33  5  VEVENT           20120605             20120604
-#> 41  6  VEVENT           20120606             20120605
-#>                  2.SUMMARY                                     2.UID
-#> 1           New Year’s Day ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk
-#> 9              Good Friday ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk
-#> 17           Easter Monday ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk
-#> 25  Early May bank holiday ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk
-#> 33     Spring bank holiday ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk
-#> 41 Queen’s Diamond Jubilee ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk
-#>    2.SEQUENCE        2.DTSTAMP  2.END
-#> 1           0 20180806T114130Z VEVENT
-#> 9           0 20180806T114130Z VEVENT
-#> 17          0 20180806T114130Z VEVENT
-#> 25          0 20180806T114130Z VEVENT
-#> 33          0 20180806T114130Z VEVENT
-#> 41          0 20180806T114130Z VEVENT
+#>            dtstamp
+#> 1 20180806T114130Z
+#> 2 20180806T114130Z
+#> 3 20180806T114130Z
+#> 4 20180806T114130Z
+#> 5 20180806T114130Z
+#> 6 20180806T114130Z
 ```
 
 What class is each column?
 
 ``` r
 vapply(ics_df, class, character(1))
-#>                   id              2.BEGIN   2.DTEND;VALUE=DATE 
-#>            "integer"             "factor"             "factor" 
-#> 2.DTSTART;VALUE=DATE            2.SUMMARY                2.UID 
-#>             "factor"             "factor"             "factor" 
-#>           2.SEQUENCE            2.DTSTAMP                2.END 
-#>             "factor"             "factor"             "factor"
+#>  dtstamp 
+#> "factor"
 ```
 
 Related projects
