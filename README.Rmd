@@ -15,10 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # ical
 
-The goal of ical is to work with iCalander (`.ics`) files in R.
+The goal of ical is to work with iCalander (`.ics`, `.ical` or similar) files in R.
 iCalendar is an open standard for
 "exchanging calendar and scheduling information between users and computers"
 described at [icalendar.org](https://icalendar.org/)
