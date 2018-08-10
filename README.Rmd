@@ -44,9 +44,20 @@ library(ical)
 
 ## Example
 
+A minimal example representing the contents of an iCalendar file is provided in the dataset `ic_example`, which is loaded when the package is attached.
+This is what iCal files look like:
+
+```{r min-example}
+ic_example
+```
+
+A larger example shows all national holidays in England and Wales.
+It can be read-in as follows:
+
 ```{r example}
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
-readLines(ics_file, n = 9) # check it's in the ICS format
+ics_raw = readLines(ics_file) 
+head(ics_raw) # check it's in the ICS format
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
 ```

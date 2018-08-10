@@ -27,18 +27,46 @@ library(ical)
 Example
 -------
 
+A minimal example representing the contents of an iCalendar file is provided in the dataset `ic_example`, which is loaded when the package is attached. This is what iCal files look like:
+
+``` r
+ic_example
+#>  [1] "BEGIN:VCALENDAR"                                  
+#>  [2] "PRODID:-//Google Inc//Google Calendar 70.9054//EN"
+#>  [3] "VERSION:2.0"                                      
+#>  [4] "CALSCALE:GREGORIAN"                               
+#>  [5] "METHOD:PUBLISH"                                   
+#>  [6] "X-WR-CALNAME:atf-test"                            
+#>  [7] "X-WR-TIMEZONE:Europe/London"                      
+#>  [8] "BEGIN:VEVENT"                                     
+#>  [9] "DTSTART:20180809T160000Z"                         
+#> [10] "DTEND:20180809T163000Z"                           
+#> [11] "DTSTAMP:20180810T094100Z"                         
+#> [12] "UID:1119ejg4vug5758527atjcrqj3@google.com"        
+#> [13] "CREATED:20180807T133712Z"                         
+#> [14] "DESCRIPTION:\\n"                                  
+#> [15] "LAST-MODIFIED:20180807T133712Z"                   
+#> [16] "LOCATION:"                                        
+#> [17] "SEQUENCE:0"                                       
+#> [18] "STATUS:CONFIRMED"                                 
+#> [19] "SUMMARY:ical programming mission"                 
+#> [20] "TRANSP:OPAQUE"                                    
+#> [21] "END:VEVENT"                                       
+#> [22] "END:VCALENDAR"
+```
+
+A larger example shows all national holidays in England and Wales. It can be read-in as follows:
+
 ``` r
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
-readLines(ics_file, n = 9) # check it's in the ICS format
+ics_raw = readLines(ics_file) 
+head(ics_raw) # check it's in the ICS format
 #> [1] "BEGIN:VCALENDAR"                     
 #> [2] "VERSION:2.0"                         
 #> [3] "METHOD:PUBLISH"                      
 #> [4] "PRODID:-//uk.gov/GOVUK calendars//EN"
 #> [5] "CALSCALE:GREGORIAN"                  
-#> [6] "BEGIN:VEVENT"                        
-#> [7] "DTEND;VALUE=DATE:20120103"           
-#> [8] "DTSTART;VALUE=DATE:20120102"         
-#> [9] "SUMMARY:New Year’s Day"
+#> [6] "BEGIN:VEVENT"
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
 #>            dtstamp
