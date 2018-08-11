@@ -67,7 +67,14 @@ ics_raw = readLines(ics_file)
 head(ics_raw) # check it's in the ICS format
 ```
 
-An data frame representing the calendar can be created as follows:
+A list representation of the calendar can be created using `ic_list()` as follows:
+
+```{r}
+ics_list = ic_list(ics_raw, pattern = "VEV")
+ics_list[1:2]
+```
+
+A data frame representing the calendar can be created as follows (work in progress, not yet working):
 
 ```{r}
 ics_df = ic_read(ics_file) # read it in
