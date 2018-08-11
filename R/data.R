@@ -35,6 +35,17 @@
 #' # usethis::use_data(ic_properties)
 "ic_properties"
 
+#' The key 'properties' that are allowed in ical files
+#'
+#' @examples
+#' ic_properties_core = c(
+#' "UID",
+#' "DTSTART",
+#' "DTEND",
+#' "SUMMARY"
+#' )
+"ic_properties_core"
+
 #' View or download the ical specification
 #'
 #' @param mode character string specifying whether to look at the spec (`mode = "view"`, the default)
