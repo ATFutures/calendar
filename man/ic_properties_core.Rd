@@ -4,7 +4,7 @@
 \name{ic_properties_core}
 \alias{ic_properties_core}
 \title{The key 'properties' that are allowed in ical files}
-\format{An object of class \code{character} of length 4.}
+\format{An object of class \code{list} of length 4.}
 \usage{
 ic_properties_core
 }
@@ -12,11 +12,11 @@ ic_properties_core
 The key 'properties' that are allowed in ical files
 }
 \examples{
-ic_properties_core = c(
-"UID",
-"DTSTART",
-"DTEND",
-"SUMMARY"
+ic_properties_core = list(
+"UID"="UID",
+"DTSTART"="DTSTART",
+"DTEND"="DTEND",
+"SUMMARY"="SUMMARY"
 )
 }
 \keyword{datasets}
