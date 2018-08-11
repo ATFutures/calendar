@@ -38,11 +38,11 @@
 #' The key 'properties' that are allowed in ical files
 #'
 #' @examples
-#' ic_properties_core = c(
-#' "UID",
-#' "DTSTART",
-#' "DTEND",
-#' "SUMMARY"
+#' ic_properties_core = list(
+#' "UID"="UID",
+#' "DTSTART"="DTSTART",
+#' "DTEND"="DTEND",
+#' "SUMMARY"="SUMMARY"
 #' )
 "ic_properties_core"
 
