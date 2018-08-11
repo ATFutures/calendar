@@ -78,7 +78,33 @@ head(ics_raw) # check it's in the ICS format
 #> [6] "BEGIN:VEVENT"
 ```
 
-An data frame representing the calendar can be created as follows:
+A list representation of the calendar can be created using `ic_list()` as follows:
+
+``` r
+ics_list = ic_list(ics_raw, pattern = "VEV")
+ics_list[1:2]
+#> [[1]]
+#> [1] "BEGIN:VEVENT"                                 
+#> [2] "DTEND;VALUE=DATE:20120103"                    
+#> [3] "DTSTART;VALUE=DATE:20120102"                  
+#> [4] "SUMMARY:New Year’s Day"                       
+#> [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"
+#> [6] "SEQUENCE:0"                                   
+#> [7] "DTSTAMP:20180806T114130Z"                     
+#> [8] "END:VEVENT"                                   
+#> 
+#> [[2]]
+#> [1] "BEGIN:VEVENT"                                 
+#> [2] "DTEND;VALUE=DATE:20120407"                    
+#> [3] "DTSTART;VALUE=DATE:20120406"                  
+#> [4] "SUMMARY:Good Friday"                          
+#> [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"
+#> [6] "SEQUENCE:0"                                   
+#> [7] "DTSTAMP:20180806T114130Z"                     
+#> [8] "END:VEVENT"
+```
+
+A data frame representing the calendar can be created as follows (work in progress, not yet working):
 
 ``` r
 ics_df = ic_read(ics_file) # read it in
