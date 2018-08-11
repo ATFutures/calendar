@@ -55,6 +55,15 @@ ic_example
 #> [22] "END:VCALENDAR"
 ```
 
+Relevant fields can be found and extracted as follows:
+
+``` r
+ic_find(ic_example, "TSTAMP")
+#>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+#> [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ic_extract(ic_example, "TSTAMP")
+```
+
 A larger example shows all national holidays in England and Wales. It can be read-in as follows:
 
 ``` r
@@ -67,23 +76,28 @@ head(ics_raw) # check it's in the ICS format
 #> [4] "PRODID:-//uk.gov/GOVUK calendars//EN"
 #> [5] "CALSCALE:GREGORIAN"                  
 #> [6] "BEGIN:VEVENT"
+```
+
+An data frame representing the calendar can be created as follows:
+
+``` r
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
-#>            dtstamp
-#> 1 20180806T114130Z
-#> 2 20180806T114130Z
-#> 3 20180806T114130Z
-#> 4 20180806T114130Z
-#> 5 20180806T114130Z
-#> 6 20180806T114130Z
+#>   dtstamp
+#> 1   FALSE
+#> 2   FALSE
+#> 3   FALSE
+#> 4   FALSE
+#> 5   FALSE
+#> 6   FALSE
 ```
 
 What class is each column?
 
 ``` r
 vapply(ics_df, class, character(1))
-#>  dtstamp 
-#> "factor"
+#>   dtstamp 
+#> "logical"
 ```
 
 Related projects

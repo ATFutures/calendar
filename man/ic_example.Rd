@@ -3,16 +3,16 @@
 \docType{data}
 \name{ic_example}
 \alias{ic_example}
-\title{Minimal example of raw ical file (already read-in from file)}
+\title{Minimal example of raw ical data}
 \format{An object of class \code{character} of length 22.}
 \usage{
 ic_example
 }
 \description{
-Minimal example of raw ical file (already read-in from file)
+See https://calendar.google.com/calendar/ical/9sl1qu3qh2vdnq26bjgvtnos94%40group.calendar.google.com/private-85cbe5d781da1b7efc91e01032cfc264/basic.ics for the file
 }
 \examples{
-# download.file("long_url...", "inst/extdata/example.ics")
+# download.file("long_url", "inst/extdata/example.ics")
 ic_example = readLines(system.file("extdata", "example.ics", package = "ical"))
 # usethis::use_data(ic_example)
 }

@@ -15,10 +15,6 @@ ic_find(x, pattern)
 Find contents of iCal fields
 }
 \examples{
-f <- system.file("extdata", "england-and-wales.ics", package = "ical")
-x = readLines(f)
-x[1:20]
 pattern = "DTSTAMP"
-dtstamp = ic_find(x, pattern)
-head(dtstamp)
+ic_find(ic_example, pattern)
 }
