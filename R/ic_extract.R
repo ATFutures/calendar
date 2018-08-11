@@ -29,9 +29,22 @@ ic_extract_raw <- function(x, pattern) {
 ic_extract <- function(x, pattern) {
 
   res_raw = ic_extract_raw(x, pattern)
-  # if(grepl(pattern, "T")) {
-  #
+  # if(grepl(pattern, "DT")) {
+  #   res = ic_datetime(res_raw)
   # }
+
+}
+
+#' Convert ical datetime into R datetime
+#'
+#' @inheritParams ic_find
+#'
+#' @export
+#' @examples
+#' ic_datetime("20180809T160000Z")
+ic_datetime <- function(x) {
+
+  # todo: return a datetime object
 
 }
 
