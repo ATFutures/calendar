@@ -13,11 +13,6 @@ ic_read <- function(file) {
   x <- readLines(file)
 
   # previous approach: see https://stackoverflow.com/questions/43573982/how-to-import-ical-ics-file-in-r
-  timestamps_char = ic_find(x, "DTSTAMP")
-  timestamps = timestamps_char # todo: convert to timestamps
+  ic_dataframe(x)
 
-  # do something with the contents
-  df = data.frame(
-    dtstamp = timestamps
-  )
 }

@@ -44,18 +44,18 @@ library(ical)
 
 ## Example
 
-A minimal example representing the contents of an iCalendar file is provided in the dataset `ic_example`, which is loaded when the package is attached.
+A minimal example representing the contents of an iCalendar file is provided in the dataset `ical_example`, which is loaded when the package is attached.
 This is what iCal files look like:
 
 ```{r min-example}
-ic_example
+ical_example
 ```
 
 Relevant fields can be found and extracted as follows:
 
 ```{r}
-ic_find(ic_example, "TSTAMP")
-ic_extract(ic_example, "TSTAMP")
+ic_find(ical_example, "TSTAMP")
+ic_extract(ical_example, "TSTAMP")
 ```
 
 A larger example shows all national holidays in England and Wales.
@@ -74,7 +74,7 @@ ics_list = ic_list(ics_raw, pattern = "VEV")
 ics_list[1:2]
 ```
 
-A data frame representing the calendar can be created as follows (work in progress, not yet working):
+A data frame representing the calendar can be created as follows (work in progress):
 
 ```{r}
 ics_df = ic_read(ics_file) # read it in
