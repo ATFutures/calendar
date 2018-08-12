@@ -36,6 +36,9 @@ ic_extract <- function(x, pattern) {
 }
 
 #' Convert ical datetime into R datetime
+#' Z at the end of an ical stamp stands of Zulu time
+#' https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
+#' which is UTC = GMT https://greenwichmeantime.com/info/zulu/
 #'
 #' @inheritParams ic_find
 #'
@@ -43,9 +46,14 @@ ic_extract <- function(x, pattern) {
 #' @examples
 #' ic_datetime("20180809T160000Z")
 ic_datetime <- function(x) {
-
-  # todo: return a datetime object
-
+  # TODO: regex check x timestamp
+  #' if(!grepl(""^\\d{8}T\\d{6}Z?$"", x)) {
+  #'   stop("time should be in this format: 20180809T160000Z")
+  #' }
+  #'
+  plain <- gsub('[TZtz]', "", x)
+  datetime <- as.POSIXct(plain, format = "%Y%m%d%H%M%S")
+  datetime
 }
 
 # ic_extract_date = function(res_raw) {
