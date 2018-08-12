@@ -27,10 +27,10 @@ library(ical)
 Example
 -------
 
-A minimal example representing the contents of an iCalendar file is provided in the dataset `ic_example`, which is loaded when the package is attached. This is what iCal files look like:
+A minimal example representing the contents of an iCalendar file is provided in the dataset `ical_example`, which is loaded when the package is attached. This is what iCal files look like:
 
 ``` r
-ic_example
+ical_example
 #>  [1] "BEGIN:VCALENDAR"                                  
 #>  [2] "PRODID:-//Google Inc//Google Calendar 70.9054//EN"
 #>  [3] "VERSION:2.0"                                      
@@ -58,10 +58,10 @@ ic_example
 Relevant fields can be found and extracted as follows:
 
 ``` r
-ic_find(ic_example, "TSTAMP")
+ic_find(ical_example, "TSTAMP")
 #>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
 #> [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-ic_extract(ic_example, "TSTAMP")
+ic_extract(ical_example, "TSTAMP")
 ```
 
 A larger example shows all national holidays in England and Wales. It can be read-in as follows:
@@ -84,46 +84,49 @@ A list representation of the calendar can be created using `ic_list()` as follow
 ics_list = ic_list(ics_raw, pattern = "VEV")
 ics_list[1:2]
 #> [[1]]
-#> [1] "BEGIN:VEVENT"                                 
-#> [2] "DTEND;VALUE=DATE:20120103"                    
-#> [3] "DTSTART;VALUE=DATE:20120102"                  
-#> [4] "SUMMARY:New Year’s Day"                       
-#> [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"
-#> [6] "SEQUENCE:0"                                   
-#> [7] "DTSTAMP:20180806T114130Z"                     
-#> [8] "END:VEVENT"                                   
+#> [1] "DTEND;VALUE=DATE:20120103"                    
+#> [2] "DTSTART;VALUE=DATE:20120102"                  
+#> [3] "SUMMARY:New Year’s Day"                       
+#> [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"
+#> [5] "SEQUENCE:0"                                   
+#> [6] "DTSTAMP:20180806T114130Z"                     
 #> 
 #> [[2]]
-#> [1] "BEGIN:VEVENT"                                 
-#> [2] "DTEND;VALUE=DATE:20120407"                    
-#> [3] "DTSTART;VALUE=DATE:20120406"                  
-#> [4] "SUMMARY:Good Friday"                          
-#> [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"
-#> [6] "SEQUENCE:0"                                   
-#> [7] "DTSTAMP:20180806T114130Z"                     
-#> [8] "END:VEVENT"
+#> [1] "DTEND;VALUE=DATE:20120407"                    
+#> [2] "DTSTART;VALUE=DATE:20120406"                  
+#> [3] "SUMMARY:Good Friday"                          
+#> [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"
+#> [5] "SEQUENCE:0"                                   
+#> [6] "DTSTAMP:20180806T114130Z"
 ```
 
-A data frame representing the calendar can be created as follows (work in progress, not yet working):
+A data frame representing the calendar can be created as follows (work in progress):
 
 ``` r
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
-#>   dtstamp
-#> 1   FALSE
-#> 2   FALSE
-#> 3   FALSE
-#> 4   FALSE
-#> 5   FALSE
-#> 6   FALSE
+#>        DTEND    DTSTART                 SUMMARY
+#> 1 2012-01-03 2012-01-02          New Year’s Day
+#> 2 2012-04-07 2012-04-06             Good Friday
+#> 3 2012-04-10 2012-04-09           Easter Monday
+#> 4 2012-05-08 2012-05-07  Early May bank holiday
+#> 5 2012-06-05 2012-06-04     Spring bank holiday
+#> 6 2012-06-06 2012-06-05 Queen’s Diamond Jubilee
+#>                                         UID SEQUENCE          DTSTAMP
+#> 1 ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk        0 20180806T114130Z
+#> 2 ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk        0 20180806T114130Z
+#> 3 ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk        0 20180806T114130Z
+#> 4 ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk        0 20180806T114130Z
+#> 5 ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk        0 20180806T114130Z
+#> 6 ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk        0 20180806T114130Z
 ```
 
 What class is each column?
 
 ``` r
 vapply(ics_df, class, character(1))
-#>   dtstamp 
-#> "logical"
+#>       DTEND     DTSTART     SUMMARY         UID    SEQUENCE     DTSTAMP 
+#>      "Date"      "Date" "character" "character" "character" "character"
 ```
 
 Related projects

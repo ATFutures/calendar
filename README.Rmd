@@ -74,7 +74,7 @@ ics_list = ic_list(ics_raw, pattern = "VEV")
 ics_list[1:2]
 ```
 
-A data frame representing the calendar can be created as follows (work in progress, not yet working):
+A data frame representing the calendar can be created as follows (work in progress):
 
 ```{r}
 ics_df = ic_read(ics_file) # read it in

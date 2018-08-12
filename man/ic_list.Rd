@@ -2,14 +2,17 @@
 % Please edit documentation in R/ic_list.R
 \name{ic_list}
 \alias{ic_list}
-\title{Convert raw ical text into a list of items (events by default)}
+\title{Convert raw ical text into a list of items}
 \usage{
-ic_list(x, pattern = ":VEVENT")
+ic_list(x, pattern = ":VEVENT", include_pattern = FALSE)
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
 
 \item{pattern}{A text string to search from (an ical field)}
+
+\item{include_pattern}{should the pattern be included
+in the output? \code{FALSE} by default.}
 }
 \description{
 This function breaks-up the iCalendar object into a list.
@@ -22,6 +25,7 @@ as per the specification (see \code{\link[=ic_spec]{ic_spec()}}).
 ic_list(ical_example)
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 x = readLines(ics_file)
-ics_list = ic_list(x, pattern = "VEV")
+ics_list = ic_list(x)
 ics_list[1:2]
+ic_list(x, include_pattern = TRUE)[1:2]
 }
