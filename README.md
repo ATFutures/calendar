@@ -7,7 +7,7 @@ ical
 
 The goal of ical is to work with iCalander (`.ics`, `.ical` or similar) files in R. iCalendar is an open standard for "exchanging calendar and scheduling information between users and computers" described at [icalendar.org](https://icalendar.org/) (the full spec can be found in a plain text file [here](https://tools.ietf.org/rfc/rfc5545.txt)).
 
-Recently the UK Government endorsed the iCal format in a [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events) Open Standards for Government' series. [An example .ics file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is provided by the .gov.uk domain, which shows holidays in England and Wales.
+Recently the UK Government endorsed the iCal format in a [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events) for the 'Open Standards for Government' series. [An example .ics file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is provided by the .gov.uk domain, which shows holidays in England and Wales.
 
 Installation
 ------------
@@ -81,7 +81,7 @@ head(ics_raw) # check it's in the ICS format
 A list representation of the calendar can be created using `ic_list()` as follows:
 
 ``` r
-ics_list = ic_list(ics_raw, pattern = "VEV")
+ics_list = ic_list(ics_raw)
 ics_list[1:2]
 #> [[1]]
 #> [1] "DTEND;VALUE=DATE:20120103"                    
@@ -133,3 +133,4 @@ Related projects
 ----------------
 
 -   A Python package for working with ics files: <https://github.com/C4ptainCrunch/ics.py>
+-   A JavaScript package by Mozilla: <https://github.com/mozilla-comm/ical.js/>
