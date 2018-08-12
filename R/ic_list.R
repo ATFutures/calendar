@@ -10,7 +10,7 @@
 #'
 #' @export
 #' @examples
-#' ic_list(ic_example)
+#' ic_list(ical_example)
 #' ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 #' x = readLines(ics_file)
 #' ics_list = ic_list(x, pattern = "VEV")

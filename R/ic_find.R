@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' pattern = "DTSTAMP"
-#' ic_find(ic_example, pattern)
+#' ic_find(ical_example, pattern)
 ic_find <- function(x, pattern) {
   pattern <- paste0(pattern, ":")
   locations = grepl(x, pattern = pattern)

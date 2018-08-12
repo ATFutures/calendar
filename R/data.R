@@ -16,9 +16,9 @@
 #'
 #' @examples
 #' # download.file("long_url", "inst/extdata/example.ics")
-#' ic_example = readLines(system.file("extdata", "example.ics", package = "ical"))
-#' # usethis::use_data(ic_example)
-"ic_example"
+#' ical_example = readLines(system.file("extdata", "example.ics", package = "ical"))
+#' # usethis::use_data(ical_example)
+"ical_example"
 
 #' The key 'properties' that are allowed in ical files
 #'
@@ -31,32 +31,17 @@
 #' # key_properties = grepl(pattern = "3.7|3.8", x = doc)
 #' # doc_properties = doc[key_locations & key_properties]
 #' # # regexplain::regex_gadget(text = doc_properties) # explore
-#' # ic_properties = regmatches(doc_properties, regexpr('[A-Z][A-Z]+', doc_properties))
-#' # usethis::use_data(ic_properties)
-"ic_properties"
+#' # properties = regmatches(doc_properties, regexpr('[A-Z][A-Z]+', doc_properties))
+#' # usethis::use_data(properties)
+"properties"
 
 #' The key 'properties' that are allowed in ical files
 #'
 #' @examples
-#' ic_properties_core = list(
+#' properties_core = list(
 #' "UID"="UID",
 #' "DTSTART"="DTSTART",
 #' "DTEND"="DTEND",
 #' "SUMMARY"="SUMMARY"
 #' )
-"ic_properties_core"
-
-#' View or download the ical specification
-#'
-#' @param mode character string specifying whether to look at the spec (`mode = "view"`, the default)
-#' or read it in (`mode = "read"`)
-#' @param spec_url the location of the latest version of the spec, from
-#' tools.ietf.org/rfc/rfc5545.txt by default
-#' @export
-ic_spec = function(mode = "view", spec_url = "https://tools.ietf.org/rfc/rfc5545.txt") {
-  if(mode == "view") {
-    utils::browseURL(spec_url)
-  } else if(mode == "read") {
-    readLines(spec_url)
-  }
-}
+"properties_core"

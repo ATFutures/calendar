@@ -15,5 +15,5 @@ ic_extract(x, pattern)
 Return formatted data from iCal fields
 }
 \examples{
-ic_extract(ic_example, "DTSTART")
+ic_extract(ical_example, "DTSTART")
 }

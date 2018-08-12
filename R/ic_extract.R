@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' pattern = "TSTAMP"
-#' ic_extract(ic_example, pattern)
+#' ic_extract(ical_example, pattern)
 ic_extract_raw <- function(x, pattern) {
 
   locations = ic_find(x, pattern)
@@ -25,7 +25,7 @@ ic_extract_raw <- function(x, pattern) {
 #'
 #' @export
 #' @examples
-#' ic_extract(ic_example, "DTSTART")
+#' ic_extract(ical_example, "DTSTART")
 ic_extract <- function(x, pattern) {
 
   res_raw = ic_extract_raw(x, pattern)

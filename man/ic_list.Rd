@@ -19,7 +19,7 @@ is the number of \code{BEGIN:VEVENT} event initiation lines
 as per the specification (see \code{\link[=ic_spec]{ic_spec()}}).
 }
 \examples{
-ic_list(ic_example)
+ic_list(ical_example)
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 x = readLines(ics_file)
 ics_list = ic_list(x, pattern = "VEV")
