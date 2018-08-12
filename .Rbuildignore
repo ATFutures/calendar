@@ -1,0 +1,8 @@
+^tic\.R$
+^appveyor\.yml$
+^LICENSE\.md$
+^README\.Rmd$
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^\.travis\.yml$
