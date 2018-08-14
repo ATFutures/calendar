@@ -15,3 +15,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
 Suggests: 
     testthat
+Imports: 
+    methods

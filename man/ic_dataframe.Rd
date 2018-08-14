@@ -13,6 +13,8 @@ ic_dataframe(x)
 Returns a data frame
 }
 \examples{
+ic_dataframe(ical_example)
+ic_dataframe(ical_outlook)
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 x = readLines(ics_file)
 x_df = ic_dataframe(x)

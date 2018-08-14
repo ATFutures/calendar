@@ -6,41 +6,29 @@
 #'
 #' @export
 #' @examples
+#' ic_dataframe(ical_example)
+#' ic_dataframe(ical_outlook)
 #' ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 #' x = readLines(ics_file)
 #' x_df = ic_dataframe(x)
 #' head(x_df)
 ic_dataframe <- function(x) {
 
-  x_list <- ic_list(x)
+  stopifnot(methods::is(object = x, class2 = "character") | methods::is(object = x, class2 = "list"))
 
-  # testing:
-  # icv1 = ic_vector(x_list[[1]])
-  # as.data.frame(as.list(icv1))
+  if(methods::is(object = x, class2 = "character")) {
+    x_list <- ic_list(x)
+  } else if(methods::is(object = x, class2 = "list")) {
+    x_list <- x
+  }
 
   x_list_named <- lapply(x_list, function(x) {
     ic_vector(x)
   })
-
-  length_names = vapply(x_list_named, length, numeric(1))
-
-  if(diff(range(length_names)) == 0) {
-    x_df <- do.call(rbind, x_list_named)
-    x_df <- as.data.frame(x_df, stringsAsFactors = FALSE)
-    } else {
-    x_df <- rbind.named.fill(x_list_named)
-    }
-
+  x_df <- ic_bind_list(x_list_named)
   names(x_df) <- ic_propertynameclean(names(x_df))
 
-  # clever way (too clever)
-  # select_dt_cols = grepl(pattern = "DTEND|DTSTART", x = names(x_df))
-  # test dates
-  # datetest = x_df$DTEND[1:5]
-  # as.Date(datetest, format = "%Y%m%d")
-  # x_df[select_dt_cols] = apply(x_df[select_dt_cols], 2, as.Date, format = "%Y%m%d")
-
-  # simple way (may need if(max(ncar)) statement to generalise)
+  # manually add dates (may need if(max(ncar)) statement to generalise)
   x_df$DTEND <- as.Date(x_df$DTEND, format = "%Y%m%d")
   x_df$DTSTART <- as.Date(x_df$DTSTART, format = "%Y%m%d")
 
@@ -51,11 +39,29 @@ ic_propertynameclean <- function(properties) {
   gsub(pattern = ".VALUE.DATE", replacement = "", properties)
 }
 
-# source: https://stackoverflow.com/questions/17308551/
-rbind.named.fill <- function(x) {
-  nam <- sapply(x, names)
+#' Bind list of named vectors of variable length into data frame
+#'
+#' Based on: https://stackoverflow.com/questions/17308551/
+#'
+#' @param x list of named vectors
+#' @export
+#' @examples
+#' ic_bind_list(list(ic_vector(ical_example)))
+#' ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
+#' ics_raw = readLines(ics_file)
+#' x <- lapply(ic_list(ics_raw), function(x) {
+#'   ic_vector(x)
+#' })
+#' ic_df <- ic_bind_list(x)
+#' head(ic_df)
+#' x <- lapply(ical_outlook, function(x) {
+#'   ic_vector(x)
+#' })
+#' ic_bind_list(x)
+ic_bind_list <- function(x) {
+  nam <- lapply(x, names)
   unam <- unique(unlist(nam))
-  len <- sapply(x, length)
+  len <- vapply(x, length, integer(1))
   out <- vector("list", length(len))
   for (i in seq_along(len)) {
     out[[i]] <- unname(x[[i]])[match(unam, nam[[i]])]
