@@ -2,7 +2,10 @@
 % Please edit documentation in R/ic_extract.R
 \name{ic_datetime}
 \alias{ic_datetime}
-\title{Convert ical datetime into R datetime}
+\title{Convert ical datetime into R datetime
+Z at the end of an ical stamp stands of Zulu time
+https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
+which is UTC = GMT https://greenwichmeantime.com/info/zulu/}
 \usage{
 ic_datetime(x)
 }
@@ -11,6 +14,9 @@ ic_datetime(x)
 }
 \description{
 Convert ical datetime into R datetime
+Z at the end of an ical stamp stands of Zulu time
+https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
+which is UTC = GMT https://greenwichmeantime.com/info/zulu/
 }
 \examples{
 ic_datetime("20180809T160000Z")

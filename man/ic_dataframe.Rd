@@ -14,7 +14,9 @@ Returns a data frame
 }
 \examples{
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
+# ics_file = "https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics"
 x = readLines(ics_file)
 x_df = ic_dataframe(x)
 summary(x_df)
+
 }

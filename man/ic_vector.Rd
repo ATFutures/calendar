@@ -4,10 +4,12 @@
 \alias{ic_vector}
 \title{Return a named vector from raw iCal text}
 \usage{
-ic_vector(x)
+ic_vector(x, pattern = paste0(ical::properties, collapse = "|"))
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
+
+\item{pattern}{A text string to search from (an ical field)}
 }
 \description{
 This is designed to be a helper function for creating data frames
