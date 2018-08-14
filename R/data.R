@@ -20,6 +20,19 @@
 #' # usethis::use_data(ical_example)
 "ical_example"
 
+#' Example of event data with multi-line description from Outlook
+#'
+#' See [here](https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics).
+#'
+#' @examples
+#' # ical_outlook_raw <- readLines(long_url)
+#' # ical_outlook_list <- ic_list(ical_outlook_raw)
+#' # ical_outlook <- ical_outlook_list[1:2]
+#' # ical_outlook[[2]][c(1:38)] <- gsub("a|e|i|o|f|l|t|n|b", "a", ical_outlook[[2]][c(1:38)])
+#' # ical_outlook[[2]] <- ical_outlook[[2]][c(1, 5, 35, 36:55)]
+#' # usethis::use_data(ical_outlook)
+"ical_outlook"
+
 #' The key 'properties' that are allowed in ical files
 #'
 #' @examples
