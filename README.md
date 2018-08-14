@@ -14,6 +14,9 @@ Installation
 
 ``` r
 devtools::install_github("ATFutures/ical")
+#> Using GitHub PAT from envvar GITHUB_PAT
+#> Skipping install of 'ical' from a github remote, the SHA1 (ec3648f6) has not changed since last install.
+#>   Use `force = TRUE` to force installation
 ```
 
 ``` r

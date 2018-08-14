@@ -28,7 +28,7 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 
 ## Installation
 
-```{r, eval=FALSE}
+```{r}
 devtools::install_github("ATFutures/ical")
 ```
 
