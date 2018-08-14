@@ -66,7 +66,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#ical" class="anchor"></a>ical</h1></div>
 <p>The goal of ical is to work with iCalander (<code>.ics</code>, <code>.ical</code> or similar) files in R. iCalendar is an open standard for “exchanging calendar and scheduling information between users and computers” described at <a href="https://icalendar.org/">icalendar.org</a> (the full spec can be found in a plain text file <a href="https://tools.ietf.org/rfc/rfc5545.txt">here</a>).</p>
-<p>Recently the UK Government endorsed the iCal format in a <a href="https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events">publication</a> Open Standards for Government’ series. <a href="https://www.gov.uk/bank-holidays/england-and-wales.ics">An example .ics file</a> is provided by the .gov.uk domain, which shows holidays in England and Wales.</p>
+<p>Recently the UK Government endorsed the iCal format in a <a href="https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events">publication</a> for the ‘Open Standards for Government’ series. <a href="https://www.gov.uk/bank-holidays/england-and-wales.ics">An example .ics file</a> is provided by the .gov.uk domain, which shows holidays in England and Wales.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -80,8 +80,8 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>A minimal example representing the contents of an iCalendar file is provided in the dataset <code>ic_example</code>, which is loaded when the package is attached. This is what iCal files look like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ic_example
+<p>A minimal example representing the contents of an iCalendar file is provided in the dataset <code>ical_example</code>, which is loaded when the package is attached. This is what iCal files look like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ical_example
 <span class="co">#&gt;  [1] "</span><span class="re">BEGIN</span><span class="co">:VCALENDAR"                                  </span>
 <span class="co">#&gt;  [2] "PRODID:-//Google Inc//Google Calendar 70.9054//EN"</span>
 <span class="co">#&gt;  [3] "VERSION:2.0"                                      </span>
@@ -105,10 +105,10 @@
 <span class="co">#&gt; [21] "</span><span class="re">END</span><span class="co">:VEVENT"                                       </span>
 <span class="co">#&gt; [22] "</span><span class="re">END</span><span class="co">:VCALENDAR"</span></code></pre></div>
 <p>Relevant fields can be found and extracted as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/ic_find.html">ic_find</a></span>(ic_example, <span class="st">"TSTAMP"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/ic_find.html">ic_find</a></span>(ical_example, <span class="st">"TSTAMP"</span>)
 <span class="co">#&gt;  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE</span>
 <span class="co">#&gt; [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</span>
-<span class="kw"><a href="reference/ic_extract.html">ic_extract</a></span>(ic_example, <span class="st">"TSTAMP"</span>)</code></pre></div>
+<span class="kw"><a href="reference/ic_extract.html">ic_extract</a></span>(ical_example, <span class="st">"TSTAMP"</span>)</code></pre></div>
 <p>A larger example shows all national holidays in England and Wales. It can be read-in as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ics_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"england-and-wales.ics"</span>, <span class="dt">package =</span> <span class="st">"ical"</span>)
 ics_raw =<span class="st"> </span><span class="kw">readLines</span>(ics_file) 
@@ -120,47 +120,87 @@ ics_raw =<span class="st"> </span><span class="kw">readLines</span>(ics_file)
 <span class="co">#&gt; [5] "CALSCALE:GREGORIAN"                  </span>
 <span class="co">#&gt; [6] "</span><span class="re">BEGIN</span><span class="co">:VEVENT"</span></code></pre></div>
 <p>A list representation of the calendar can be created using <code><a href="reference/ic_list.html">ic_list()</a></code> as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ics_list =<span class="st"> </span><span class="kw"><a href="reference/ic_list.html">ic_list</a></span>(ics_raw, <span class="dt">pattern =</span> <span class="st">"VEV"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ics_list =<span class="st"> </span><span class="kw"><a href="reference/ic_list.html">ic_list</a></span>(ics_raw)
 ics_list[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]
 <span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "</span><span class="re">BEGIN</span><span class="co">:VEVENT"                                 </span>
-<span class="co">#&gt; [2] "DTEND;VALUE=DATE:20120103"                    </span>
-<span class="co">#&gt; [3] "DTSTART;VALUE=DATE:20120102"                  </span>
-<span class="co">#&gt; [4] "SUMMARY:New Year’s Day"                       </span>
-<span class="co">#&gt; [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"</span>
-<span class="co">#&gt; [6] "SEQUENCE:0"                                   </span>
-<span class="co">#&gt; [7] "DTSTAMP:20180806T114130Z"                     </span>
-<span class="co">#&gt; [8] "</span><span class="re">END</span><span class="co">:VEVENT"                                   </span>
+<span class="co">#&gt; [1] "DTEND;VALUE=DATE:20120103"                    </span>
+<span class="co">#&gt; [2] "DTSTART;VALUE=DATE:20120102"                  </span>
+<span class="co">#&gt; [3] "SUMMARY:New Year’s Day"                       </span>
+<span class="co">#&gt; [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"</span>
+<span class="co">#&gt; [5] "SEQUENCE:0"                                   </span>
+<span class="co">#&gt; [6] "DTSTAMP:20180806T114130Z"                     </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "</span><span class="re">BEGIN</span><span class="co">:VEVENT"                                 </span>
-<span class="co">#&gt; [2] "DTEND;VALUE=DATE:20120407"                    </span>
-<span class="co">#&gt; [3] "DTSTART;VALUE=DATE:20120406"                  </span>
-<span class="co">#&gt; [4] "SUMMARY:Good Friday"                          </span>
-<span class="co">#&gt; [5] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"</span>
-<span class="co">#&gt; [6] "SEQUENCE:0"                                   </span>
-<span class="co">#&gt; [7] "DTSTAMP:20180806T114130Z"                     </span>
-<span class="co">#&gt; [8] "</span><span class="re">END</span><span class="co">:VEVENT"</span></code></pre></div>
-<p>A data frame representing the calendar can be created as follows (work in progress, not yet working):</p>
+<span class="co">#&gt; [1] "DTEND;VALUE=DATE:20120407"                    </span>
+<span class="co">#&gt; [2] "DTSTART;VALUE=DATE:20120406"                  </span>
+<span class="co">#&gt; [3] "SUMMARY:Good Friday"                          </span>
+<span class="co">#&gt; [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"</span>
+<span class="co">#&gt; [5] "SEQUENCE:0"                                   </span>
+<span class="co">#&gt; [6] "DTSTAMP:20180806T114130Z"</span></code></pre></div>
+<p>A data frame representing the calendar can be created as follows (work in progress):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ics_df =<span class="st"> </span><span class="kw"><a href="reference/ic_read.html">ic_read</a></span>(ics_file) <span class="co"># read it in</span>
 <span class="kw">head</span>(ics_df) <span class="co"># check the results</span>
-<span class="co">#&gt;   dtstamp</span>
-<span class="co">#&gt; 1   FALSE</span>
-<span class="co">#&gt; 2   FALSE</span>
-<span class="co">#&gt; 3   FALSE</span>
-<span class="co">#&gt; 4   FALSE</span>
-<span class="co">#&gt; 5   FALSE</span>
-<span class="co">#&gt; 6   FALSE</span></code></pre></div>
+<span class="co">#&gt;        DTEND    DTSTART                 SUMMARY</span>
+<span class="co">#&gt; 1 2012-01-03 2012-01-02          New Year’s Day</span>
+<span class="co">#&gt; 2 2012-04-07 2012-04-06             Good Friday</span>
+<span class="co">#&gt; 3 2012-04-10 2012-04-09           Easter Monday</span>
+<span class="co">#&gt; 4 2012-05-08 2012-05-07  Early May bank holiday</span>
+<span class="co">#&gt; 5 2012-06-05 2012-06-04     Spring bank holiday</span>
+<span class="co">#&gt; 6 2012-06-06 2012-06-05 Queen’s Diamond Jubilee</span>
+<span class="co">#&gt;                                         UID SEQUENCE          DTSTAMP</span>
+<span class="co">#&gt; 1 ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk        0 20180806T114130Z</span>
+<span class="co">#&gt; 2 ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk        0 20180806T114130Z</span>
+<span class="co">#&gt; 3 ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk        0 20180806T114130Z</span>
+<span class="co">#&gt; 4 ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk        0 20180806T114130Z</span>
+<span class="co">#&gt; 5 ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk        0 20180806T114130Z</span>
+<span class="co">#&gt; 6 ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk        0 20180806T114130Z</span></code></pre></div>
 <p>What class is each column?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vapply</span>(ics_df, class, <span class="kw">character</span>(<span class="dv">1</span>))
-<span class="co">#&gt;   dtstamp </span>
-<span class="co">#&gt; "logical"</span></code></pre></div>
+<span class="co">#&gt;       DTEND     DTSTART     SUMMARY         UID    SEQUENCE     DTSTAMP </span>
+<span class="co">#&gt;      "Date"      "Date" "character" "character" "character" "character"</span></code></pre></div>
+</div>
+<div id="trying-on-calendars-in-the-wild" class="section level2">
+<h2 class="hasAnchor">
+<a href="#trying-on-calendars-in-the-wild" class="anchor"></a>Trying on calendars ‘in the wild’</h2>
+<p>To make the package robust we test on a wide range of ical formats. Here’s an example from my work calendar, for example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_cal =<span class="st"> </span><span class="kw"><a href="reference/ic_read.html">ic_read</a></span>(<span class="st">"https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics"</span>)
+<span class="kw">head</span>(my_cal[<span class="kw">c</span>(<span class="st">"DESCRIPTION"</span>, <span class="st">"SUMMARY"</span>, <span class="st">"DTSTART"</span>, <span class="st">"DTEND"</span>, <span class="st">"STATUS"</span>, <span class="st">"SEQUENCE"</span>, <span class="st">"LOCATION"</span>)])
+<span class="co">#&gt;                                                          DESCRIPTION</span>
+<span class="co">#&gt; 1                                                 //2018.erum.io/\\n</span>
+<span class="co">#&gt; 2  Hi all\\n\\nYou will have probably heard by now that the ofo bike</span>
+<span class="co">#&gt; 3 Hi all\\,\\n\\nPlease note the location of this CSAP meeting next </span>
+<span class="co">#&gt; 4                                                               &lt;NA&gt;</span>
+<span class="co">#&gt; 5                                                                  h</span>
+<span class="co">#&gt; 6          //www.polisnetwork.eu/publicdocuments/download/2289/docum</span>
+<span class="co">#&gt;                                                      SUMMARY    DTSTART</span>
+<span class="co">#&gt; 1 In Budapest for European R Users Meeting (eRum) conference 2018-05-14</span>
+<span class="co">#&gt; 2                        ofo bike share - Leeds launch event       &lt;NA&gt;</span>
+<span class="co">#&gt; 3                                       CSAP cluster meeting       &lt;NA&gt;</span>
+<span class="co">#&gt; 4                                                     Social       &lt;NA&gt;</span>
+<span class="co">#&gt; 5                                               Talk at eRum       &lt;NA&gt;</span>
+<span class="co">#&gt; 6  Deadline tomorrow - Polis conference abstract application       &lt;NA&gt;</span>
+<span class="co">#&gt;        DTEND    STATUS SEQUENCE</span>
+<span class="co">#&gt; 1 2018-05-18 CONFIRMED        0</span>
+<span class="co">#&gt; 2       &lt;NA&gt; CONFIRMED        6</span>
+<span class="co">#&gt; 3       &lt;NA&gt; CONFIRMED        3</span>
+<span class="co">#&gt; 4       &lt;NA&gt; CONFIRMED        0</span>
+<span class="co">#&gt; 5       &lt;NA&gt; CONFIRMED        0</span>
+<span class="co">#&gt; 6       &lt;NA&gt; CONFIRMED        0</span>
+<span class="co">#&gt;                                                         LOCATION</span>
+<span class="co">#&gt; 1                                                               </span>
+<span class="co">#&gt; 2             Leeds City Centre - time and venue to be confirmed</span>
+<span class="co">#&gt; 3 Seminar Room 2 (8.11 Garstang building\\, School of Geography)</span>
+<span class="co">#&gt; 4                                                          Bliss</span>
+<span class="co">#&gt; 5                                   Budapest Budapest\\, Hungary</span>
+<span class="co">#&gt; 6</span></code></pre></div>
 </div>
 <div id="related-projects" class="section level2">
 <h2 class="hasAnchor">
 <a href="#related-projects" class="anchor"></a>Related projects</h2>
 <ul>
 <li>A Python package for working with ics files: <a href="https://github.com/C4ptainCrunch/ics.py" class="uri">https://github.com/C4ptainCrunch/ics.py</a>
+</li>
+<li>A JavaScript package by Mozilla: <a href="https://github.com/mozilla-comm/ical.js/" class="uri">https://github.com/mozilla-comm/ical.js/</a>
 </li>
 </ul>
 </div>

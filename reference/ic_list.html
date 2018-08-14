@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert raw ical text into a list of items (events by default) — ic_list • ical</title>
+<title>Convert raw ical text into a list of items — ic_list • ical</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Convert raw ical text into a list of items (events by default) — ic_list" />
+<meta property="og:title" content="Convert raw ical text into a list of items — ic_list" />
 
 <meta property="og:description" content="This function breaks-up the iCalendar object into a list.
 By default it breaks it into events, where the number of events
@@ -96,7 +96,7 @@ as per the specification (see ic_spec())." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert raw ical text into a list of items (events by default)</h1>
+    <h1>Convert raw ical text into a list of items</h1>
     
     <div class="hidden name"><code>ic_list.Rd</code></div>
     </div>
@@ -111,7 +111,7 @@ as per the specification (see <code><a href='ic_spec.html'>ic_spec()</a></code>)
     
     </div>
 
-    <pre class="usage"><span class='fu'>ic_list</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>":VEVENT"</span>)</pre>
+    <pre class="usage"><span class='fu'>ic_list</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>":VEVENT"</span>, <span class='kw'>include_pattern</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,29 +124,47 @@ as per the specification (see <code><a href='ic_spec.html'>ic_spec()</a></code>)
       <th>pattern</th>
       <td><p>A text string to search from (an ical field)</p></td>
     </tr>
+    <tr>
+      <th>include_pattern</th>
+      <td><p>should the pattern be included
+in the output? <code>FALSE</code> by default.</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ic_list</span>(<span class='no'>ic_example</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt;  [1] "BEGIN:VEVENT"                             
-#&gt;  [2] "DTSTART:20180809T160000Z"                 
-#&gt;  [3] "DTEND:20180809T163000Z"                   
-#&gt;  [4] "DTSTAMP:20180810T094100Z"                 
-#&gt;  [5] "UID:1119ejg4vug5758527atjcrqj3@google.com"
-#&gt;  [6] "CREATED:20180807T133712Z"                 
-#&gt;  [7] "DESCRIPTION:\\n"                          
-#&gt;  [8] "LAST-MODIFIED:20180807T133712Z"           
-#&gt;  [9] "LOCATION:"                                
-#&gt; [10] "SEQUENCE:0"                               
-#&gt; [11] "STATUS:CONFIRMED"                         
-#&gt; [12] "SUMMARY:ical programming mission"         
-#&gt; [13] "TRANSP:OPAQUE"                            
-#&gt; [14] "END:VEVENT"                               
+    <pre class="examples"><div class='input'><span class='fu'>ic_list</span>(<span class='no'>ical_example</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt;  [1] "DTSTART:20180809T160000Z"                 
+#&gt;  [2] "DTEND:20180809T163000Z"                   
+#&gt;  [3] "DTSTAMP:20180810T094100Z"                 
+#&gt;  [4] "UID:1119ejg4vug5758527atjcrqj3@google.com"
+#&gt;  [5] "CREATED:20180807T133712Z"                 
+#&gt;  [6] "DESCRIPTION:\\n"                          
+#&gt;  [7] "LAST-MODIFIED:20180807T133712Z"           
+#&gt;  [8] "LOCATION:"                                
+#&gt;  [9] "SEQUENCE:0"                               
+#&gt; [10] "STATUS:CONFIRMED"                         
+#&gt; [11] "SUMMARY:ical programming mission"         
+#&gt; [12] "TRANSP:OPAQUE"                            
 #&gt; </div><div class='input'><span class='no'>ics_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"extdata"</span>, <span class='st'>"england-and-wales.ics"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ical"</span>)
 <span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>readLines</span>(<span class='no'>ics_file</span>)
-<span class='no'>ics_list</span> <span class='kw'>=</span> <span class='fu'>ic_list</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"VEV"</span>)
+<span class='no'>ics_list</span> <span class='kw'>=</span> <span class='fu'>ic_list</span>(<span class='no'>x</span>)
 <span class='no'>ics_list</span>[<span class='fl'>1</span>:<span class='fl'>2</span>]</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "DTEND;VALUE=DATE:20120103"                    
+#&gt; [2] "DTSTART;VALUE=DATE:20120102"                  
+#&gt; [3] "SUMMARY:New Year’s Day"                       
+#&gt; [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk"
+#&gt; [5] "SEQUENCE:0"                                   
+#&gt; [6] "DTSTAMP:20180806T114130Z"                     
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "DTEND;VALUE=DATE:20120407"                    
+#&gt; [2] "DTSTART;VALUE=DATE:20120406"                  
+#&gt; [3] "SUMMARY:Good Friday"                          
+#&gt; [4] "UID:ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk"
+#&gt; [5] "SEQUENCE:0"                                   
+#&gt; [6] "DTSTAMP:20180806T114130Z"                     
+#&gt; </div><div class='input'><span class='fu'>ic_list</span>(<span class='no'>x</span>, <span class='kw'>include_pattern</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)[<span class='fl'>1</span>:<span class='fl'>2</span>]</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] "BEGIN:VEVENT"                                 
 #&gt; [2] "DTEND;VALUE=DATE:20120103"                    
 #&gt; [3] "DTSTART;VALUE=DATE:20120102"                  

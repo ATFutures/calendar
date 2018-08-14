@@ -6,10 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/ — ic_datetime • ical</title>
+<title>Return a named vector from raw iCal text — ic_vector • ical</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -33,15 +30,10 @@ which is UTC = GMT https://greenwichmeantime.com/info/zulu/ — ic_datetime • 
 
 
 
-<meta property="og:title" content="Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/ — ic_datetime" />
+<meta property="og:title" content="Return a named vector from raw iCal text — ic_vector" />
 
-<meta property="og:description" content="Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/" />
+<meta property="og:description" content="This is designed to be a helper function for creating data frames
+ical lists." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -101,24 +93,19 @@ which is UTC = GMT https://greenwichmeantime.com/info/zulu/" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/</h1>
+    <h1>Return a named vector from raw iCal text</h1>
     
-    <div class="hidden name"><code>ic_datetime.Rd</code></div>
+    <div class="hidden name"><code>ic_vector.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/</p>
+    <p>This is designed to be a helper function for creating data frames
+ical lists.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ic_datetime</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>ic_vector</span>(<span class='no'>x</span>, <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='fu'>paste0</span>(<span class='kw pkg'>ical</span><span class='kw ns'>::</span><span class='no'><a href='http://www.rdocumentation.org/packages/ical/topics/properties'>properties</a></span>, <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='st'>"|"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -127,11 +114,17 @@ which is UTC = GMT https://greenwichmeantime.com/info/zulu/</p>
       <th>x</th>
       <td><p>Lines read-in in from an iCal file</p></td>
     </tr>
+    <tr>
+      <th>pattern</th>
+      <td><p>A text string to search from (an ical field)</p></td>
+    </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ic_datetime</span>(<span class='st'>"20180809T160000Z"</span>)</div><div class='output co'>#&gt; [1] "2018-08-09 16:00:00 BST"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>=</span> <span class='no'>ical_example</span>[<span class='fl'>18</span>:<span class='fl'>19</span>]
+<span class='fu'>ic_vector</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;                     STATUS                    SUMMARY 
+#&gt;                "CONFIRMED" "ical programming mission" </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
