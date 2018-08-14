@@ -70,7 +70,10 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ATFutures/ical"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"ATFutures/ical"</span>)
+<span class="co">#&gt; Using GitHub PAT from envvar GITHUB_PAT</span>
+<span class="co">#&gt; Skipping install of 'ical' from a github remote, the SHA1 (f2e9b6a3) has not changed since last install.</span>
+<span class="co">#&gt;   Use `force = TRUE` to force installation</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ical)</code></pre></div>
 <!-- You can install the released version of ical from [CRAN](https://CRAN.R-project.org) with: -->
 <!-- ``` r -->
@@ -163,36 +166,15 @@ ics_list[<span class="dv">1</span><span class="op">:</span><span class="dv">2</s
 <h2 class="hasAnchor">
 <a href="#trying-on-calendars-in-the-wild" class="anchor"></a>Trying on calendars ‘in the wild’</h2>
 <p>To make the package robust we test on a wide range of ical formats. Here’s an example from my work calendar, for example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_cal =<span class="st"> </span><span class="kw"><a href="reference/ic_read.html">ic_read</a></span>(<span class="st">"https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics"</span>)
-<span class="kw">head</span>(my_cal[<span class="kw">c</span>(<span class="st">"DESCRIPTION"</span>, <span class="st">"SUMMARY"</span>, <span class="st">"DTSTART"</span>, <span class="st">"DTEND"</span>, <span class="st">"STATUS"</span>, <span class="st">"SEQUENCE"</span>, <span class="st">"LOCATION"</span>)])
-<span class="co">#&gt;                                                          DESCRIPTION</span>
-<span class="co">#&gt; 1                                                 //2018.erum.io/\\n</span>
-<span class="co">#&gt; 2  Hi all\\n\\nYou will have probably heard by now that the ofo bike</span>
-<span class="co">#&gt; 3 Hi all\\,\\n\\nPlease note the location of this CSAP meeting next </span>
-<span class="co">#&gt; 4                                                               &lt;NA&gt;</span>
-<span class="co">#&gt; 5                                                                  h</span>
-<span class="co">#&gt; 6          //www.polisnetwork.eu/publicdocuments/download/2289/docum</span>
-<span class="co">#&gt;                                                      SUMMARY    DTSTART</span>
-<span class="co">#&gt; 1 In Budapest for European R Users Meeting (eRum) conference 2018-05-14</span>
-<span class="co">#&gt; 2                        ofo bike share - Leeds launch event       &lt;NA&gt;</span>
-<span class="co">#&gt; 3                                       CSAP cluster meeting       &lt;NA&gt;</span>
-<span class="co">#&gt; 4                                                     Social       &lt;NA&gt;</span>
-<span class="co">#&gt; 5                                               Talk at eRum       &lt;NA&gt;</span>
-<span class="co">#&gt; 6  Deadline tomorrow - Polis conference abstract application       &lt;NA&gt;</span>
-<span class="co">#&gt;        DTEND    STATUS SEQUENCE</span>
-<span class="co">#&gt; 1 2018-05-18 CONFIRMED        0</span>
-<span class="co">#&gt; 2       &lt;NA&gt; CONFIRMED        6</span>
-<span class="co">#&gt; 3       &lt;NA&gt; CONFIRMED        3</span>
-<span class="co">#&gt; 4       &lt;NA&gt; CONFIRMED        0</span>
-<span class="co">#&gt; 5       &lt;NA&gt; CONFIRMED        0</span>
-<span class="co">#&gt; 6       &lt;NA&gt; CONFIRMED        0</span>
-<span class="co">#&gt;                                                         LOCATION</span>
-<span class="co">#&gt; 1                                                               </span>
-<span class="co">#&gt; 2             Leeds City Centre - time and venue to be confirmed</span>
-<span class="co">#&gt; 3 Seminar Room 2 (8.11 Garstang building\\, School of Geography)</span>
-<span class="co">#&gt; 4                                                          Bliss</span>
-<span class="co">#&gt; 5                                   Budapest Budapest\\, Hungary</span>
-<span class="co">#&gt; 6</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_cal =<span class="st"> </span><span class="kw"><a href="reference/ic_dataframe.html">ic_dataframe</a></span>(ical_outlook)
+my_cal<span class="op">$</span>SUMMARY[<span class="dv">1</span>]
+<span class="co">#&gt; [1] "In Budapest for European R Users Meeting (eRum) conference"</span>
+my_cal<span class="op">$</span>DTSTART[<span class="dv">1</span>]
+<span class="co">#&gt; [1] "2018-05-14"</span>
+my_cal<span class="op">$</span>DTEND[<span class="dv">1</span>]
+<span class="co">#&gt; [1] "2018-05-18"</span>
+my_cal<span class="op">$</span>DTEND[<span class="dv">1</span>] <span class="op">-</span><span class="st"> </span>my_cal<span class="op">$</span>DTSTART[<span class="dv">1</span>]
+<span class="co">#&gt; Time difference of 4 days</span></code></pre></div>
 </div>
 <div id="related-projects" class="section level2">
 <h2 class="hasAnchor">

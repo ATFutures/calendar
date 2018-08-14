@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert iCal lines of text into a data frame — ic_dataframe • ical</title>
+<title>Bind list of named vectors of variable length into data frame — ic_bind_list • ical</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Convert iCal lines of text into a data frame — ic_dataframe" />
+<meta property="og:title" content="Bind list of named vectors of variable length into data frame — ic_bind_list" />
 
-<meta property="og:description" content="Returns a data frame" />
+<meta property="og:description" content="Based on: https://stackoverflow.com/questions/17308551/" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,50 +92,74 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert iCal lines of text into a data frame</h1>
+    <h1>Bind list of named vectors of variable length into data frame</h1>
     
-    <div class="hidden name"><code>ic_dataframe.Rd</code></div>
+    <div class="hidden name"><code>ic_bind_list.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Returns a data frame</p>
+    <p>Based on: https://stackoverflow.com/questions/17308551/</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>ic_dataframe</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>ic_bind_list</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>Lines read-in in from an iCal file</p></td>
+      <td><p>list of named vectors</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ic_dataframe</span>(<span class='no'>ical_example</span>)</div><div class='output co'>#&gt;      DTSTART      DTEND          DTSTAMP                                   UID
-#&gt; 1 2018-08-09 2018-08-09 20180810T094100Z 1119ejg4vug5758527atjcrqj3@google.com
-#&gt;            CREATED DESCRIPTION    LAST-MODIFIED LOCATION SEQUENCE    STATUS
-#&gt; 1 20180807T133712Z         \\n 20180807T133712Z                 0 CONFIRMED
-#&gt;                    SUMMARY TRANSP
-#&gt; 1 ical programming mission OPAQUE</div><div class='input'><span class='fu'>ic_dataframe</span>(<span class='no'>ical_outlook</span>)</div><div class='output co'>#&gt;                                                         DESCRIPTION
+    <pre class="examples"><div class='input'><span class='fu'>ic_bind_list</span>(<span class='fu'>list</span>(<span class='fu'><a href='ic_vector.html'>ic_vector</a></span>(<span class='no'>ical_example</span>)))</div><div class='output co'>#&gt;                                       PRODID VERSION  CALSCALE  METHOD
+#&gt; 1 -//Google Inc//Google Calendar 70.9054//EN     2.0 GREGORIAN PUBLISH
+#&gt;            DTSTART            DTEND          DTSTAMP
+#&gt; 1 20180809T160000Z 20180809T163000Z 20180810T094100Z
+#&gt;                                     UID          CREATED DESCRIPTION
+#&gt; 1 1119ejg4vug5758527atjcrqj3@google.com 20180807T133712Z         \\n
+#&gt;      LAST-MODIFIED LOCATION SEQUENCE    STATUS                  SUMMARY TRANSP
+#&gt; 1 20180807T133712Z                 0 CONFIRMED ical programming mission OPAQUE</div><div class='input'><span class='no'>ics_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"extdata"</span>, <span class='st'>"england-and-wales.ics"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ical"</span>)
+<span class='no'>ics_raw</span> <span class='kw'>=</span> <span class='fu'>readLines</span>(<span class='no'>ics_file</span>)
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>lapply</span>(<span class='fu'><a href='ic_list.html'>ic_list</a></span>(<span class='no'>ics_raw</span>), <span class='kw'>function</span>(<span class='no'>x</span>) {
+  <span class='fu'><a href='ic_vector.html'>ic_vector</a></span>(<span class='no'>x</span>)
+})
+<span class='no'>ic_df</span> <span class='kw'>&lt;-</span> <span class='fu'>ic_bind_list</span>(<span class='no'>x</span>)
+<span class='fu'>head</span>(<span class='no'>ic_df</span>)</div><div class='output co'>#&gt;   DTEND;VALUE=DATE DTSTART;VALUE=DATE                 SUMMARY
+#&gt; 1         20120103           20120102          New Year’s Day
+#&gt; 2         20120407           20120406             Good Friday
+#&gt; 3         20120410           20120409           Easter Monday
+#&gt; 4         20120508           20120507  Early May bank holiday
+#&gt; 5         20120605           20120604     Spring bank holiday
+#&gt; 6         20120606           20120605 Queen’s Diamond Jubilee
+#&gt;                                         UID SEQUENCE          DTSTAMP
+#&gt; 1 ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk        0 20180806T114130Z
+#&gt; 2 ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk        0 20180806T114130Z
+#&gt; 3 ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk        0 20180806T114130Z
+#&gt; 4 ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk        0 20180806T114130Z
+#&gt; 5 ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk        0 20180806T114130Z
+#&gt; 6 ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk        0 20180806T114130Z</div><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>lapply</span>(<span class='no'>ical_outlook</span>, <span class='kw'>function</span>(<span class='no'>x</span>) {
+  <span class='fu'><a href='ic_vector.html'>ic_vector</a></span>(<span class='no'>x</span>)
+})
+<span class='fu'>ic_bind_list</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt;                                                         DESCRIPTION
 #&gt; 1                                                //2018.erum.io/\\n
 #&gt; 2 Ha aaa\\a\\aYau waaa hava praaaaay haard ay aaw ahaa aha aaa aaka
 #&gt;                                                                       UID
 #&gt; 1 040000008200E00074C5B7101A82E0080000000006245657188FD301000000000000000
 #&gt; 2 040000008200E00074C5B7101A82E00800000000F0CCE6F58CC2D301000000000000000
-#&gt;                                                      SUMMARY    DTSTART
-#&gt; 1 In Budapest for European R Users Meeting (eRum) conference 2018-05-14
-#&gt; 2                        aaa aaka shara - Laads aauach avaaa       &lt;NA&gt;
-#&gt;        DTEND  CLASS PRIORITY          DTSTAMP      TRANSP    STATUS SEQUENCE
-#&gt; 1 2018-05-18 PUBLIC        5 20180814T134259Z TRANSPARENT CONFIRMED        0
-#&gt; 2       &lt;NA&gt; PUBLIC        5 20180814T134259Z TRANSPARENT CONFIRMED        6
-#&gt;                                             LOCATION
-#&gt; 1                                                   
-#&gt; 2 Leeds City Centre - time and venue to be confirmed
+#&gt;                                                      SUMMARY DTSTART;VALUE=DATE
+#&gt; 1 In Budapest for European R Users Meeting (eRum) conference           20180514
+#&gt; 2                        aaa aaka shara - Laads aauach avaaa               &lt;NA&gt;
+#&gt;   DTEND;VALUE=DATE  CLASS PRIORITY          DTSTAMP      TRANSP    STATUS
+#&gt; 1         20180518 PUBLIC        5 20180814T134259Z TRANSPARENT CONFIRMED
+#&gt; 2             &lt;NA&gt; PUBLIC        5 20180814T134259Z TRANSPARENT CONFIRMED
+#&gt;   SEQUENCE                                           LOCATION
+#&gt; 1        0                                                   
+#&gt; 2        6 Leeds City Centre - time and venue to be confirmed
 #&gt;   X-MICROSOFT-CDO-APPT-SEQUENCE X-MICROSOFT-CDO-BUSYSTATUS
 #&gt; 1                             0                       FREE
 #&gt; 2                             6                       FREE
@@ -144,23 +168,7 @@
 #&gt; 2                           BUSY                20180515T100000
 #&gt;   DTEND;TZID=GMT Standard Time
 #&gt; 1                         &lt;NA&gt;
-#&gt; 2              20180515T160000</div><div class='input'><span class='no'>ics_file</span> <span class='kw'>&lt;-</span> <span class='fu'>system.file</span>(<span class='st'>"extdata"</span>, <span class='st'>"england-and-wales.ics"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ical"</span>)
-<span class='no'>x</span> <span class='kw'>=</span> <span class='fu'>readLines</span>(<span class='no'>ics_file</span>)
-<span class='no'>x_df</span> <span class='kw'>=</span> <span class='fu'>ic_dataframe</span>(<span class='no'>x</span>)
-<span class='fu'>head</span>(<span class='no'>x_df</span>)</div><div class='output co'>#&gt;        DTEND    DTSTART                 SUMMARY
-#&gt; 1 2012-01-03 2012-01-02          New Year’s Day
-#&gt; 2 2012-04-07 2012-04-06             Good Friday
-#&gt; 3 2012-04-10 2012-04-09           Easter Monday
-#&gt; 4 2012-05-08 2012-05-07  Early May bank holiday
-#&gt; 5 2012-06-05 2012-06-04     Spring bank holiday
-#&gt; 6 2012-06-06 2012-06-05 Queen’s Diamond Jubilee
-#&gt;                                         UID SEQUENCE          DTSTAMP
-#&gt; 1 ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk        0 20180806T114130Z
-#&gt; 2 ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk        0 20180806T114130Z
-#&gt; 3 ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk        0 20180806T114130Z
-#&gt; 4 ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk        0 20180806T114130Z
-#&gt; 5 ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk        0 20180806T114130Z
-#&gt; 6 ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk        0 20180806T114130Z</div></pre>
+#&gt; 2              20180515T160000</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
