@@ -93,8 +93,17 @@ To make the package robust we test on a wide range of ical formats.
 Here's an example from my work calendar, for example:
 
 ```{r}
+my_cal = ic_dataframe(ical_outlook)
+my_cal$SUMMARY[1]
+my_cal$DTSTART[1]
+my_cal$DTEND[1]
+my_cal$DTEND[1] - my_cal$DTSTART[1]
+```
+
+
+```{r, echo=FALSE}
 my_cal = ic_read("https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics")
-head(my_cal[c("DESCRIPTION", "SUMMARY", "DTSTART", "DTEND", "STATUS", "SEQUENCE", "LOCATION")])
+# head(my_cal[c("DESCRIPTION", "SUMMARY", "DTSTART", "DTEND", "STATUS", "SEQUENCE", "LOCATION")])
 ```
 
 ## Related projects

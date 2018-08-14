@@ -15,7 +15,7 @@ Installation
 ``` r
 devtools::install_github("ATFutures/ical")
 #> Using GitHub PAT from envvar GITHUB_PAT
-#> Skipping install of 'ical' from a github remote, the SHA1 (ec3648f6) has not changed since last install.
+#> Skipping install of 'ical' from a github remote, the SHA1 (f2e9b6a3) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
@@ -138,36 +138,15 @@ Trying on calendars 'in the wild'
 To make the package robust we test on a wide range of ical formats. Here's an example from my work calendar, for example:
 
 ``` r
-my_cal = ic_read("https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics")
-head(my_cal[c("DESCRIPTION", "SUMMARY", "DTSTART", "DTEND", "STATUS", "SEQUENCE", "LOCATION")])
-#>                                                          DESCRIPTION
-#> 1                                                 //2018.erum.io/\\n
-#> 2  Hi all\\n\\nYou will have probably heard by now that the ofo bike
-#> 3 Hi all\\,\\n\\nPlease note the location of this CSAP meeting next 
-#> 4                                                               <NA>
-#> 5                                                                  h
-#> 6          //www.polisnetwork.eu/publicdocuments/download/2289/docum
-#>                                                      SUMMARY    DTSTART
-#> 1 In Budapest for European R Users Meeting (eRum) conference 2018-05-14
-#> 2                        ofo bike share - Leeds launch event       <NA>
-#> 3                                       CSAP cluster meeting       <NA>
-#> 4                                                     Social       <NA>
-#> 5                                               Talk at eRum       <NA>
-#> 6  Deadline tomorrow - Polis conference abstract application       <NA>
-#>        DTEND    STATUS SEQUENCE
-#> 1 2018-05-18 CONFIRMED        0
-#> 2       <NA> CONFIRMED        6
-#> 3       <NA> CONFIRMED        3
-#> 4       <NA> CONFIRMED        0
-#> 5       <NA> CONFIRMED        0
-#> 6       <NA> CONFIRMED        0
-#>                                                         LOCATION
-#> 1                                                               
-#> 2             Leeds City Centre - time and venue to be confirmed
-#> 3 Seminar Room 2 (8.11 Garstang building\\, School of Geography)
-#> 4                                                          Bliss
-#> 5                                   Budapest Budapest\\, Hungary
-#> 6
+my_cal = ic_dataframe(ical_outlook)
+my_cal$SUMMARY[1]
+#> [1] "In Budapest for European R Users Meeting (eRum) conference"
+my_cal$DTSTART[1]
+#> [1] "2018-05-14"
+my_cal$DTEND[1]
+#> [1] "2018-05-18"
+my_cal$DTEND[1] - my_cal$DTSTART[1]
+#> Time difference of 4 days
 ```
 
 Related projects
