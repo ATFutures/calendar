@@ -7,11 +7,9 @@
 #' @export
 #' @examples
 #' ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
-#' # ics_file = "https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics"
 #' x = readLines(ics_file)
 #' x_df = ic_dataframe(x)
-#' summary(x_df)
-#'
+#' head(x_df)
 ic_dataframe <- function(x) {
 
   x_list <- ic_list(x)
@@ -24,7 +22,15 @@ ic_dataframe <- function(x) {
     ic_vector(x)
   })
 
-  x_df <- rbind.named.fill(x_list_named)
+  length_names = vapply(x_list_named, length, numeric(1))
+
+  if(diff(range(length_names)) == 0) {
+    x_df <- do.call(rbind, x_list_named)
+    x_df <- as.data.frame(x_df, stringsAsFactors = FALSE)
+    } else {
+    x_df <- rbind.named.fill(x_list_named)
+    }
+
   names(x_df) <- ic_propertynameclean(names(x_df))
 
   # clever way (too clever)

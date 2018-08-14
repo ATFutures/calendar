@@ -87,6 +87,15 @@ What class is each column?
 vapply(ics_df, class, character(1))
 ```
 
+## Trying on calendars 'in the wild'
+
+To make the package robust we test on a wide range of ical formats.
+Here's an example from my work calendar, for example:
+
+```{r}
+my_cal = ic_read("https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics")
+head(my_cal[c("DESCRIPTION", "SUMMARY", "DTSTART", "DTEND", "STATUS", "SEQUENCE", "LOCATION")])
+```
 
 ## Related projects
 
