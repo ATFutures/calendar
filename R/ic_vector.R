@@ -8,10 +8,10 @@
 #' @examples
 #' x = ical_example[18:19]
 #' ic_vector(x)
-ic_vector = function(x) {
-  key = gsub(pattern = ":(.*)", replacement = "", x = x)
-  value = gsub(pattern = "(.*?):", replacement = "", x = x)
-  names(value) = key
+ic_vector <- function(x) {
+  key <- gsub(pattern = ":(.*)", replacement = "", x = x)
+  value <- gsub(pattern = "(.*?):", replacement = "", x = x)
+  names(value) <- key
   value
   # class(value)
   # data.frame(as.list(value))
@@ -21,5 +21,3 @@ ic_vector = function(x) {
   # key_value_vec = c(key_value_df)
   # class(key_value_vec)
 }
-
-

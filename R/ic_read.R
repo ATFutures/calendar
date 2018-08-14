@@ -9,10 +9,8 @@
 #' ics_df = ic_read(f)
 #' head(ics_df)
 ic_read <- function(file) {
-
   x <- readLines(file)
 
   # previous approach: see https://stackoverflow.com/questions/43573982/how-to-import-ical-ics-file-in-r
   ic_dataframe(x)
-
 }

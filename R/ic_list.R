@@ -18,15 +18,15 @@
 #' ics_list = ic_list(x)
 #' ics_list[1:2]
 #' ic_list(x, include_pattern = TRUE)[1:2]
-ic_list = function(x, pattern = ":VEVENT", include_pattern = FALSE) {
-  locations = grepl(pattern = pattern, x = x)
-  locations_int = which(locations)
+ic_list <- function(x, pattern = ":VEVENT", include_pattern = FALSE) {
+  locations <- grepl(pattern = pattern, x = x)
+  locations_int <- which(locations)
   # lines_event1 = x[locations_int[1]:locations_int[2]]
-  list_length = length(locations_int) / 2
-  list_seq = seq_len(list_length)
-  locations_start = list_seq * 2 - 1
-  locations_end = list_seq * 2
-  if(include_pattern) {
+  list_length <- length(locations_int) / 2
+  list_seq <- seq_len(list_length)
+  locations_start <- list_seq * 2 - 1
+  locations_end <- list_seq * 2
+  if (include_pattern) {
     lapply(list_seq, function(i) {
       x[locations_int[locations_start[i]]:locations_int[locations_end[i]]]
     })
@@ -36,4 +36,3 @@ ic_list = function(x, pattern = ":VEVENT", include_pattern = FALSE) {
     })
   }
 }
-

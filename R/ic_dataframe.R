@@ -10,20 +10,19 @@
 #' x = readLines(ics_file)
 #' x_df = ic_dataframe(x)
 #' summary(x_df)
-ic_dataframe = function(x) {
-
-  x_list = ic_list(x)
+ic_dataframe <- function(x) {
+  x_list <- ic_list(x)
 
   # testing:
   # icv1 = ic_vector(x_list[[1]])
   # as.data.frame(as.list(icv1))
 
-  df_list = lapply(x_list, function(x) {
+  df_list <- lapply(x_list, function(x) {
     as.data.frame(as.list(ic_vector(x)), stringsAsFactors = FALSE)
   })
 
-  x_df = do.call(rbind, df_list)
-  names(x_df) = ic_propertynameclean(names(x_df))
+  x_df <- do.call(rbind, df_list)
+  names(x_df) <- ic_propertynameclean(names(x_df))
 
   # clever way (too clever)
   # select_dt_cols = grepl(pattern = "DTEND|DTSTART", x = names(x_df))
@@ -33,14 +32,12 @@ ic_dataframe = function(x) {
   # x_df[select_dt_cols] = apply(x_df[select_dt_cols], 2, as.Date, format = "%Y%m%d")
 
   # simple way
-  x_df$DTEND = as.Date(x_df$DTEND, format = "%Y%m%d")
-  x_df$DTSTART = as.Date(x_df$DTSTART, format = "%Y%m%d")
+  x_df$DTEND <- as.Date(x_df$DTEND, format = "%Y%m%d")
+  x_df$DTSTART <- as.Date(x_df$DTSTART, format = "%Y%m%d")
 
   x_df
-
 }
 
-ic_propertynameclean = function(properties) {
+ic_propertynameclean <- function(properties) {
   gsub(pattern = ".VALUE.DATE", replacement = "", properties)
 }
-

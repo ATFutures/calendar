@@ -10,6 +10,6 @@
 #' ic_find(ical_example, pattern)
 ic_find <- function(x, pattern) {
   pattern <- paste0(pattern, ":")
-  locations = grepl(x, pattern = pattern)
+  locations <- grepl(x, pattern = pattern)
   locations
 }
