@@ -4,14 +4,16 @@
 #' ical lists.
 #'
 #' @inheritParams ic_list
+#' @inheritParams ic_find
 #' @export
 #' @examples
 #' x = ical_example[18:19]
 #' ic_vector(x)
-ic_vector <- function(x) {
+ic_vector <- function(x, pattern = paste0(ical::properties, collapse = "|")) {
   key <- gsub(pattern = ":(.*)", replacement = "", x = x)
   value <- gsub(pattern = "(.*?):", replacement = "", x = x)
   names(value) <- key
+  value <- value[grepl(pattern = pattern, x = names(value))]
   value
   # class(value)
   # data.frame(as.list(value))
