@@ -29,8 +29,8 @@ ic_dataframe <- function(x) {
   names(x_df) <- ic_propertynameclean(names(x_df))
 
   # manually add dates (may need if(max(ncar)) statement to generalise)
-  x_df$DTEND <- as.Date(x_df$DTEND, format = "%Y%m%d")
-  x_df$DTSTART <- as.Date(x_df$DTSTART, format = "%Y%m%d")
+  x_df$DTSTART <- ic_datetime(x_df$DTSTART)
+  x_df$DTEND <- ic_datetime(x_df$DTEND)
 
   x_df
 }

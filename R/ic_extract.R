@@ -53,6 +53,14 @@ ic_datetime <- function(x) {
   datetime
 }
 
-# ic_extract_date = function(res_raw) {
-#
-# }
+#' Convert datetime object to character string
+#' @param x datetime object
+#' @export
+#' @examples
+#' x <- structure(1533826800, class = c("POSIXct", "POSIXt"), tzone = "")
+#' ic_char_datetime(x) == "20180809T160000Z"
+ic_char_datetime = function(x) {
+  yr <- format.POSIXct(x, "%Y%m%d")
+  ti <- format.POSIXct(x, "%H%M%S")
+  paste0(yr, "T", ti, "Z")
+}

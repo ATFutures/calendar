@@ -15,5 +15,5 @@ Convert ical object to character strings of attributes
 \examples{
 ic <- ical(ical_example)
 ic_character(ic)
-ical_example == ic_character(ic)
+identical(ical_example, ic_character(ic))
 }

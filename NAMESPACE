@@ -2,6 +2,7 @@
 
 export(ic_attributes_vec)
 export(ic_bind_list)
+export(ic_char_datetime)
 export(ic_char_event)
 export(ic_character)
 export(ic_dataframe)

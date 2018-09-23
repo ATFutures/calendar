@@ -30,7 +30,7 @@ ic_attributes_vec <- function(x) {
 #' @examples
 #' ic <- ical(ical_example)
 #' ic_character(ic)
-#' ical_example == ic_character(ic)
+#' identical(ical_example, ic_character(ic))
 ic_character <- function(ic) {
   char_attributes <- paste(names(attributes(ic)$ical), attributes(ic)$ical, sep = ":")
   char_events <- ic_char_event(ic)
@@ -46,6 +46,8 @@ ic_character <- function(ic) {
 #' ic_char_event(ic[c(1, 1), ])
 ic_char_event <- function(ic) {
   char_names <- c(rep(c("BEGIN", names(ic), "END"), nrow(ic)))
+  ic$DTSTART <- ic_char_datetime(ic$DTSTART)
+  ic$DTEND <- ic_char_datetime(ic$DTEND)
   char_contents <-  apply(ic, 1, function(x) c("VEVENT", as.character(x), "VEVENT"))
   paste(char_names, char_contents, sep = ":")
 }
