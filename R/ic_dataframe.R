@@ -26,17 +26,9 @@ ic_dataframe <- function(x) {
     ic_vector(x)
   })
   x_df <- ic_bind_list(x_list_named)
-  names(x_df) <- ic_propertynameclean(names(x_df))
-
-  # manually add dates (may need if(max(ncar)) statement to generalise)
-  x_df$DTSTART <- ic_datetime(x_df$DTSTART)
-  x_df$DTEND <- ic_datetime(x_df$DTEND)
+  names(x_df) <- gsub(pattern = ".VALUE.DATE", replacement = "", names(x_df))
 
   x_df
-}
-
-ic_propertynameclean <- function(properties) {
-  gsub(pattern = ".VALUE.DATE", replacement = "", properties)
 }
 
 #' Bind list of named vectors of variable length into data frame
