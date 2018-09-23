@@ -27,5 +27,5 @@ ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
 x = readLines(ics_file)
 ics_list = ic_list(x)
 ics_list[1:2]
-ic_list(x, include_pattern = TRUE)[1:2]
+ic_list(x, include_pattern = TRUE)
 }

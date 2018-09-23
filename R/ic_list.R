@@ -17,7 +17,7 @@
 #' x = readLines(ics_file)
 #' ics_list = ic_list(x)
 #' ics_list[1:2]
-#' ic_list(x, include_pattern = TRUE)[1:2]
+#' ic_list(x, include_pattern = TRUE)
 ic_list <- function(x, pattern = ":VEVENT", include_pattern = FALSE) {
   locations <- grepl(pattern = pattern, x = x)
   locations_int <- which(locations)

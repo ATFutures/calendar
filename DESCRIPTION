@@ -16,4 +16,5 @@ RoxygenNote: 6.1.0
 Suggests: 
     testthat
 Imports: 
-    methods
+    methods,
+    tibble
