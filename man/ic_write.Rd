@@ -17,6 +17,8 @@ Write ics file
 \examples{
 ic <- ical(ical_example)
 ic_write(ic, "ic.ics")
+f <- system.file("extdata", "example.ics", package = "ical")
+identical(readLines("ic.ics"), readLines(f))
 f <- system.file("extdata", "england-and-wales.ics", package = "ical")
 ics_df <- ic_read(f)
 ic_write(ics_df, "ic.ics")
