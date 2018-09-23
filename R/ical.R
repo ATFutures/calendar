@@ -31,6 +31,7 @@ ic_attributes_vec <- function(x) {
 #' ic <- ical(ical_example)
 #' ic_character(ic)
 #' identical(ical_example, ic_character(ic))
+#' # ic_character(ic[c(1, 1), ]) # multiple events
 ic_character <- function(ic) {
   char_attributes <- paste(names(attributes(ic)$ical), attributes(ic)$ical, sep = ":")
   char_events <- ic_char_event(ic)
@@ -38,7 +39,7 @@ ic_character <- function(ic) {
 }
 #' Convert ical object to character strings of events
 #'
-#' @param ic object of class `ical`
+#' @inheritParams ic_character
 #' @export
 #' @examples
 #' ic <- ical(ical_example)
