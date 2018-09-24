@@ -46,6 +46,14 @@ ic_character <- function(ic) {
 #' ic_char_event(ic)
 #' ic_char_event(ic[c(1, 1), ])
 ic_char_event <- function(ic) {
+  date_cols <- grepl(pattern = "VALUE=DATE", x = names(ic))
+  if(any(date_cols)) {
+    ic[date_cols] <- lapply(ic[, date_cols], ic_char_date)
+  }
+  datetime_cols <- names(ic) %in% c("DTSTART", "DTEND")
+  if(any(datetime_cols)) {
+    ic[datetime_cols] <- lapply(ic[, datetime_cols], ic_char_datetime)
+  }
   char_names <- c(rep(c("BEGIN", names(ic), "END"), nrow(ic)))
   char_contents <-  apply(ic, 1, function(x) c("VEVENT", as.character(x), "VEVENT"))
   paste(char_names, char_contents, sep = ":")

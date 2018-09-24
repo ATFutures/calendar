@@ -26,7 +26,17 @@ ic_dataframe <- function(x) {
     ic_vector(x)
   })
   x_df <- ic_bind_list(x_list_named)
-  names(x_df) <- gsub(pattern = ".VALUE.DATE", replacement = "", names(x_df))
+
+  date_cols <- grepl(pattern = "VALUE=DATE", x = names(x_df))
+  if(any(date_cols)) {
+    x_df[date_cols] <- lapply(x_df[, date_cols], ic_date)
+  }
+  datetime_cols <- names(x_df) %in% c("DTSTART", "DTEND")
+  if(any(datetime_cols)) {
+    x_df[datetime_cols] <- lapply(x_df[, datetime_cols], ic_datetime)
+  }
+
+  # names(x_df) <- gsub(pattern = ".VALUE.DATE", replacement = "", names(x_df))
 
   x_df
 }
