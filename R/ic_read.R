@@ -9,9 +9,18 @@
 #' head(ics_df)
 ic_read <- function(file) {
   x <- readLines(file)
-
+  y <- c()
+  for (line in x) {
+    # concatenate multilines to single line
+    # [A-Z]-?_?[A-Z]: pattern
+    if(!grepl(pattern = "[A-Z]-?[A-Z]:|[A-Z];", x = line)) {
+      y[length(y)] <- paste0(y[length(y)], "\n", line)
+    } else {
+      y[length(y)+1] <- line
+    }
+  }
   # previous approach: see https://stackoverflow.com/questions/43573982/how-to-import-ical-ics-file-in-r
-  ical(x)
+  ical(y)
 }
 #' Write ics file
 #'

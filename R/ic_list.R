@@ -19,13 +19,15 @@
 #' ics_list[1:2]
 #' ic_list(x, include_pattern = TRUE)
 ic_list <- function(x, pattern = ":VEVENT", include_pattern = FALSE) {
-  locations <- grepl(pattern = pattern, x = x)
-  locations_int <- which(locations)
+  locations <- grepl(pattern = pattern, x = x) # get :VEVENT TRUE/FALSE
+  locations_int <- which(locations)            # get :VEVENT indices 2, 22, ...
   # lines_event1 = x[locations_int[1]:locations_int[2]]
-  list_length <- length(locations_int) / 2
-  list_seq <- seq_len(list_length)
-  locations_start <- list_seq * 2 - 1
-  locations_end <- list_seq * 2
+  list_length <- length(locations_int) / 2     # half as there are two of them
+  list_seq <- seq_len(list_length)             # [1,2,...,x1]
+  locations_start <- list_seq * 2 - 1          # starts would be one less than x2
+  locations_end <- list_seq * 2                # ends would be 2x
+  # locations_int[2] => 22
+  # both subsetting below should pick up multiline descriptions.
   if (include_pattern) {
     lapply(list_seq, function(i) {
       x[locations_int[locations_start[i]]:locations_int[locations_end[i]]]

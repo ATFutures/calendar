@@ -4,7 +4,7 @@
 \alias{ic_vector}
 \title{Return a named vector from raw iCal text}
 \usage{
-ic_vector(x, pattern = paste0(ical::properties, collapse = "|"))
+ic_vector(x, pattern = "[A-Z]-?[A-Z]")
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}

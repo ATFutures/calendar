@@ -9,9 +9,10 @@
 #' @examples
 #' x = ical_example[18:19]
 #' ic_vector(x)
-ic_vector <- function(x, pattern = paste0(ical::properties, collapse = "|")) {
-  key <- gsub(pattern = ":(.*)", replacement = "", x = x)
-  value <- gsub(pattern = "(.*?):", replacement = "", x = x)
+ic_vector <- function(x, pattern = "[A-Z]-?[A-Z]") {
+  key <- gsub(pattern = ":(.*)", replacement = "", x = x)    # replace :xYz with ''
+  # remove only the first value for 'value'
+  value <- sub(pattern = "(.*?):", replacement = "", x = x) # replace xYz: with ''
   names(value) <- key
   value <- value[grepl(pattern = pattern, x = names(value))]
   value
