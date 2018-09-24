@@ -1,21 +1,30 @@
 
-[![Travis build status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
+[![Travis build
+status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ical
-====
 
-The goal of ical is to work with iCalander (`.ics`, `.ical` or similar) files in R. iCalendar is an open standard for "exchanging calendar and scheduling information between users and computers" described at [icalendar.org](https://icalendar.org/) (the full spec can be found in a plain text file [here](https://tools.ietf.org/rfc/rfc5545.txt)).
+# ical
 
-Recently the UK Government endorsed the iCal format in a [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events) for the 'Open Standards for Government' series. [An example .ics file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is provided by the .gov.uk domain, which shows holidays in England and Wales.
+The goal of ical is to work with iCalander (`.ics`, `.ical` or similar)
+files in R. iCalendar is an open standard for “exchanging calendar and
+scheduling information between users and computers” described at
+[icalendar.org](https://icalendar.org/) (the full spec can be found in a
+plain text file [here](https://tools.ietf.org/rfc/rfc5545.txt)).
 
-Installation
-------------
+Recently the UK Government endorsed the iCal format in a
+[publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events)
+for the ‘Open Standards for Government’ series. [An example .ics
+file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is
+provided by the .gov.uk domain, which shows holidays in England and
+Wales.
+
+## Installation
 
 ``` r
 devtools::install_github("ATFutures/ical")
 #> Using GitHub PAT from envvar GITHUB_PAT
-#> Skipping install of 'ical' from a github remote, the SHA1 (f2e9b6a3) has not changed since last install.
+#> Skipping install of 'ical' from a github remote, the SHA1 (1e4caa6b) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
@@ -24,13 +33,18 @@ library(ical)
 ```
 
 <!-- You can install the released version of ical from [CRAN](https://CRAN.R-project.org) with: -->
-<!-- ``` r -->
-<!-- install.packages("ical") -->
-<!-- ``` -->
-Example
--------
 
-A minimal example representing the contents of an iCalendar file is provided in the dataset `ical_example`, which is loaded when the package is attached. This is what iCal files look like:
+<!-- ``` r -->
+
+<!-- install.packages("ical") -->
+
+<!-- ``` -->
+
+## Example
+
+A minimal example representing the contents of an iCalendar file is
+provided in the dataset `ical_example`, which is loaded when the package
+is attached. This is what iCal files look like:
 
 ``` r
 ical_example
@@ -67,7 +81,9 @@ ic_find(ical_example, "TSTAMP")
 ic_extract(ical_example, "TSTAMP")
 ```
 
-A larger example shows all national holidays in England and Wales. It can be read-in as follows:
+A larger example shows all national holidays in England and Wales. It
+can be read-in as
+follows:
 
 ``` r
 ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
@@ -81,7 +97,8 @@ head(ics_raw) # check it's in the ICS format
 #> [6] "BEGIN:VEVENT"
 ```
 
-A list representation of the calendar can be created using `ic_list()` as follows:
+A list representation of the calendar can be created using `ic_list()`
+as follows:
 
 ``` r
 ics_list = ic_list(ics_raw)
@@ -103,54 +120,53 @@ ics_list[1:2]
 #> [6] "DTSTAMP:20180806T114130Z"
 ```
 
-A data frame representing the calendar can be created as follows (work in progress):
+A data frame representing the calendar can be created as follows (work
+in progress):
 
 ``` r
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
-#>        DTEND    DTSTART                 SUMMARY
-#> 1 2012-01-03 2012-01-02          New Year’s Day
-#> 2 2012-04-07 2012-04-06             Good Friday
-#> 3 2012-04-10 2012-04-09           Easter Monday
-#> 4 2012-05-08 2012-05-07  Early May bank holiday
-#> 5 2012-06-05 2012-06-04     Spring bank holiday
-#> 6 2012-06-06 2012-06-05 Queen’s Diamond Jubilee
-#>                                         UID SEQUENCE          DTSTAMP
-#> 1 ca6af7456b0088abad9a69f9f620f5ac-0@gov.uk        0 20180806T114130Z
-#> 2 ca6af7456b0088abad9a69f9f620f5ac-1@gov.uk        0 20180806T114130Z
-#> 3 ca6af7456b0088abad9a69f9f620f5ac-2@gov.uk        0 20180806T114130Z
-#> 4 ca6af7456b0088abad9a69f9f620f5ac-3@gov.uk        0 20180806T114130Z
-#> 5 ca6af7456b0088abad9a69f9f620f5ac-4@gov.uk        0 20180806T114130Z
-#> 6 ca6af7456b0088abad9a69f9f620f5ac-5@gov.uk        0 20180806T114130Z
+#> # A tibble: 6 x 6
+#>   `DTEND;VALUE=DAT… `DTSTART;VALUE=D… SUMMARY  UID       SEQUENCE DTSTAMP 
+#>   <date>            <date>            <chr>    <chr>     <chr>    <chr>   
+#> 1 2012-01-03        2012-01-02        New Yea… ca6af745… 0        2018080…
+#> 2 2012-04-07        2012-04-06        Good Fr… ca6af745… 0        2018080…
+#> 3 2012-04-10        2012-04-09        Easter … ca6af745… 0        2018080…
+#> 4 2012-05-08        2012-05-07        Early M… ca6af745… 0        2018080…
+#> 5 2012-06-05        2012-06-04        Spring … ca6af745… 0        2018080…
+#> 6 2012-06-06        2012-06-05        Queen’s… ca6af745… 0        2018080…
 ```
 
 What class is each column?
 
 ``` r
 vapply(ics_df, class, character(1))
-#>       DTEND     DTSTART     SUMMARY         UID    SEQUENCE     DTSTAMP 
-#>      "Date"      "Date" "character" "character" "character" "character"
+#>   DTEND;VALUE=DATE DTSTART;VALUE=DATE            SUMMARY 
+#>             "Date"             "Date"        "character" 
+#>                UID           SEQUENCE            DTSTAMP 
+#>        "character"        "character"        "character"
 ```
 
-Trying on calendars 'in the wild'
----------------------------------
+## Trying on calendars ‘in the wild’
 
-To make the package robust we test on a wide range of ical formats. Here's an example from my work calendar, for example:
+To make the package robust we test on a wide range of ical formats.
+Here’s an example from my work calendar, for example:
 
 ``` r
 my_cal = ic_dataframe(ical_outlook)
 my_cal$SUMMARY[1]
 #> [1] "In Budapest for European R Users Meeting (eRum) conference"
 my_cal$DTSTART[1]
-#> [1] "2018-05-14"
+#> NULL
 my_cal$DTEND[1]
-#> [1] "2018-05-18"
+#> NULL
 my_cal$DTEND[1] - my_cal$DTSTART[1]
-#> Time difference of 4 days
+#> integer(0)
 ```
 
-Related projects
-----------------
+## Related projects
 
--   A Python package for working with ics files: <https://github.com/C4ptainCrunch/ics.py>
--   A JavaScript package by Mozilla: <https://github.com/mozilla-comm/ical.js/>
+  - A Python package for working with ics files:
+    <https://github.com/C4ptainCrunch/ics.py>
+  - A JavaScript package by Mozilla:
+    <https://github.com/mozilla-comm/ical.js/>
