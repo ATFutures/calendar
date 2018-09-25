@@ -24,7 +24,7 @@ Wales.
 ``` r
 devtools::install_github("ATFutures/ical")
 #> Using GitHub PAT from envvar GITHUB_PAT
-#> Skipping install of 'ical' from a github remote, the SHA1 (1e4caa6b) has not changed since last install.
+#> Skipping install of 'ical' from a github remote, the SHA1 (02fe9607) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
@@ -156,12 +156,9 @@ Here’s an example from my work calendar, for example:
 my_cal = ic_dataframe(ical_outlook)
 my_cal$SUMMARY[1]
 #> [1] "In Budapest for European R Users Meeting (eRum) conference"
-my_cal$DTSTART[1]
-#> NULL
-my_cal$DTEND[1]
-#> NULL
-my_cal$DTEND[1] - my_cal$DTSTART[1]
-#> integer(0)
+# calculate the duration of the European R users meeting event:
+my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
+#> Time difference of 4 days
 ```
 
 ## Related projects
@@ -170,3 +167,4 @@ my_cal$DTEND[1] - my_cal$DTSTART[1]
     <https://github.com/C4ptainCrunch/ics.py>
   - A JavaScript package by Mozilla:
     <https://github.com/mozilla-comm/ical.js/>
+  - Ruby library: <https://github.com/icalendar/icalendar>

@@ -1,0 +1,40 @@
+---
+title: "Creating calendars with ical and R"
+author: "Robin Lovelace"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+**ical** allows you to read-in 'ical files' (which typically have the `.ics` filetype) with `ic_read()`.
+However, often it's useful to create your own `ical` object from scratch.
+The purpose of this vignette is to show how, with reference to a real-world application: creating a timetable for a new module.
+
+It assumes you've installed the package following instructions in the [README](https://github.com/ATFutures/ical#installation) and have attached it as follows:
+
+```{r}
+library(ical)
+```
+
+
+## Creating events
+
+The building blocks of most calendars the event.
+All events have a start point and an end point (unless they are an all day event) and a summary description.
+As shown in the example below, they also tend to contain other fields.
+Fortunately you don't need to specify all of these when creating events because some will be created manually and some are not necessary.
+
+```{r}
+ic_list(ical_example)
+```
+
