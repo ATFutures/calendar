@@ -61,12 +61,13 @@ ic_dataframe <- function(x) {
 #' })
 #' ic_bind_list(x)
 ic_bind_list <- function(x) {
-  nam <- lapply(x, names)
-  unam <- unique(unlist(nam))
-  len <- vapply(x, length, integer(1))
-  out <- vector("list", length(len))
+  nam <- lapply(x, names)                             # list of names of each VEVENT
+  unam <- unique(unlist(nam))                         # unique list of EVERY VEVENT
+  len <- vapply(x, length, integer(1))                # vector of length of each VEVENT from nam
+  out <- vector("list", length(len))                  # placeholder for all VEVENTS
   for (i in seq_along(len)) {
-    out[[i]] <- unname(x[[i]])[match(unam, nam[[i]])]
+    out[[i]] <- unname(x[[i]])[match(unam, nam[[i]])] # find indices of unique names in each VEVENT and subset unnamed x[[i]] with it.
   }
+  # create the dataframe from the columns of VEVENT properties and name the columns
   stats::setNames(as.data.frame(do.call(rbind, out), stringsAsFactors=FALSE), unam)
 }
