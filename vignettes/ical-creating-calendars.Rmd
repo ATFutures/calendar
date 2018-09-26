@@ -32,9 +32,21 @@ library(ical)
 The building blocks of most calendars the event.
 All events have a start point and an end point (unless they are an all day event) and a summary description.
 As shown in the example below, they also tend to contain other fields.
-Fortunately you don't need to specify all of these when creating events because some will be created manually and some are not necessary.
 
 ```{r}
-ic_list(ical_example)
+# key:value pairs in an ical example:
+ic_list(ical_example)[[1]]
 ```
+
+Fortunately you don't need to specify all of these when creating events because some will be created manually and some are not necessary.
+Events can be created as follows:
+
+```{r}
+s = as.POSIXct("2018-09-27 13:00")
+event = ic_event(start = s, end = s + 60^2, summary = "Minihackathon!")
+event
+class(event)
+ic_character(event)
+```
+
 
