@@ -23,9 +23,6 @@ Wales.
 
 ``` r
 devtools::install_github("ATFutures/ical")
-#> Using GitHub PAT from envvar GITHUB_PAT
-#> Skipping install of 'ical' from a github remote, the SHA1 (02fe9607) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 ```
 
 ``` r
@@ -75,9 +72,8 @@ ical_example
 Relevant fields can be found and extracted as follows:
 
 ``` r
-ic_find(ical_example, "TSTAMP")
-#>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
-#> [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+which(ic_find(ical_example, "TSTAMP"))
+#> [1] 11
 ic_extract(ical_example, "TSTAMP")
 ```
 

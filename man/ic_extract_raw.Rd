@@ -16,5 +16,5 @@ Return info from iCal files, return raw unprocessed text.
 }
 \examples{
 pattern = "TSTAMP"
-ic_extract(ical_example, pattern)
+ic_extract_raw(ical_example, pattern)
 }
