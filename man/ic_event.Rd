@@ -4,15 +4,25 @@
 \alias{ic_event}
 \title{Create ical object from properties_core inputs}
 \usage{
-ic_event(start = Sys.time(), end = Sys.time() + 1 * 60 * 60,
-  summary = "R ical event")
+ic_event(start_time = as.POSIXct(round(Sys.time(), units = "hours")),
+  end_time = as.POSIXct(round(Sys.time(), units = "hours") + 1 * 60 *
+  60), summary = "ical event", uid = ic_guid(),
+  more_properties = FALSE, event_properties = setNames(rep(NA,
+  length(setdiff(ical::properties, ical::properties_core))), nm =
+  setdiff(ical::properties, ical::properties_core)))
 }
 \arguments{
-\item{start}{start time}
+\item{start_time}{start time, by default the current time to the nearest hour}
 
-\item{end}{end time}
+\item{end_time}{end time, by defult and hour (3600 seconds) after \code{start_time}}
 
 \item{summary}{short outline of the event}
+
+\item{more_properties}{add placeholder columns for properties in addition to \code{properties_core},
+dy default \code{FALSE}}
+
+\item{properties}{named vector of additional properties to include, by default
+with names \code{ical::properties} containing \code{NA}s to be subsequently populated}
 }
 \value{
 object of class ics
@@ -22,4 +32,5 @@ Create ical object from properties_core inputs
 }
 \examples{
 ic_event()
+ic_event(more_properties = TRUE)
 }

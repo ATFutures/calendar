@@ -1,33 +1,49 @@
 #' Create ical object from properties_core inputs
 #'
-#' @param start start time, by default the current time to the nearest hour
-#' @param end end time
+#' @param start_time start time, by default the current time to the nearest hour
+#' @param end_time end time, by defult and hour (3600 seconds) after `start_time`
 #' @param summary short outline of the event
+#' @param more_properties add placeholder columns for properties in addition to `properties_core`,
+#' dy default `FALSE`
+#' @param properties named vector of additional properties to include, by default
+#' with names `ical::properties` containing `NA`s to be subsequently populated
 #' @return object of class ics
 #' @export
 #' @examples
 #' ic_event()
-ic_event <- function(start = round(Sys.time(), units = "hours"),
-                     end = round(Sys.time(), units = "hours") + 1 * 60 * 60,
-                     summary = "ical event") {
+#' ic_event(more_properties = TRUE)
+ic_event <- function(start_time = as.POSIXct(round(Sys.time(), units = "hours")),
+                     end_time = as.POSIXct(round(Sys.time(), units = "hours") + 1 * 60 * 60),
+                     summary = "ical event",
+                     uid = ic_guid(),
+                     more_properties = FALSE,
+                     event_properties = setNames(
+                       rep(
+                         NA,
+                         length(setdiff(ical::properties, ical::properties_core))),
+                       nm = setdiff(ical::properties, ical::properties_core))) {
   #TODO: check inputs
-  st <- ic_char_datetime(start)
-  en <- ic_char_datetime(end)
-  event.values <- c(ic_guid(), st, en, summary)
+  st <- ic_char_datetime(start_time)
+  en <- ic_char_datetime(end_time)
+  event_values <- c(st, en, summary, uid)
   # TODO: add DTSART and DTEND TZID types
-  event <- paste(ical::properties_core, event.values, sep = ":")
-  the.rest <- ical::properties[!ical::properties %in% names(ical::properties_core)]
-  the.rest <- paste(the.rest, rep("", length(the.rest)), sep = ":")
+  event <- paste(ical::properties_core, event_values, sep = ":")
+  if(more_properties) {
+    the_rest <- paste(names(event_properties), event_properties, sep = ":")
+  } else {
+    the_rest = NULL
+  }
   ical(
     c(ical::properties_ical,
       "BEGIN:VEVENT",
       event,
-      the.rest,
+      the_rest,
       "END:VEVENT",
       "END:VCALENDAR"
       )
     )
- }
+}
+
 
 #' Get an ical GUID
 #'
