@@ -14,11 +14,12 @@ ic_event <- function(start = Sys.time(),
   st <- ic_char_datetime(start)
   en <- ic_char_datetime(end)
   event.values <- c(ic_guid(), st, en, summary)
+  # TODO: add DTSART and DTEND TZID types
   event <- paste(ical::properties_core, event.values, sep = ":")
   the.rest <- ical::properties[!ical::properties %in% names(ical::properties_core)]
   the.rest <- paste(the.rest, rep("", length(the.rest)), sep = ":")
   ical(
-    c(properties[1:5],
+    c(ical::properties_ical,
       "BEGIN:VEVENT",
       event,
       the.rest,
