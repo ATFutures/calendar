@@ -75,6 +75,7 @@ Relevant fields can be found and extracted as follows:
 which(ic_find(ical_example, "TSTAMP"))
 #> [1] 11
 ic_extract(ical_example, "TSTAMP")
+#> [1] "D20180810T094100Z"
 ```
 
 A larger example shows all national holidays in England and Wales. It
@@ -156,6 +157,8 @@ my_cal$SUMMARY[1]
 my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
 #> Time difference of 4 days
 ```
+
+<!-- An example from the wild: -->
 
 ## Related projects
 
