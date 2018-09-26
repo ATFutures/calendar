@@ -54,7 +54,7 @@ ical_example
 Relevant fields can be found and extracted as follows:
 
 ```{r}
-ic_find(ical_example, "TSTAMP")
+which(ic_find(ical_example, "TSTAMP"))
 ic_extract(ical_example, "TSTAMP")
 ```
 
