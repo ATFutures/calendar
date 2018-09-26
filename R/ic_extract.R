@@ -7,7 +7,7 @@
 #' @export
 #' @examples
 #' pattern = "TSTAMP"
-#' ic_extract(ical_example, pattern)
+#' ic_extract_raw(ical_example, pattern)
 ic_extract_raw <- function(x, pattern) {
   locations <- ic_find(x, pattern)
   x_sub <- x[locations]
@@ -25,8 +25,11 @@ ic_extract_raw <- function(x, pattern) {
 #' @examples
 #' ic_extract(ical_example, "DTSTART")
 ic_extract <- function(x, pattern) {
-  res_raw <- ic_extract_raw(x, pattern)
-  # if(grepl(pattern, "DT")) {
-  #   res = ic_datetime(res_raw)
-  # }
+
+  res = ic_extract_raw(x, pattern) # gives the content
+
+  if(grepl("^\\d{8}T\\d{6}Z?$", res)) {
+    res = ic_datetime(res)
+  }
+  res
 }

@@ -28,7 +28,7 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 
 ## Installation
 
-```{r}
+```{r, message=FALSE}
 devtools::install_github("ATFutures/ical")
 ```
 
@@ -54,7 +54,7 @@ ical_example
 Relevant fields can be found and extracted as follows:
 
 ```{r}
-ic_find(ical_example, "TSTAMP")
+which(ic_find(ical_example, "TSTAMP"))
 ic_extract(ical_example, "TSTAMP")
 ```
 
@@ -99,9 +99,12 @@ my_cal$SUMMARY[1]
 my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
 ```
 
+<!-- An example from the wild: -->
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 my_cal = ic_read("https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.ics")
+
+attributes(my_cal)$ical
 # head(my_cal[c("DESCRIPTION", "SUMMARY", "DTSTART", "DTEND", "STATUS", "SEQUENCE", "LOCATION")])
 ```
 
