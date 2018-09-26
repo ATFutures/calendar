@@ -12,20 +12,22 @@
 #' @examples
 #' ic_event()
 #' ic_event(more_properties = TRUE)
-ic_event <- function(start_time = as.POSIXct(round(Sys.time(), units = "hours")),
-                     end_time = as.POSIXct(round(Sys.time(), units = "hours") + 1 * 60 * 60),
-                     summary = "ical event",
-                     uid = ic_guid(),
-                     more_properties = FALSE,
-                     event_properties = setNames(
-                       rep(
-                         NA,
-                         length(setdiff(ical::properties, ical::properties_core))),
-                       nm = setdiff(ical::properties, ical::properties_core))) {
+ic_event <- function(
+  uid = ic_guid(),
+  start_time = as.POSIXct(round(Sys.time(), units = "hours")),
+  end_time = as.POSIXct(round(Sys.time(), units = "hours") + 1 * 60 * 60),
+  summary = "ical event",
+
+  more_properties = FALSE,
+  event_properties = setNames(
+    rep(
+      NA,
+      length(setdiff(ical::properties, ical::properties_core))),
+    nm = setdiff(ical::properties, ical::properties_core))) {
   #TODO: check inputs
   st <- ic_char_datetime(start_time)
   en <- ic_char_datetime(end_time)
-  event_values <- c(st, en, summary, uid)
+  event_values <- c(uid, st, en, summary)
   # TODO: add DTSART and DTEND TZID types
   event <- paste(ical::properties_core, event_values, sep = ":")
   if(more_properties) {
@@ -40,8 +42,8 @@ ic_event <- function(start_time = as.POSIXct(round(Sys.time(), units = "hours"))
       the_rest,
       "END:VEVENT",
       "END:VCALENDAR"
-      )
     )
+  )
 }
 
 

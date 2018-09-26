@@ -4,9 +4,9 @@
 \alias{ic_event}
 \title{Create ical object from properties_core inputs}
 \usage{
-ic_event(start_time = as.POSIXct(round(Sys.time(), units = "hours")),
-  end_time = as.POSIXct(round(Sys.time(), units = "hours") + 1 * 60 *
-  60), summary = "ical event", uid = ic_guid(),
+ic_event(uid = ic_guid(), start_time = as.POSIXct(round(Sys.time(),
+  units = "hours")), end_time = as.POSIXct(round(Sys.time(), units =
+  "hours") + 1 * 60 * 60), summary = "ical event",
   more_properties = FALSE, event_properties = setNames(rep(NA,
   length(setdiff(ical::properties, ical::properties_core))), nm =
   setdiff(ical::properties, ical::properties_core)))
