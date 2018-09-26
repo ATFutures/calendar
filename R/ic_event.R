@@ -1,15 +1,15 @@
 #' Create ical object from properties_core inputs
 #'
-#' @param start start time
+#' @param start start time, by default the current time to the nearest hour
 #' @param end end time
 #' @param summary short outline of the event
 #' @return object of class ics
 #' @export
 #' @examples
 #' ic_event()
-ic_event <- function(start = Sys.time(),
-                     end = Sys.time() + 1*60*60,
-                     summary = "R ical event") {
+ic_event <- function(start = round(Sys.time(), units = "hours"),
+                     end = round(Sys.time(), units = "hours") + 1 * 60 * 60,
+                     summary = "ical event") {
   #TODO: check inputs
   st <- ic_char_datetime(start)
   en <- ic_char_datetime(end)

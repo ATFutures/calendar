@@ -42,6 +42,7 @@ Fortunately you don't need to specify all of these when creating events because 
 Events can be created as follows:
 
 ```{r}
+library(ical)
 s = as.POSIXct("2018-09-27 13:00")
 event = ic_event(start = s, end = s + 60^2, summary = "Minihackathon!")
 event
