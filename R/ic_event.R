@@ -1,7 +1,13 @@
+check_start_end <- function(st, en, m) {
+  posix <- c("POSIXct", "POSIXt")
+  if(!is(st, posix) | !is(en, posix)) {
+    stop(m)
+  }
+}
 #' Create ical object using character dates
 #'
-#' @param start start as character
-#' @param end end as character
+#' @param start_time start as character
+#' @param end_time end as character
 #' @param summary short outline of the event
 #' @param format strptime format
 #' @return object of class ics
@@ -9,13 +15,26 @@
 #' @examples
 #' ic_event_raw()
 ic_event_raw <- function(
-  start = "20180927 13:00",
-  end = "20180927 15:00",
+  start_time = "20180927 13:00",
+  end_time = "20180927 15:00",
   summary = "R ical minihack",
   format = "%Y%m%d %H:%M") {
-  st <- as.POSIXct(start, format = format)
-  en <- as.POSIXct(end, format = format)
-  ic_event(start_time = st, end_time = en, summary)
+  # TODO: supprress as.POSIXct warnings replace with ical checks.
+  st <- as.POSIXct(start_time, format = format)
+  en <- as.POSIXct(end_time, format = format)
+  # m <- paste0("ical failed to validate dates or format is not matching/missing try: ic_event_row(",
+  #             start_time, ", ", end_time, ", format = ical::formats$PICK")
+  # if(identical(class(st), "try-error") | identical(class(en), "try-error")) {
+  #   warning(m)
+  # }
+
+  if(identical(start_time, "20180927 13:00") |
+     identical(end_time, "20180927 15:00")) {
+    warning("Did you want to use ical default values? start: ", start_time, ", end: ", end_time)
+  }
+  m <- "ic_event_raw requires both start and end time to be valid character date(time) values."
+  check_start_end(st, en, m)
+  ic_event(start_time = st, end_time = en, summary = summary)
 }
 
 #' Create ical object from properties_core inputs
@@ -44,11 +63,9 @@ ic_event <- function(
       NA,
       length(setdiff(ical::properties, ical::properties_core))),
     nm = setdiff(ical::properties, ical::properties_core))) {
-  #TODO: check inputs
-  posix <- c("POSIXct", "POSIXt")
-  if(!is(start_time, posix) | !is(end_time, posix)) {
-    stop("ic_event requires both start and end time to be valid Sys.time objects.")
-  }
+  # inputs
+  m <- "ic_event requires both start and end time to be valid Sys.time objects."
+  check_start_end(start_time, end_time, m)
   if(is.na(summary) | summary == "NA") {
     summary <- "ical event"
   }

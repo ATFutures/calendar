@@ -4,13 +4,14 @@
 \alias{ic_event_raw}
 \title{Create ical object using character dates}
 \usage{
-ic_event_raw(start = "20180927 13:00", end = "20180927 15:00",
-  summary = "R ical minihack", format = "\%Y\%m\%d \%H:\%M")
+ic_event_raw(start_time = "20180927 13:00",
+  end_time = "20180927 15:00", summary = "R ical minihack",
+  format = "\%Y\%m\%d \%H:\%M")
 }
 \arguments{
-\item{start}{start as character}
+\item{start_time}{start as character}
 
-\item{end}{end as character}
+\item{end_time}{end as character}
 
 \item{summary}{short outline of the event}
 

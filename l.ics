@@ -1,0 +1,552 @@
+BEGIN:VCALENDAR
+METHOD:PUBLISH
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
+X-WR-CALNAME:Calendar
+BEGIN:VTIMEZONE
+TZID:GMT Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T010000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VTIMEZONE
+TZID:Greenwich Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DESCRIPTION:Dear all\n\nThere is a call out for EPSRC networks on Decarboni
+ sing Transport https://epsrc.ukri.org/funding/calls/decarbonising-transpor
+ t-networks/\n\nI am organising a workshop across the N8 on Thursday 6th Se
+ ptember to build a consortium for the network. Whilst there will be very l
+ imited spaces at the workshop I want to encourage as broad a representatio
+ n from ITS in the final network themes and approach. I would therefore inv
+ ite any interested people to come along with ideas related to the call on 
+ Weds 5th at noon. For those that have expressed an interest in workshop at
+ tendance this will be confirmed either way by Wednesday of this week.\n\nB
+ est regards\n\nGreg\n\n
+UID:040000008200E00074C5B7101A82E0080000000090FDBDDAD938D401000000000000000
+ 0100000003D73CB0525528D42AC5A2BA8CF8FECDD
+SUMMARY:EPSRC Decarbonising Transport Network Call
+DTSTART;TZID=GMT Standard Time:20180905T120000
+DTEND;TZID=GMT Standard Time:20180905T130000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:G.04
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Heads-up this is an invite for a late lunch and potentially a p
+ int in celebration of an MSc project completion.\n
+UID:040000008200E00074C5B7101A82E0080000000077E9C0EA8035D401000000000000000
+ 01000000047C18C3220DD1C4FA6C60F18DF143EFC
+SUMMARY:Celebration of road traffic presentation
+DTSTART;TZID=GMT Standard Time:20180911T140000
+DTEND;TZID=GMT Standard Time:20180911T150000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:[Re-circulated as meeting by way of a reminder].\n\n\n\n-----Or
+ iginal Message-----\nFrom: Jennifer Cleaver\nSent: 29 August 2018 10:33\nT
+ o: All TRA Staff <Staff.TRA@ds.leeds.ac.uk<mailto:Staff.TRA@ds.leeds.ac.uk
+ >>\nCc: Andrew Dougill <A.J.Dougill@leeds.ac.uk<mailto:A.J.Dougill@leeds.a
+ c.uk>>\nSubject: Faculty Structures: Discussion Meetings\n\nDear All\,\n\n
+ As we move into a new academic year\, I am writing to reflect on some of t
+ he notable successes of the last year and to guide on key discussions for 
+ the Faculty in moving forward to address forthcoming challenges and opport
+ unities.\n\nLooking back\, I would like to thank you all for the hard work
+  across the last academic year that led to successful graduation for the "
+ Class of 2018" and helped each School to both consolidate their position h
+ igh in global subject standings. Notably\, we saw £46M of new research aw
+ ards across the Faculty last year which will provide exciting opportunitie
+ s to extend our impact and profile in years to come. Importantly\, each Sc
+ hool ended the financial year with a small surplus despite the significant
+  challenges faced due to below plan student recruitment last year.\n\nAs w
+ e approach the 2018/19 academic year\, undergraduate student recruitment l
+ ooks like being close to our planned level for home / EU students (though 
+ with some Programmes showing low numbers).  However\, international studen
+ t recruitment is likely to fall short of planned levels at both UG & PGT l
+ evels (final efforts through September can hopefully help here!). This con
+ tinues the need for us to enhance our efforts facing international partner
+ ships as vital steps to ensure financial sustainability through times of u
+ ncertainty across the HE sector (e.g. due to changing UK demographics\, Br
+ exit and UKRI changes).\n\nForward planning for the Faculty of Environment
+  will link to University level discussions on the future alignment of Facu
+ lty structures as per the VC’s note - https://www.leeds.ac.uk/forstaff/n
+ ews/article/6229/realignment_of_faculties_to_be_c  .\nTo inform such discu
+ ssions and to feed into a University Senate paper on this\, I will be hold
+ ing three open discussion meetings on Faculty structures in the coming wee
+ ks as below:-\n\n-       Thursday 6th September\, 2 p.m. (SEE\, 8.119)\n- 
+       Monday 10th September\, 2 p.m  (SoG\, 8.11)\n-       Wednesday 12th 
+ September\, 2 p.m. (ITS\, 1.11)\n\nPlease attend any of these (ie. not jus
+ t the one hosted in your home School!) for a two-way discussion on the pos
+ sible options for our future positioning within the University’s Faculty
+  governance. Discussion will include consideration of the ways we can best
+  encourage interdisciplinary working across Schools and Faculties to build
+  on existing synergies and maximise new opportunities as part of the Unive
+ rsity vision and strategy beyond 2020.\n\nThanks\,\n\nAndy Dougill\n\nDean
+  of Faculty of Environment\n\n\n\n\n\nFrom: Richard Batley\nSent: 20 Augus
+ t 2018 17:53\nTo: All TRA Staff <Staff.TRA@ds.leeds.ac.uk<mailto:Staff.TRA
+ @ds.leeds.ac.uk>>\nCc: Andrew Dougill <A.J.Dougill@leeds.ac.uk<mailto:A.J.
+ Dougill@leeds.ac.uk>>\; Peter Jimack <P.K.Jimack@leeds.ac.uk<mailto:P.K.Ji
+ mack@leeds.ac.uk>>\nSubject: ITS’s positioning with regards to the Unive
+ rsity’s realignment of faculties and consultation on your views - RESPON
+ SES TO ROBIN MARSH BY 7TH SEPTEMBER\n\nTo all ITS staff.\n\nYour attention
+  is drawn to the attached briefing document.\nYou are invited to submit an
+ y comments to the informal consultation of all ITS staff.\nPlease submit y
+ our comments to Robin Marsh (R.G.Marsh@its.leeds.ac.uk<mailto:R.G.Marsh@it
+ s.leeds.ac.uk>) by close of play on Friday 7th September.\n\nAll the best\
+ ,\n\nRichard.\n\n\n\n\n\n\n
+UID:040000008200E00074C5B7101A82E0080000000090DC0C632249D401000000000000000
+ 01000000097832C6B2C150F48B1413E20B31E0A87
+SUMMARY:REMINDER: Faculty Structures: Discussion Meeting
+DTSTART;TZID=GMT Standard Time:20180912T140000
+DTEND;TZID=GMT Standard Time:20180912T150000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:ITS room 1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:The event will be held on Thursday 13th September 2018\, from 1
+ 1:00am to 4:00pm in the Dental Lecture Theatre on level 6 of the Worsley B
+ uilding on the University of Leeds campus.
+UID:040000008200E00074C5B7101A82E008000000002C81DDB0EC24D401000000000000000
+ 01000000037C3B437E4178F47AC88F636A2B8A30C
+SUMMARY:LIDA Annual Showcase- 13th September *reminder*
+DTSTART;TZID=GMT Standard Time:20180913T110000
+DTEND;TZID=GMT Standard Time:20180913T113000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:SIP-adus Human Factors & HMI Research for Automated Driving Exp
+ eriments on External HMI\n\n\nPresented by Prof Tatsuru Daimon<https://www
+ .st.keio.ac.jp/en/tprofile/ae/daimon.html>\, Keio University\, Japan.\n\nA
+ bstract\nHuman drivers are conducting various communication with periphera
+ l traffic participants such as pedestrians and other drivers in order to i
+ mprove safety and traffic efficiency. For example\, they use eye-contact\,
+  hand-gesture\, etc. However\, how do automated vehicles communicate with 
+ peripheral traffic participants? In this presentation\, we introduce human
+  factors and HMI research for automated driving experiments on external HM
+ I.\n\nBio\nTatsuru Daimon is a professor at Faculty of Science and Technol
+ ogy\, Keio University in Japan. He received Ph.D. degree from Keio Univers
+ ity in 1995. He conducted researches on human factors of car navigations a
+ nd firings of primary neurons of cutaneous sensation as a COE (Center of E
+ xcellence) visiting researcher\, National Institute of Bioscience and Huma
+ n-Technology\, MITI\, Japan\, and visual contents of route guidance system
+  as a foreign researcher of French National Institute for Transport and Sa
+ fety Research in 1995 and 1996 respectively. Since then\, he has researche
+ d human factors and human machine interfaces (HMI) of Intelligent Transpor
+ t Systems (ITS) such as advanced HUD and in-vehicle/roadside cooperative i
+ nformation systems\, based on a simulator and a field experiments in Keio 
+ University. In recent years\, he has been also researching human factors a
+ nd HMI of automated driving systems\, which includes external HMI for comm
+ unication between automated vehicle and surrounding road users.\n\nFurther
+  information and recordings of previous seminars can be found here: www.it
+ s.leeds.ac.uk/about/events/seminar-series/<http://www.its.leeds.ac.uk/abou
+ t/events/seminar-series/>\nAll welcome. No booking required.\n\n\n
+UID:040000008200E00074C5B7101A82E0080000000080BD35716544D401000000000000000
+ 010000000A22FD31853FDD84F8BEC1332B9F3A3BD
+SUMMARY:ITS Research Seminar - SIP-adus Human Factors & HMI Research for Au
+ tomated Driving Experiments on External HMI by Professor Tatsuru Daimon\, 
+ Keio University\, Japan
+DTSTART;TZID=GMT Standard Time:20180917T110000
+DTEND;TZID=GMT Standard Time:20180917T120000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:ITS\, rm 1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Dear all\nYou are invited to attend the first Departmental Meet
+ ing of the new academic year.\nPlease note the minutes from the previous m
+ eeting in May are available on Sharepoint for your reference\n\nRegards\nJ
+ ennifer\n
+UID:040000008200E00074C5B7101A82E00800000000608DED700E07D401000000000000000
+ 010000000C0BD3AFD99BB014DAAED5BEDC00EF957
+SUMMARY:Departmental Meeting
+DTSTART;TZID=GMT Standard Time:20180919T100000
+DTEND;TZID=GMT Standard Time:20180919T110000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Invitation to RAMETS event for PGRs and Staff at LUBS and ITS\n
+ \n•       Wednesday 19th September 2018\, 1-5pm\, Rm 1.11 ITS\, lunch pr
+ ovided\n•       LUBS Economics and ITS speakers (20 mins presentations\,
+  10 mins Q&A)\n\nResearch Applications and Methods for Economics and Trans
+ port Studies (RAMETS) is a collaborative event bringing together PGRs from
+  the Business School Economics Division and Institute for Transport Studie
+ s (ITS) to discuss methods and applications used during the PhD process. E
+ conomics and ITS share many common methods and issues that are closely rel
+ ated from different perspectives and this is an opportunity for PGRs to co
+ me together and learn from each other. Recognising the increasing need for
+  inter-disciplinary research\, this event aims to establish a platform for
+  students and staff alike to find like-minded and potential collaborators\
+ , share experiences and gain alternative approaches to investigate their r
+ esearch topics. RAMETS focuses on quantitative and qualitative methods and
+  applications such as interviews\, surveys\, dynamic modelling and econome
+ tric techniques. Presentations will be given by PGRs and will be focussed 
+ on either a method or an application of a specific method in order to prov
+ ide insight. The purpose is to learn from each other and to share our expe
+ riences.\n\nIf you are interested in giving a presentation or bringing a p
+ oster to the event please contact Tahera Mayat (bn14t2m@leeds.ac.uk<mailto
+ :bn13apy@leeds.ac.uk>) by Friday 31st August 2018.\n\nFor catering purpose
+ s\, please confirm your attendance by Tuesday 11th September.\nDietary req
+ uirements: Vegetarians will be catered for. If you have any other dietary 
+ requirements please contact David Pierce tra5dep@leeds.ac.uk<mailto:tra5de
+ p@leeds.ac.uk> when you confirm attendance.\n\nWith thanks to Organisation
+ al Development and Professional Learning (OD&PL) for funding.\n\n\n\n
+UID:040000008200E00074C5B7101A82E00800000000A071E9CE8D3BD401000000000000000
+ 010000000BBC2549699057645A8AF8CE6359248B7
+SUMMARY:Research Applications and Methods for Economics and Transport Studi
+ es (RAMETS)
+DTSTART;TZID=GMT Standard Time:20180919T130000
+DTEND;TZID=GMT Standard Time:20180919T170000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:ITS Rm 1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:As mentioned previously (as far as I remember) my colleague Lay
+ ik       (cc'd) said he may be able to attend this event on 20th September
+ .
+UID:040000008200E00074C5B7101A82E0080000000043E03C938329D401000000000000000
+ 01000000092C3CF9869C8EC458D719BA8D2BCEA81
+SUMMARY:Re: INGENIOUS FUTURE VISION WORKSHOP
+DTSTART;TZID=GMT Standard Time:20180920T080000
+DTEND;TZID=GMT Standard Time:20180920T083000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:\nPlanning for sustainable and resilient cities:\nImproving dec
+ ision-making through accessibility instruments\n\n\nPresented by Dr Benjam
+ in B<http://www.sv.bgu.tum.de/en/team/dr-ing-benjamin-buettner/>[X]ttner\,
+  Technical University of Munich\, Germany.\n\nDate: Tuesday 9th October 20
+ 18\nTime: 13.30-14.30\nLocation: rm 1.11 Institute for Transport Studies<h
+ ttp://www.its.leeds.ac.uk/map/>\n\nAbstract\nAccessibility is an important
+  concept in regards to the integration of land-use and transport planning.
+  Planning for sustainable and resilient cities requires the consideration 
+ and implementation of accessibility principles. When planning for accessib
+ ility\, it is important to take into account the necessities of multiple s
+ cales of the urban environment as well as the citizens’ needs. This make
+ s it possible to create urban spaces that are livable for everyone.\nThe d
+ ecision-making process needs to be based on sound\, scientific evaluation 
+ of measures and strategies. Politicians and citizens alike need appropriat
+ e tools in order to make informed decisions. Decision-making tools should 
+ help stakeholders understand the effects and magnitude of planned land-use
+  and transportation measures. The potential effects of such measures\, suc
+ h as gentrification\, can significantly impact the lives and wellbeing of 
+ citizens and it is essential that the decision-making process takes this i
+ nto account. How can accessibility instruments foster a sound decision-mak
+ ing process with multiple and diverse stakeholder groups?\n\nBio\nBenjamin
+  Büttner has worked at the Chair of Urban Structure and Transport Plannin
+ g since July 2010. He is a graduated PhD in engineering after having a Ger
+ man Diploma in geography and works currently at the Chair in the fields of
+  accessibility planning\, Governance\, Urban Structure and Neighborhood Mo
+ bility. The focus of his professional skills are urban and transport plann
+ ing\, geo-information systems\, empirical research and survey methods.\n\n
+ All welcome. No booking required.\n\nFor further information about the ITS
+  Research Seminar Series see: www.its.leeds.ac.uk/about/events/seminar-ser
+ ies/<http://www.its.leeds.ac.uk/about/events/seminar-series/>\n\nRecording
+ s of recent seminars include:\n"It's time" in Vancouver – Is equity the 
+ key to resolving the paradox of mobility pricing?<https://mymedia.leeds.ac
+ .uk/Mediasite/Showcase/default/Presentation/825a83352f334051b6e05b8c47f7a3
+ fc1d> by Dr Abraham Leung\, Griffith University\, Australia.\nExploring po
+ rt and mode decisions for grain consolidators in Argentina. A behavioural 
+ model<https://mymedia.leeds.ac.uk/Mediasite/Showcase/default/Presentation/
+ bba7e578bbe64299a0e84708275e58701d> by Rodrigo Tapia<https://www.its.leeds
+ .ac.uk/people/r.tapia>\, ITS\, University of Leeds.\nAn introduction to Pe
+ destrian in the Loop Simulation and the University of Leeds PEDSIM<http://
+ www.its.leeds.ac.uk/fileadmin/documents/seminars/Romano_R_Abstract___Bio_0
+ 1_03_2018.docx> by Professor Richard Romano\, ITS\, University of Leeds\n\
+ n\n\n
+UID:040000008200E00074C5B7101A82E008000000008035BE798F43D401000000000000000
+ 010000000B8399A70121044458D713D0414E0911B
+SUMMARY:ITS Research Seminar - Planning for sustainable and resilient citie
+ s: Improving decision-making through accessibility instruments
+DTSTART;TZID=GMT Standard Time:20181009T133000
+DTEND;TZID=GMT Standard Time:20181009T143000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:ITS rm 1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Heads-up that this is happening\, not sure who will attend but 
+ at least 1 (hopefully more) should be there (I can only make 29th - 30th) 
+ - let me know availability please.\n
+UID:040000008200E00074C5B7101A82E00800000000E755DA842724D401000000000000000
+ 010000000075C63F3872F494EB0514F1E205B8259
+SUMMARY:WHO conference on air pollution and health
+DTSTART;TZID=GMT Standard Time:20181029T090000
+DTEND;TZID=GMT Standard Time:20181031T093000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:Geneva Geneva\, Switzerland
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:\n
+UID:040000008200E00074C5B7101A82E0080000000066CB87FB0E2BD401000000000000000
+ 0100000000F90762778E72245B3A460D14E9DB121
+SUMMARY:[Envnet] Abgesagt: [Esslnet] Call for contributions to “Researchi
+ ng Inequalities” Workshops 2018/19 – IRN/SSP
+DTSTART;TZID=Greenwich Standard Time:20181107T120000
+DTEND;TZID=Greenwich Standard Time:20181107T123000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+SEQUENCE:1
+LOCATION:
+X-MICROSOFT-CDO-APPT-SEQUENCE:1
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:\n
+UID:040000008200E00074C5B7101A82E008000000000060B41E251DD401000000000000000
+ 010000000681C4D79A8871740AE2E6BF47384E323
+SUMMARY:Departmental meeting
+DTSTART;TZID=GMT Standard Time:20181113T110000
+DTEND;TZID=GMT Standard Time:20181113T120000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Dear all\n\nYou are invited to the ITS away day on Wednesday 14
+  November at The Studio\, Leeds<http://studiovenues.co.uk/venues/leeds/>. 
+ Please respond to this invitation as soon as possible\, as we pay per dele
+ gate and also need to let the venue know for catering purposes.\n\nPlease 
+ indicate if you have any dietary requirements by return.\n\nFull details a
+ nd timings will be sent in due course.\n\nKind regards\n\nNatalie Ainswort
+ h\nITS Receptionist\n____________________\nInstitute for Transport Studies
+ \n34-40 University Road\nUniversity of Leeds\, Leeds\, UK\, LS2 9JT\nTel +
+ 44 113 343 5325\n\n
+UID:040000008200E00074C5B7101A82E0080000000020B66356454FD401000000000000000
+ 0100000003CADE044678D8747A992FFA1ADA800FC
+SUMMARY:ITS Away Day
+DTSTART;TZID=GMT Standard Time:20181114T090000
+DTEND;TZID=GMT Standard Time:20181114T170000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:The Studio\, Riverside West\, Leeds\, LS1 4AW
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:\n
+UID:040000008200E00074C5B7101A82E00800000000407C393D251DD401000000000000000
+ 010000000C57BABC8636A6048BBB8B910078ACDBB
+SUMMARY:Departmental Meeting
+DTSTART;TZID=GMT Standard Time:20190116T140000
+DTEND;TZID=GMT Standard Time:20190116T150000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:\n
+UID:040000008200E00074C5B7101A82E0080000000060B968C4251DD401000000000000000
+ 010000000C855C8E0ABE4004E98403CCDADA645D5
+SUMMARY:Departmental meeting
+DTSTART;TZID=GMT Standard Time:20190311T120000
+DTEND;TZID=GMT Standard Time:20190311T130000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20180924T112310Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+LOCATION:1.11
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+END:VEVENT
+END:VCALENDAR
