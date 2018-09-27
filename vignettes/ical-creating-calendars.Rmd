@@ -39,12 +39,13 @@ ic_list(ical_example)[[1]]
 ```
 
 Fortunately you don't need to specify all of these when creating events because some will be created manually and some are not necessary.
-Events can be created as follows:
+Events can be created as follows (this one creates a 5 day trip):
 
 ```{r}
 library(ical)
-s = as.POSIXct("2018-09-27 13:00")
-event = ic_event(start = s, end = s + 60^2, summary = "Minihackathon!")
+s = as.POSIXct("2019-01-12")
+e = s + 60^2 * 24 *5
+event = ic_event(start = s, end = e , summary = "Research trip")
 event
 class(event)
 ic_character(event)
