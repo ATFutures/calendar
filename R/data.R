@@ -67,3 +67,17 @@
 #' # properties_ical[2] <- "PRODID:-//ATFutures/ical //EN"
 #' # usethis::use_data(properties_ical)
 "properties_ical"
+
+#' Convenient datetime formats
+#'
+#'
+#' @examples
+#' formats
+#' formats <- list(
+#'  "ddmmyy"="%d%m%y",
+#'  "ddmmyyyy"="%d%m%Y",
+#'  "ddmmyyyy hh"="%d%m%Y %H",
+#'  "ddmmyyyy hhmm"="%d%m%Y %H%M"
+#' )
+#' # usethis::use_data(datetime_formats)
+"formats"
