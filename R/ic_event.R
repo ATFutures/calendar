@@ -23,7 +23,7 @@
 ic_event <- function(
   uid = ic_guid(),
   start_time = as.POSIXct(round.POSIXt(Sys.time(), units = "hours")),
-  end_time = as.POSIXct(round.POSIXt(Sys.time(), units = "hours") + 1 * 60 * 60),
+  end_time = as.POSIXct(round.POSIXt(Sys.time(), units = "hours") + 1L * 60L * 60L),
   format = "%Y-%m-%d %H:%M",
   summary = "ical event",
   more_properties = FALSE,
