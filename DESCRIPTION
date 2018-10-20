@@ -19,5 +19,6 @@ Suggests:
     rmarkdown
 Imports: 
     methods,
-    tibble
+    tibble,
+    lubridate
 VignetteBuilder: knitr
