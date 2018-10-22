@@ -31,16 +31,25 @@ ic_date <- function(x) {
 
 #' Convert datetime object to character string
 #' @param x datetime object
+#' @param zulu is the datetime in Zulu time?
+#' `FALSE` by default, which means the calendar's current timezone
+#' is used.
 #' @aliases ic_char_date
 #' @export
 #' @examples
+#' x <- ic_datetime("20180809T160000")
+#' ic_char_datetime(x) == "20180809T160000"
 #' x <- ic_datetime("20180809T160000Z")
-#' ic_char_datetime(x) == "20180809T160000Z"
+#' ic_char_datetime(x, zulu = TRUE) == "20180809T160000Z"
 #' ic_char_date(as.Date("1985-12-26"))
-ic_char_datetime = function(x) {
+ic_char_datetime = function(x, zulu = FALSE) {
   yr <- format.POSIXct(x, "%Y%m%d")
   ti <- format.POSIXct(x, "%H%M%S")
-  paste0(yr, "T", ti, "Z")
+  yr_ti <- paste0(yr, "T", ti)
+  if(zulu) {
+    yr_ti <- paste0(yr_ti, "Z")
+  }
+  yr_ti
 }
 #' @export
 ic_char_date = function(x) {

@@ -5,16 +5,22 @@
 \alias{ic_char_date}
 \title{Convert datetime object to character string}
 \usage{
-ic_char_datetime(x)
+ic_char_datetime(x, zulu = FALSE)
 }
 \arguments{
 \item{x}{datetime object}
+
+\item{zulu}{is the datetime in Zulu time?
+\code{FALSE} by default, which means the calendar's current timezone
+is used.}
 }
 \description{
 Convert datetime object to character string
 }
 \examples{
+x <- ic_datetime("20180809T160000")
+ic_char_datetime(x) == "20180809T160000"
 x <- ic_datetime("20180809T160000Z")
-ic_char_datetime(x) == "20180809T160000Z"
+ic_char_datetime(x, zulu = TRUE) == "20180809T160000Z"
 ic_char_date(as.Date("1985-12-26"))
 }
