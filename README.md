@@ -29,9 +29,9 @@ Wales.
 devtools::install_github("ATFutures/calendar")
 #> 
 #>   
-   checking for file ‘/tmp/RtmpwzY584/remotes38dd6de9bcb9/ATFutures-calendar-e2000d3/DESCRIPTION’ ...
+   checking for file ‘/tmp/RtmpUo2xSu/remotes399c66bda4f6/ATFutures-calendar-ab5b4cb/DESCRIPTION’ ...
   
-✔  checking for file ‘/tmp/RtmpwzY584/remotes38dd6de9bcb9/ATFutures-calendar-e2000d3/DESCRIPTION’
+✔  checking for file ‘/tmp/RtmpUo2xSu/remotes399c66bda4f6/ATFutures-calendar-ab5b4cb/DESCRIPTION’
 #> 
   
 ─  preparing ‘calendar’:
