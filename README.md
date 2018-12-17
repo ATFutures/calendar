@@ -3,7 +3,7 @@
 likely to
 change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
-status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
+status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -27,33 +27,6 @@ Wales.
 
 ``` r
 devtools::install_github("ATFutures/calendar")
-#> 
-#>   
-   checking for file ‘/tmp/RtmpUo2xSu/remotes399c66bda4f6/ATFutures-calendar-ab5b4cb/DESCRIPTION’ ...
-  
-✔  checking for file ‘/tmp/RtmpUo2xSu/remotes399c66bda4f6/ATFutures-calendar-ab5b4cb/DESCRIPTION’
-#> 
-  
-─  preparing ‘calendar’:
-#> 
-  
-   checking DESCRIPTION meta-information ...
-  
-✔  checking DESCRIPTION meta-information
-#> 
-  
-─  checking for LF line-endings in source and make files and shell scripts
-#> 
-  
-─  checking for empty or unneeded directories
-#> ─  looking to see if a ‘data/datalist’ file should be added
-#> 
-  
-─  building ‘calendar_0.0.0.9000.tar.gz’
-#> 
-  
-   
-#> 
 ```
 
 ``` r
@@ -198,3 +171,5 @@ my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
   - A JavaScript package by Mozilla:
     <https://github.com/mozilla-comm/ical.js/>
   - Ruby library: <https://github.com/icalendar/icalendar>
+  - The ical R package on CRAN for reading .ics files:
+    <https://github.com/petermeissner/ical>
