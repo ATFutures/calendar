@@ -1,5 +1,5 @@
 ---
-title: "Creating calendars with ical and R"
+title: "Creating calendars with calendar"
 author: "Robin Lovelace"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-**ical** allows you to read-in 'ical files' (which typically have the `.ics` filetype) with `ic_read()`.
+**calendar** allows you to read-in 'ical files' (which typically have the `.ics` filetype) with `ic_read()`.
 However, often it's useful to create your own `ical` object from scratch.
 The purpose of this vignette is to show how, with reference to a real-world application: creating a timetable for a new module.
 
@@ -42,7 +42,7 @@ Fortunately you don't need to specify all of these when creating events because 
 Events can be created as follows (this one creates a 5 day trip):
 
 ```{r}
-library(ical)
+library(calendar)
 s = as.POSIXct("2019-01-12")
 e = s + 60^2 * 24 *5
 event = ic_event(start = s, end = e , summary = "Research trip")
