@@ -4,7 +4,7 @@
 #' @return object of class ics
 #' @export
 #' @examples
-#' f <- system.file("extdata", "england-and-wales.ics", package = "ical")
+#' f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 #' ics_df = ic_read(f)
 #' head(ics_df)
 ic_read <- function(file) {
@@ -30,9 +30,9 @@ ic_read <- function(file) {
 #' @examples
 #' ic <- ical(ical_example)
 #' ic_write(ic, "ic.ics")
-#' f <- system.file("extdata", "example.ics", package = "ical")
+#' f <- system.file("extdata", "example.ics", package = "calendar")
 #' identical(readLines("ic.ics"), readLines(f))
-#' f <- system.file("extdata", "england-and-wales.ics", package = "ical")
+#' f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 #' ics_df <- ic_read(f)
 #' ic_write(ics_df, "ic.ics")
 #' # test similarity between files with diff tool like meld - from shell:

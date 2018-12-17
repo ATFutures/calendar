@@ -8,12 +8,12 @@
 #' after `start_time` or an datetime object (of class `POSIXct`) when
 #' the event ends. By default set to `1`, meaning 1 hour after `start_time`.
 #' @param format required if start_time and end_time are vectors and are not of datetime format
-#' "\%Y-\%m-\%d \%H:\%M", you can use `ical::formats` object for convenience.
+#' "\%Y-\%m-\%d \%H:\%M", you can use `calendar::formats` object for convenience.
 #' @param summary short outline of the event
 #' @param more_properties add placeholder columns for properties in addition to `properties_core`,
 #' dy default `FALSE`
 #' @param event_properties named vector of additional properties to include, by default
-#' with names `ical::properties` containing `NA`s to be subsequently populated
+#' with names `calendar::properties` containing `NA`s to be subsequently populated
 #' @format in case of start_time and end_time being character values, a format must be provided.
 #'
 #' @return object of class ics
@@ -25,7 +25,7 @@
 #' # also accepts this format by default, thanks to lubridate::ymd_h:
 #' ic_event(start_time = "2019-01-01 00")
 #' ic_event(more_properties = TRUE)
-#' ic_event(start_time = "18-10-12", end_time = "18-10-13", format = ical::formats$`yy-mm-dd`)
+#' ic_event(start_time = "18-10-12", end_time = "18-10-13", format = calendar::formats$`yy-mm-dd`)
 ic_event <- function(
                      uid = ic_guid(),
                      start_time = as.POSIXct(round.POSIXt(Sys.time(), units = "hours")),
@@ -33,7 +33,7 @@ ic_event <- function(
                      format = "%Y-%m-%d %H:%M",
                      summary = "ical event",
                      more_properties = FALSE,
-                     event_properties = ical::properties) {
+                     event_properties = calendar::properties) {
   posixct <- "POSIXct"
   # inputs
   if (is.na(summary) | summary == "NA") {
@@ -73,17 +73,17 @@ ic_event <- function(
   end_time_char <- ic_char_datetime(end_time)
   event_values <- c(uid, start_time_char, end_time_char, summary)
   # TODO: add DTSART and DTEND TZID types
-  if (identical(event_properties, ical::properties)) {
+  if (identical(event_properties, calendar::properties)) {
     # just moving this out of the method signature.
     stats::setNames(
       rep(
         NA,
-        length(setdiff(ical::properties, ical::properties_core))
+        length(setdiff(calendar::properties, calendar::properties_core))
       ),
-      nm = setdiff(ical::properties, ical::properties_core)
+      nm = setdiff(calendar::properties, calendar::properties_core)
     )
   }
-  event <- paste(ical::properties_core, event_values, sep = ":")
+  event <- paste(calendar::properties_core, event_values, sep = ":")
   if (more_properties) {
     the_rest <- paste(names(event_properties), event_properties, sep = ":")
   } else {
@@ -91,7 +91,7 @@ ic_event <- function(
   }
   ical(
     c(
-      ical::properties_ical,
+      calendar::properties_ical,
       "BEGIN:VEVENT",
       event,
       the_rest,

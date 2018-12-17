@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-[![Travis build status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
+[![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -15,9 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ical
+# calendar
 
-The goal of ical is to work with iCalander (`.ics`, `.ical` or similar) files in R.
+The goal of calendar is to work with iCalander (`.ics`, `.ical` or similar) files in R.
 iCalendar is an open standard for
 "exchanging calendar and scheduling information between users and computers"
 described at [icalendar.org](https://icalendar.org/) (the full spec can be found in a 
@@ -28,18 +28,18 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 
 ## Installation
 
-```{r, message=FALSE}
-devtools::install_github("ATFutures/ical")
+```{r, message=FALSE, eval=FALSE}
+devtools::install_github("ATFutures/calendar")
 ```
 
 ```{r}
-library(ical)
+library(calendar)
 ```
 
-<!-- You can install the released version of ical from [CRAN](https://CRAN.R-project.org) with: -->
+<!-- You can install the released version of calendar from [CRAN](https://CRAN.R-project.org) with: -->
 
 <!-- ``` r -->
-<!-- install.packages("ical") -->
+<!-- install.packages("calendar") -->
 <!-- ``` -->
 
 ## Example
@@ -62,7 +62,7 @@ A larger example shows all national holidays in England and Wales.
 It can be read-in as follows:
 
 ```{r example}
-ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
+ics_file <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 ics_raw = readLines(ics_file) 
 head(ics_raw) # check it's in the ICS format
 ```

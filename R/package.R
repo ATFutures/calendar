@@ -7,5 +7,5 @@
 #' The `ical` package is for interacting with such files
 #'
 #' @docType package
-#' @name ical
+#' @name calendar
 NULL

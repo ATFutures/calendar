@@ -1,4 +1,4 @@
-Package: ical
+Package: calendar
 Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
 Authors@R: c(
@@ -12,7 +12,7 @@ License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests: 
     testthat,
     knitr,
