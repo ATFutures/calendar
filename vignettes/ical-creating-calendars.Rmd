@@ -20,10 +20,10 @@ knitr::opts_chunk$set(
 However, often it's useful to create your own `ical` object from scratch.
 The purpose of this vignette is to show how, with reference to a real-world application: creating a timetable for a new module.
 
-It assumes you've installed the package following instructions in the [README](https://github.com/ATFutures/ical#installation) and have attached it as follows:
+It assumes you've installed the package following instructions in the [README](https://github.com/ATFutures/calendar#installation) and have attached it as follows:
 
 ```{r}
-library(ical)
+library(calendar)
 ```
 
 
