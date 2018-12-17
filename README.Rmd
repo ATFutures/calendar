@@ -2,6 +2,7 @@
 output: github_document
 ---
 
+[![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -28,7 +29,7 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 
 ## Installation
 
-```{r, message=FALSE, eval=FALSE}
+```{r, message=FALSE}
 devtools::install_github("ATFutures/calendar")
 ```
 

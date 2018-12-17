@@ -1,16 +1,20 @@
 
+[![The API of a maturing package has been roughed out, but finer details
+likely to
+change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
-status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
+status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ical
+# calendar
 
-The goal of ical is to work with iCalander (`.ics`, `.ical` or similar)
-files in R. iCalendar is an open standard for “exchanging calendar and
-scheduling information between users and computers” described at
-[icalendar.org](https://icalendar.org/) (the full spec can be found in a
-plain text file [here](https://tools.ietf.org/rfc/rfc5545.txt)).
+The goal of calendar is to work with iCalander (`.ics`, `.ical` or
+similar) files in R. iCalendar is an open standard for “exchanging
+calendar and scheduling information between users and computers”
+described at [icalendar.org](https://icalendar.org/) (the full spec can
+be found in a plain text file
+[here](https://tools.ietf.org/rfc/rfc5545.txt)).
 
 Recently the UK Government endorsed the iCal format in a
 [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events)
@@ -22,18 +26,45 @@ Wales.
 ## Installation
 
 ``` r
-devtools::install_github("ATFutures/ical")
+devtools::install_github("ATFutures/calendar")
+#> 
+#>   
+   checking for file ‘/tmp/RtmpwzY584/remotes38dd6de9bcb9/ATFutures-calendar-e2000d3/DESCRIPTION’ ...
+  
+✔  checking for file ‘/tmp/RtmpwzY584/remotes38dd6de9bcb9/ATFutures-calendar-e2000d3/DESCRIPTION’
+#> 
+  
+─  preparing ‘calendar’:
+#> 
+  
+   checking DESCRIPTION meta-information ...
+  
+✔  checking DESCRIPTION meta-information
+#> 
+  
+─  checking for LF line-endings in source and make files and shell scripts
+#> 
+  
+─  checking for empty or unneeded directories
+#> ─  looking to see if a ‘data/datalist’ file should be added
+#> 
+  
+─  building ‘calendar_0.0.0.9000.tar.gz’
+#> 
+  
+   
+#> 
 ```
 
 ``` r
-library(ical)
+library(calendar)
 ```
 
-<!-- You can install the released version of ical from [CRAN](https://CRAN.R-project.org) with: -->
+<!-- You can install the released version of calendar from [CRAN](https://CRAN.R-project.org) with: -->
 
 <!-- ``` r -->
 
-<!-- install.packages("ical") -->
+<!-- install.packages("calendar") -->
 
 <!-- ``` -->
 
@@ -83,7 +114,7 @@ can be read-in as
 follows:
 
 ``` r
-ics_file <- system.file("extdata", "england-and-wales.ics", package = "ical")
+ics_file <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 ics_raw = readLines(ics_file) 
 head(ics_raw) # check it's in the ICS format
 #> [1] "BEGIN:VCALENDAR"                     
@@ -124,14 +155,14 @@ in progress):
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
 #> # A tibble: 6 x 6
-#>   `DTEND;VALUE=DAT… `DTSTART;VALUE=D… SUMMARY  UID       SEQUENCE DTSTAMP 
-#>   <date>            <date>            <chr>    <chr>     <chr>    <chr>   
-#> 1 2012-01-03        2012-01-02        New Yea… ca6af745… 0        2018080…
-#> 2 2012-04-07        2012-04-06        Good Fr… ca6af745… 0        2018080…
-#> 3 2012-04-10        2012-04-09        Easter … ca6af745… 0        2018080…
-#> 4 2012-05-08        2012-05-07        Early M… ca6af745… 0        2018080…
-#> 5 2012-06-05        2012-06-04        Spring … ca6af745… 0        2018080…
-#> 6 2012-06-06        2012-06-05        Queen’s… ca6af745… 0        2018080…
+#>   `DTEND;VALUE=DAT… `DTSTART;VALUE=D… SUMMARY   UID       SEQUENCE DTSTAMP 
+#>   <date>            <date>            <chr>     <chr>     <chr>    <chr>   
+#> 1 2012-01-03        2012-01-02        New Year… ca6af745… 0        2018080…
+#> 2 2012-04-07        2012-04-06        Good Fri… ca6af745… 0        2018080…
+#> 3 2012-04-10        2012-04-09        Easter M… ca6af745… 0        2018080…
+#> 4 2012-05-08        2012-05-07        Early Ma… ca6af745… 0        2018080…
+#> 5 2012-06-05        2012-06-04        Spring b… ca6af745… 0        2018080…
+#> 6 2012-06-06        2012-06-05        Queen’s … ca6af745… 0        2018080…
 ```
 
 What class is each column?
