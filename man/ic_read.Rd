@@ -16,7 +16,7 @@ object of class ics
 Read ics file
 }
 \examples{
-f <- system.file("extdata", "england-and-wales.ics", package = "ical")
+f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 ics_df = ic_read(f)
 head(ics_df)
 }

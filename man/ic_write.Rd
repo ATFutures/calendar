@@ -17,9 +17,9 @@ Write ics file
 \examples{
 ic <- ical(ical_example)
 ic_write(ic, "ic.ics")
-f <- system.file("extdata", "example.ics", package = "ical")
+f <- system.file("extdata", "example.ics", package = "calendar")
 identical(readLines("ic.ics"), readLines(f))
-f <- system.file("extdata", "england-and-wales.ics", package = "ical")
+f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 ics_df <- ic_read(f)
 ic_write(ics_df, "ic.ics")
 # test similarity between files with diff tool like meld - from shell:

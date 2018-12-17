@@ -1,4 +1,4 @@
 library(testthat)
-library(ical)
+library(calendar)
 
-test_check("ical")
+test_check("calendar")
