@@ -4,7 +4,9 @@
 \alias{ic_attributes_vec}
 \title{Extract attributes from ical text}
 \usage{
-ic_attributes_vec(x)
+ic_attributes_vec(x = NULL, ic_attributes = c(BEGIN = "VCALENDAR",
+  PRODID = "ATFutures/calendar", VERSION = "2.0", CALSCALE = "GREGORIAN",
+  METHOD = "PUBLISH"))
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
@@ -13,5 +15,6 @@ ic_attributes_vec(x)
 Extract attributes from ical text
 }
 \examples{
+ic_attributes_vec() # default attributes (can be changed)
 ic_attributes_vec(ical_example)
 }
