@@ -27,9 +27,9 @@ ical <- function(x) {
         "x must contain column names: ",
         paste0(calendar::properties_core, collapse = ", ")
       ))
-      ical_tibble <- tibble::as_tibble(x)
-      attr(ical_tibble, "ical") <- ic_attributes_vec()
     }
+    ical_tibble <- tibble::as_tibble(x)
+    attr(ical_tibble, "ical") <- ic_attributes_vec()
   }
   class(ical_tibble) <- c("ical", class(ical_tibble))
   ical_tibble
