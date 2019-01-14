@@ -3,7 +3,7 @@ output: github_document
 ---
 
 [![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build status](https://travis-ci.org/ATFutures/ical.svg?branch=master)](https://travis-ci.org/ATFutures/ical)
+[![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
