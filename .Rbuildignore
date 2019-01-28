@@ -8,3 +8,6 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^\.travis\.yml$
+^ic\.ics$
+^l\.ics$
+^l2\.ics$
