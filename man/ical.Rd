@@ -4,16 +4,25 @@
 \alias{ical}
 \title{Create object of class ical}
 \usage{
-ical(x)
+ical(x, ic_attributes = NULL)
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
+
+\item{ic_attributes}{Calendar attributes, e.g. as provided by \code{ic_attributes_vec()}.}
 }
 \description{
 Create object of class ical
 }
 \examples{
+# ical from .ics characters:
+class(ical_example)
 ic <- ical(ical_example)
-class(ic)
 attributes(ic)
+class(ic)
+# ical from data frame:
+ic_df <- data.frame(ic)
+ic2 <- ical(ic_df)
+class(ic2)
+attributes(ic2)
 }

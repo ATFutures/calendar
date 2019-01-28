@@ -1,24 +1,69 @@
 #' Create object of class ical
 #'
 #' @inheritParams ic_find
+#' @param ic_attributes Calendar attributes, e.g. as provided by `ic_attributes_vec()`.
 #' @export
 #' @examples
+#' # ical from .ics characters:
+#' class(ical_example)
 #' ic <- ical(ical_example)
-#' class(ic)
 #' attributes(ic)
-ical <- function(x) {
-  ical_df <- ic_dataframe(x)
-  ical_tibble <- tibble::as_data_frame(ical_df)
+#' class(ic)
+#' # ical from data frame:
+#' ic_df <- data.frame(ic)
+#' ic2 <- ical(ic_df)
+#' class(ic2)
+#' attributes(ic2)
+ical <- function(x, ic_attributes = NULL) {
+  is_df <- is.data.frame(x)
+  if(methods::is(x, "character")) {
+    ical_df <- ic_dataframe(x)
+    ical_tibble <- tibble::as_tibble(ical_df)
+    if(is.null(ic_attributes)) {
+      attr(ical_tibble, "ical") <- ic_attributes_vec(x)
+    } else {
+      attr(ical_tibble, "ical") <- ic_attributes
+    }
+
+  } else {
+    if(!is_df) stop("x must be a data frame or charcter strings")
+    n <- names(x)
+    is_core = calendar::properties_core %in% n
+    if(!all(is_core)) {
+      stop(paste0(
+        "x must contain column names: ",
+        paste0(calendar::properties_core, collapse = ", ")
+      ))
+    }
+    ical_tibble <- tibble::as_tibble(x)
+    if(is.null(ic_attributes)) {
+      attr(ical_tibble, "ical") <- ic_attributes_vec()
+    } else {
+      attr(ical_tibble, "ical") <- ic_attributes
+    }
+  }
   class(ical_tibble) <- c("ical", class(ical_tibble))
-  attr(ical_tibble, "ical") <- ic_attributes_vec(x)
   ical_tibble
 }
 #' Extract attributes from ical text
-#' @inheritParams ic_find
+#' @inheritParams ical
 #' @export
 #' @examples
+#' ic_attributes_vec() # default attributes (can be changed)
 #' ic_attributes_vec(ical_example)
-ic_attributes_vec <- function(x) {
+ic_attributes_vec <- function(
+  x = NULL,
+  ic_attributes = c(
+    BEGIN = "VCALENDAR",
+    PRODID = "ATFutures/calendar",
+    VERSION = "2.0",
+    CALSCALE = "GREGORIAN",
+    METHOD = "PUBLISH"
+    )
+  ) {
+  if(is.null(x)) {
+    return(ic_attributes)
+  }
   line_first_event <- grep("BEGIN:VEVENT", x)[1]
   x_attributes <- x[1:(line_first_event - 1)]
   ic_vector(x_attributes, pattern = "*")
