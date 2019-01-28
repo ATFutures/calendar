@@ -12,8 +12,9 @@
 #' @param summary short outline of the event
 #' @param more_properties add placeholder columns for properties in addition to `properties_core`,
 #' dy default `FALSE`
-#' @param event_properties named vector of additional properties to include, by default
-#' with names `calendar::properties` containing `NA`s to be subsequently populated
+#' @param event_properties named vector of additional properties to include. By default
+#' These include names stored in the data object `properties` (a packaged dataset),
+#' containing `NA`s to be subsequently populated.
 #' @format in case of start_time and end_time being character values, a format must be provided.
 #'
 #' @return object of class ics

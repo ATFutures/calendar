@@ -28,8 +28,9 @@ the event ends. By default set to \code{1}, meaning 1 hour after \code{start_tim
 \item{more_properties}{add placeholder columns for properties in addition to \code{properties_core},
 dy default \code{FALSE}}
 
-\item{event_properties}{named vector of additional properties to include, by default
-with names \code{calendar::properties} containing \code{NA}s to be subsequently populated}
+\item{event_properties}{named vector of additional properties to include. By default
+These include names stored in the data object \code{properties} (a packaged dataset),
+containing \code{NA}s to be subsequently populated.}
 }
 \value{
 object of class ics
