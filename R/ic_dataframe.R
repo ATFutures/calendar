@@ -12,7 +12,14 @@
 #' x = readLines(ics_file)
 #' x_df = ic_dataframe(x)
 #' head(x_df)
+#' x = data.frame(x_df)
+#' x_df2 = ic_dataframe(x)
+#' identical(x, x_df2)
 ic_dataframe <- function(x) {
+
+  if(methods::is(object = x, class2 = "data.frame")) {
+    return(x)
+  }
 
   stopifnot(methods::is(object = x, class2 = "character") | methods::is(object = x, class2 = "list"))
 

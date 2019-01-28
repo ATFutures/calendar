@@ -10,6 +10,8 @@ ic_attributes_vec(x = NULL, ic_attributes = c(BEGIN = "VCALENDAR",
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
+
+\item{ic_attributes}{Calendar attributes, e.g. as provided by \code{ic_attributes_vec()}.}
 }
 \description{
 Extract attributes from ical text

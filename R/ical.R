@@ -1,6 +1,7 @@
 #' Create object of class ical
 #'
 #' @inheritParams ic_find
+#' @param ic_attributes Calendar attributes, e.g. as provided by `ic_attributes_vec()`.
 #' @export
 #' @examples
 #' # ical from .ics characters:
@@ -12,12 +13,18 @@
 #' ic_df <- data.frame(ic)
 #' ic2 <- ical(ic_df)
 #' class(ic2)
-ical <- function(x) {
+#' attributes(ic2)
+ical <- function(x, ic_attributes = NULL) {
   is_df <- is.data.frame(x)
   if(methods::is(x, "character")) {
     ical_df <- ic_dataframe(x)
     ical_tibble <- tibble::as_tibble(ical_df)
-    attr(ical_tibble, "ical") <- ic_attributes_vec(x)
+    if(is.null(ic_attributes)) {
+      attr(ical_tibble, "ical") <- ic_attributes_vec(x)
+    } else {
+      attr(ical_tibble, "ical") <- ic_attributes
+    }
+
   } else {
     if(!is_df) stop("x must be a data frame or charcter strings")
     n <- names(x)
@@ -29,13 +36,17 @@ ical <- function(x) {
       ))
     }
     ical_tibble <- tibble::as_tibble(x)
-    attr(ical_tibble, "ical") <- ic_attributes_vec()
+    if(is.null(ic_attributes)) {
+      attr(ical_tibble, "ical") <- ic_attributes_vec()
+    } else {
+      attr(ical_tibble, "ical") <- ic_attributes
+    }
   }
   class(ical_tibble) <- c("ical", class(ical_tibble))
   ical_tibble
 }
 #' Extract attributes from ical text
-#' @inheritParams ic_find
+#' @inheritParams ical
 #' @export
 #' @examples
 #' ic_attributes_vec() # default attributes (can be changed)
