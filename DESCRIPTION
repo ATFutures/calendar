@@ -1,13 +1,16 @@
 Package: calendar
-Title: Create, Read, Write, and Work With 'iCalander' Files and Scheduling Data
+Title: Create, Read, Write, and Work with 'iCalander' Files and Scheduling
+Data
 Version: 0.0.1
 Authors@R: c(
     person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0001-5679-6536")),
-    person("Layik", "Hama", comment="First package!", role = c("ctb"))
+    person("Layik", "Hama", email = "layik.hama@gmail.com", role = c("aut"),
+      comment = c(ORCID = "0000-0003-1912-4890"))
     )
 Description: Provides function to create, read, write, and work with 'iCalander' files
-  (which typically have '.ics' or '.ical' extensions), and the scheduling data they represent.
+  (which typically have '.ics' or '.ical' extensions), and the scheduling data,
+  calendars and timelines of people, organisations and other entities that they represent.
   'iCalendar' is an open standard for
   exchanging calendar and scheduling information between users and computers, 
   described at <https://icalendar.org/>.
