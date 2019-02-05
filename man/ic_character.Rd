@@ -16,5 +16,4 @@ Convert ical object to character strings of attributes
 ic <- ical(ical_example)
 ic_character(ic)
 identical(ical_example, ic_character(ic))
-# ic_character(ic[c(1, 1), ]) # multiple events
 }

@@ -29,15 +29,14 @@ ic_read <- function(file) {
 #' @export
 #' @examples
 #' ic <- ical(ical_example)
-#' ic_write(ic, "ic.ics")
+#' ic_write(ic, file.path(tempdir(), "ic.ics"))
 #' f <- system.file("extdata", "example.ics", package = "calendar")
 #' identical(readLines("ic.ics"), readLines(f))
 #' f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 #' ics_df <- ic_read(f)
-#' ic_write(ics_df, "ic.ics")
+#' ic_write(ics_df, file.path(tempdir(), "ic.ics"))
 #' # test similarity between files with diff tool like meld - from shell:
 #' # meld ic.ics inst/extdata/england-and-wales.ics
-#' file.remove("ic.ics")
 ic_write <- function(ic, file) {
   ic_char <- ic_character(ic)
   writeLines(ic_char, file)

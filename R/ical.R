@@ -76,7 +76,6 @@ ic_attributes_vec <- function(
 #' ic <- ical(ical_example)
 #' ic_character(ic)
 #' identical(ical_example, ic_character(ic))
-#' # ic_character(ic[c(1, 1), ]) # multiple events
 ic_character <- function(ic) {
   char_attributes <- paste(names(attributes(ic)$ical), attributes(ic)$ical, sep = ":")
   char_events <- ic_char_event(ic)
