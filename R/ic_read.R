@@ -31,7 +31,7 @@ ic_read <- function(file) {
 #' ic <- ical(ical_example)
 #' ic_write(ic, file.path(tempdir(), "ic.ics"))
 #' f <- system.file("extdata", "example.ics", package = "calendar")
-#' identical(readLines("ic.ics"), readLines(f))
+#' identical(readLines(file.path(tempdir(), "ic.ics")), readLines(f))
 #' f <- system.file("extdata", "england-and-wales.ics", package = "calendar")
 #' ics_df <- ic_read(f)
 #' ic_write(ics_df, file.path(tempdir(), "ic.ics"))
