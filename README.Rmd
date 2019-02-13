@@ -1,7 +1,7 @@
 ---
 output: github_document
 ---
-
+[![](http://www.r-pkg.org/badges/version/calendar)](http://www.r-pkg.org/pkg/calendar)
 [![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
 
