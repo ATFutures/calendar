@@ -1,8 +1,6 @@
 
-[![](http://www.r-pkg.org/badges/version/calendar)](http://www.r-pkg.org/pkg/calendar)
-[![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar)
+[![](http://www.r-pkg.org/badges/version/calendar)](http://www.r-pkg.org/pkg/calendar) [![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar) [![Coverage status](https://codecov.io/gh/ATFutures/calendar/branch/master/graph/badge.svg)](https://codecov.io/github/ATFutures/calendar?branch=master) <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 calendar
 ========
 
