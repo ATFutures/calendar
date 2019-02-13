@@ -28,7 +28,11 @@ Recently the UK Government endorsed the iCal format in a [publication](https://w
 [An example .ics file](https://www.gov.uk/bank-holidays/england-and-wales.ics) is provided by the .gov.uk domain, which shows holidays in England and Wales.
 
 ## Installation
+```{r install-cran, eval=FALSE}
+install.packages("calendar")
+```
 
+Or install the cutting edge from GitHub
 ```{r, message=FALSE, results='hide'}
 devtools::install_github("ATFutures/calendar")
 ```
