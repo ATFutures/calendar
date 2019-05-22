@@ -1,6 +1,7 @@
 #' Create object of class ical
 #'
 #' @inheritParams ic_find
+#' @param x A data frame or character object from an `.ics` representing a calendar
 #' @param ic_attributes Calendar attributes, e.g. as provided by `ic_attributes_vec()`.
 #' @export
 #' @examples
@@ -15,35 +16,27 @@
 #' class(ic2)
 #' attributes(ic2)
 ical <- function(x, ic_attributes = NULL) {
-  is_df <- is.data.frame(x)
-  if(methods::is(x, "character")) {
-    ical_df <- ic_dataframe(x)
-    ical_tibble <- tibble::as_tibble(ical_df)
-    if(is.null(ic_attributes)) {
-      attr(ical_tibble, "ical") <- ic_attributes_vec(x)
-    } else {
-      attr(ical_tibble, "ical") <- ic_attributes
-    }
-
+  UseMethod("ical")
+}
+ical.character <- function(x, ic_attributes = NULL) {
+  ical_df <- ic_dataframe(x)
+  ical_tibble <- tibble::as_tibble(ical_df)
+  if(is.null(ic_attributes)) {
+    attr(ical_tibble, "ical") <- ic_attributes_vec(x)
   } else {
-    if(!is_df) stop("x must be a data frame or charcter strings")
-    n <- names(x)
-    is_core = calendar::properties_core %in% n
-    if(!all(is_core)) {
-      stop(paste0(
-        "x must contain column names: ",
-        paste0(calendar::properties_core, collapse = ", ")
-      ))
-    }
-    ical_tibble <- tibble::as_tibble(x)
-    if(is.null(ic_attributes)) {
-      attr(ical_tibble, "ical") <- ic_attributes_vec()
-    } else {
-      attr(ical_tibble, "ical") <- ic_attributes
-    }
+    attr(ical_tibble, "ical") <- ic_attributes
   }
+
   class(ical_tibble) <- c("ical", class(ical_tibble))
   ical_tibble
+}
+ical.data.frame <- function(x, ic_attributes = NULL){
+  ical_tibble <- tibble::as_tibble(x)
+  if(is.null(ic_attributes)) {
+    attr(ical_tibble, "ical") <- ic_attributes_vec()
+  } else {
+    attr(ical_tibble, "ical") <- ic_attributes
+  }
 }
 #' Extract attributes from ical text
 #' @inheritParams ical
