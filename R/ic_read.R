@@ -8,7 +8,7 @@
 #' ics_df = ic_read(f)
 #' head(ics_df)
 ic_read <- function(file) {
-  x <- iconv(readLines(url, encoding = 'UTF-8'), 'UTF-8', 'UTF-8', sub = '')
+  x <- iconv(readLines(file, encoding = 'UTF-8'), 'UTF-8', 'UTF-8', sub = '')
   y <- c()
   for (line in x) {
     # concatenate multilines to single line
