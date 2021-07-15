@@ -26,6 +26,7 @@ ic_read <- function(file) {
 #'
 #' @inheritParams ic_character
 #' @param file ics file to write
+#' @param ic_attributes Calendar attributes, only used if argument to ic is coerced to an ical object.
 #' @export
 #' @examples
 #' ic <- ical(ical_example)
@@ -37,7 +38,10 @@ ic_read <- function(file) {
 #' ic_write(ics_df, file.path(tempdir(), "ic.ics"))
 #' # test similarity between files with diff tool like meld - from shell:
 #' # meld ic.ics inst/extdata/england-and-wales.ics
-ic_write <- function(ic, file) {
-  ic_char <- ic_character(ic)
+ic_write <- function(ic, file, ic_attributes = NULL, zulu = FALSE) {
+  if (!inherits(ic, "ical")) {
+    ic <- ical(ic, ic_attributes)
+  }
+  ic_char <- ic_character(ic, zulu)
   writeLines(ic_char, file)
 }
