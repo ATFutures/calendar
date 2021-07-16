@@ -8,7 +8,7 @@
 #' after `start_time` or an datetime object (of class `POSIXct`) when
 #' the event ends. By default set to `1`, meaning 1 hour after `start_time`.
 #' @param format required if start_time and end_time are vectors and are not of datetime format
-#' "\%Y-\%m-\%d \%H:\%M", you can use `calendar::formats` object for convenience.
+#' "%Y-%m-%d %H:%M", you can use `calendar::formats` object for convenience.
 #' @param summary short outline of the event
 #' @param more_properties add placeholder columns for properties in addition to `properties_core`,
 #' dy default `FALSE`

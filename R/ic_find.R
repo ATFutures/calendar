@@ -1,6 +1,5 @@
 #' Find contents of iCal fields
 #'
-#' @inheritParams ic_read
 #' @param x Lines read-in in from an iCal file
 #' @param pattern A text string to search from (an ical field)
 #'
