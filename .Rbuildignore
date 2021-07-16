@@ -16,3 +16,4 @@
 ^l2\.ics$
 ^NEWS\.md$
 ^\.github$
+^pkgdown$
