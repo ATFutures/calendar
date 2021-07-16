@@ -1,5 +1,5 @@
 
-[![](http://www.r-pkg.org/badges/version/calendar)](http://www.r-pkg.org/pkg/calendar) [![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing) [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar) [![Coverage status](https://codecov.io/gh/ATFutures/calendar/branch/master/graph/badge.svg)](https://codecov.io/github/ATFutures/calendar?branch=master) <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![](http://www.r-pkg.org/badges/version/calendar)](https://www.r-pkg.org:443/pkg/calendar) [![The API of a maturing package has been roughed out, but finer details likely to change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html) [![Travis build status](https://travis-ci.org/ATFutures/calendar.svg?branch=master)](https://travis-ci.org/ATFutures/calendar) [![Coverage status](https://codecov.io/gh/ATFutures/calendar/branch/master/graph/badge.svg)](https://codecov.io/github/ATFutures/calendar?branch=master) <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 calendar
 ========
@@ -149,7 +149,7 @@ my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
 Related projects
 ----------------
 
--   A Python package for working with ics files: <https://github.com/C4ptainCrunch/ics.py>
+-   A Python package for working with ics files: <https://github.com/ics-py/ics-py>
 -   A JavaScript package by Mozilla: <https://github.com/mozilla-comm/ical.js/>
 -   Ruby library: <https://github.com/icalendar/icalendar>
 -   The ical R package on CRAN for reading .ics files: <https://github.com/petermeissner/ical>
