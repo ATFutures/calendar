@@ -40,6 +40,7 @@
 
 
 <meta property="og:title" content="Create ical object from properties_core inputs — ic_event" />
+<meta property="og:description" content="Create an ical event using either POSIXct type or character type with format parameters." />
 
 
 
@@ -128,6 +129,7 @@
     </div>
 
     <div class="ref-description">
+    <p>Create an ical event using either POSIXct type or character type with format parameters.</p>
     </div>
 
     <pre class="usage"><span class='fu'>ic_event</span><span class='op'>(</span>
@@ -160,11 +162,20 @@ the event ends. By default set to <code>1</code>, meaning 1 hour after <code>sta
     <tr>
       <th>format</th>
       <td><p>required if start_time and end_time are vectors and are not of datetime format
-"\<!-- %Y-\\%m-\\%d \\%H:\\%M", you can use \code{calendar::formats} object for convenience.} --></p>
-<p>summaryshort outline of the event</p>
-<p>more_propertiesadd placeholder columns for properties in addition to <code>properties_core</code>,
-dy default <code>FALSE</code></p>
-<p>event_propertiesnamed vector of additional properties to include. By default
+"%Y-%m-%d %H:%M", you can use <code><a href='formats.html'>calendar::formats</a></code> object for convenience.</p></td>
+    </tr>
+    <tr>
+      <th>summary</th>
+      <td><p>short outline of the event</p></td>
+    </tr>
+    <tr>
+      <th>more_properties</th>
+      <td><p>add placeholder columns for properties in addition to <code>properties_core</code>,
+dy default <code>FALSE</code></p></td>
+    </tr>
+    <tr>
+      <th>event_properties</th>
+      <td><p>named vector of additional properties to include. By default
 These include names stored in the data object <code>properties</code> (a packaged dataset),
 containing <code>NA</code>s to be subsequently populated.</p></td>
     </tr>
@@ -173,7 +184,34 @@ containing <code>NA</code>s to be subsequently populated.</p></td>
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>in case of start_time and end_time being character values, a format must be provided.</p>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>object of class ics</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>ic_event</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
+#&gt;   UID                           DTSTART             DTEND               SUMMARY 
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> ical-6058ef88-8df2-4ee8-a186… 2021-07-16 <span style='color: #949494;'>12:00:00</span> 2021-07-16 <span style='color: #949494;'>13:00:00</span> ical ev…</div><div class='input'><span class='va'>s</span> <span class='op'>&lt;-</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd_hms.html'>ymd_h</a></span><span class='op'>(</span><span class='st'>"2019-01-01 00"</span><span class='op'>)</span>
+<span class='fu'>ic_event</span><span class='op'>(</span>start_time <span class='op'>=</span> <span class='va'>s</span>, end_time <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
+#&gt;   UID                           DTSTART             DTEND               SUMMARY 
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> ical-8d9bc2f4-09ef-42f8-839e… 2019-01-01 <span style='color: #949494;'>00:00:00</span> 2019-01-01 <span style='color: #949494;'>03:00:00</span> ical ev…</div><div class='input'><span class='co'># also accepts this format by default, thanks to lubridate::ymd_h:</span>
+<span class='fu'>ic_event</span><span class='op'>(</span>start_time <span class='op'>=</span> <span class='st'>"2019-01-01 00"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
+#&gt;   UID                           DTSTART             DTEND               SUMMARY 
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> ical-8be1a95c-5594-43cb-803c… 2019-01-01 <span style='color: #949494;'>00:00:00</span> 2019-01-01 <span style='color: #949494;'>01:00:00</span> ical ev…</div><div class='input'><span class='fu'>ic_event</span><span class='op'>(</span>more_properties <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
+#&gt;   UID                           DTSTART             DTEND               SUMMARY 
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> ical-5a05f23b-f053-45f7-ae0c… 2021-07-16 <span style='color: #949494;'>12:00:00</span> 2021-07-16 <span style='color: #949494;'>13:00:00</span> ical ev…</div><div class='input'><span class='fu'>ic_event</span><span class='op'>(</span>start_time <span class='op'>=</span> <span class='st'>"18-10-12"</span>, end_time <span class='op'>=</span> <span class='st'>"18-10-13"</span>, format <span class='op'>=</span> <span class='fu'>calendar</span><span class='fu'>::</span><span class='va'><a href='formats.html'>formats</a></span><span class='op'>$</span><span class='va'>`yy-mm-dd`</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 4</span>
+#&gt;   UID                           DTSTART             DTEND               SUMMARY 
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                         <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;dttm&gt;</span>              <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
+#&gt; <span style='color: #BCBCBC;'>1</span> ical-4ad001b1-2c24-46f6-b62e… 2018-10-12 <span style='color: #949494;'>00:00:00</span> 2018-10-13 <span style='color: #949494;'>00:00:00</span> ical ev…</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
