@@ -1,6 +1,6 @@
 Package: calendar
 Title: Create, Read, Write, and Work with 'iCalander' Files, Calendars and Scheduling Data
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person("Robin", "Lovelace", email = "rob00x@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0001-5679-6536")),
