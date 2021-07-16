@@ -27,7 +27,7 @@ after \code{start_time} or an datetime object (of class \code{POSIXct}) when
 the event ends. By default set to \code{1}, meaning 1 hour after \code{start_time}.}
 
 \item{format}{required if start_time and end_time are vectors and are not of datetime format
-"\%Y-\%m-\%d \%H:\%M", you can use \code{calendar::formats} object for convenience.}
+"\\%Y-\\%m-\\%d \\%H:\\%M", you can use \code{calendar::formats} object for convenience.}
 
 \item{summary}{short outline of the event}
 
