@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Authors • calendar</title>
+<title>Create ical object from properties_core inputs — ic_event • calendar</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Authors" />
+<meta property="og:title" content="Create ical object from properties_core inputs — ic_event" />
 
 
 
@@ -58,7 +58,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-authors">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +70,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">calendar</a>
+        <a class="navbar-link" href="../index.html">calendar</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
@@ -78,13 +78,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -94,12 +94,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/ical-creating-calendars.html">Creating calendars with calendar</a>
+      <a href="../articles/ical-creating-calendars.html">Creating calendars with calendar</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -120,26 +120,67 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Authors</h1>
+    <h1>Create ical object from properties_core inputs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/atfutures/calendar/blob/master/R/ic_event.R'><code>R/ic_event.R</code></a></small>
+    <div class="hidden name"><code>ic_event.Rd</code></div>
     </div>
 
-    <ul class="list-unstyled">
-      <li>
-        <p><strong>Robin Lovelace</strong>. Author, maintainer. <a href='https://orcid.org/0000-0001-5679-6536' target='orcid.widget' aria-label='ORCID'><span class='fab fa-orcid orcid' aria-hidden='true'></span></a>
-        </p>
-      </li>
-      <li>
-        <p><strong>Layik Hama</strong>. Author. <a href='https://orcid.org/0000-0003-1912-4890' target='orcid.widget' aria-label='ORCID'><span class='fab fa-orcid orcid' aria-hidden='true'></span></a>
-        </p>
-      </li>
-    </ul>
+    <div class="ref-description">
+    </div>
+
+    <pre class="usage"><span class='fu'>ic_event</span><span class='op'>(</span>
+  uid <span class='op'>=</span> <span class='fu'><a href='ic_guid.html'>ic_guid</a></span><span class='op'>(</span><span class='op'>)</span>,
+  start_time <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/round.POSIXt.html'>round.POSIXt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>, units <span class='op'>=</span> <span class='st'>"hours"</span><span class='op'>)</span><span class='op'>)</span>,
+  end_time <span class='op'>=</span> <span class='fl'>1</span>,
+  format <span class='op'>=</span> <span class='st'>"%Y-%m-%d %H:%M"</span>,
+  summary <span class='op'>=</span> <span class='st'>"ical event"</span>,
+  more_properties <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  event_properties <span class='op'>=</span> <span class='fu'>calendar</span><span class='fu'>::</span><span class='va'><a href='properties.html'>properties</a></span>
+<span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>uid</th>
+      <td><p>the unique id of the event, by default generated by <code>ic_uid()</code></p></td>
+    </tr>
+    <tr>
+      <th>start_time</th>
+      <td><p>start time, by default the start time plus one hour</p></td>
+    </tr>
+    <tr>
+      <th>end_time</th>
+      <td><p>a number representing the number of hours
+after <code>start_time</code> or an datetime object (of class <code>POSIXct</code>) when
+the event ends. By default set to <code>1</code>, meaning 1 hour after <code>start_time</code>.</p></td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td><p>required if start_time and end_time are vectors and are not of datetime format
+"\<!-- %Y-\\%m-\\%d \\%H:\\%M", you can use \code{calendar::formats} object for convenience.} --></p>
+<p>summaryshort outline of the event</p>
+<p>more_propertiesadd placeholder columns for properties in addition to <code>properties_core</code>,
+dy default <code>FALSE</code></p>
+<p>event_propertiesnamed vector of additional properties to include. By default
+These include names stored in the data object <code>properties</code> (a packaged dataset),
+containing <code>NA</code>s to be subsequently populated.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>in case of start_time and end_time being character values, a format must be provided.</p>
 
   </div>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
+  </div>
 </div>
-
 
 
       <footer>
