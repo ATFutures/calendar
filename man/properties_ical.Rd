@@ -4,7 +4,9 @@
 \name{properties_ical}
 \alias{properties_ical}
 \title{ical default VCALENDAR properties in one line vectors.}
-\format{An object of class \code{character} of length 5.}
+\format{
+An object of class \code{character} of length 5.
+}
 \usage{
 properties_ical
 }

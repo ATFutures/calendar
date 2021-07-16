@@ -4,7 +4,9 @@
 \name{ical_outlook}
 \alias{ical_outlook}
 \title{Example of event data with multi-line description from Outlook}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 ical_outlook
 }
