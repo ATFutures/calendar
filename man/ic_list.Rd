@@ -18,7 +18,7 @@ in the output? \code{FALSE} by default.}
 This function breaks-up the iCalendar object into a list.
 By default it breaks it into events, where the number of events
 is the number of \code{BEGIN:VEVENT} event initiation lines
-(assumes all events start and end with \code{:VEVENT}),
+(assumes all events start and end with \verb{:VEVENT}),
 as per the specification (see \code{\link[=ic_spec]{ic_spec()}}).
 }
 \examples{

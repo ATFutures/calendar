@@ -4,7 +4,9 @@
 \name{properties_core}
 \alias{properties_core}
 \title{The key 'properties' that are allowed in ical files}
-\format{An object of class \code{list} of length 4.}
+\format{
+An object of class \code{list} of length 4.
+}
 \usage{
 properties_core
 }

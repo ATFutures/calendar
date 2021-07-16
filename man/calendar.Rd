@@ -3,7 +3,6 @@
 \docType{package}
 \name{calendar}
 \alias{calendar}
-\alias{calendar-package}
 \title{ics files with R}
 \description{
 \href{https://icalendar.org/}{iCalendar} is an open standard for

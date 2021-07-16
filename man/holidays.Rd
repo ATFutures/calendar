@@ -4,7 +4,9 @@
 \name{holidays}
 \alias{holidays}
 \title{Example ics file on English and Welsh holidays}
-\format{An object of class \code{character} of length 1.}
+\format{
+An object of class \code{character} of length 1.
+}
 \usage{
 holidays
 }

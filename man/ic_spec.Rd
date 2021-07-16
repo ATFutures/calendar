@@ -4,8 +4,7 @@
 \alias{ic_spec}
 \title{View or download the ical specification}
 \usage{
-ic_spec(mode = "view",
-  spec_url = "https://tools.ietf.org/rfc/rfc5545.txt")
+ic_spec(mode = "view", spec_url = "https://tools.ietf.org/rfc/rfc5545.txt")
 }
 \arguments{
 \item{mode}{character string specifying whether to look at the spec (\code{mode = "view"}, the default)

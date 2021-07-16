@@ -4,9 +4,11 @@
 \alias{ic_attributes_vec}
 \title{Extract attributes from ical text}
 \usage{
-ic_attributes_vec(x = NULL, ic_attributes = c(BEGIN = "VCALENDAR",
-  PRODID = "ATFutures/calendar", VERSION = "2.0", CALSCALE = "GREGORIAN",
-  METHOD = "PUBLISH"))
+ic_attributes_vec(
+  x = NULL,
+  ic_attributes = c(BEGIN = "VCALENDAR", PRODID = "ATFutures/calendar", VERSION =
+    "2.0", CALSCALE = "GREGORIAN", METHOD = "PUBLISH")
+)
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
