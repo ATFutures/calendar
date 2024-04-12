@@ -10,7 +10,7 @@
 ic_datetime <- function(x) {
 
   # TODO (LH): regex check x timestamp
-  if(!is.na(x) & !x == "NA" & !grepl("^\\d{8}T\\d{6}Z?$", x)) {
+  if(any(!is.na(x) & !(x == "NA") & !grepl("^\\d{8}T\\d{6}Z?$", x))) {
     # stop("time should be in this format: 20180809T160000Z")
     warning("Non-standard time string: should be in this format: 20180809T160000Z")
     x = ""
