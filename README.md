@@ -7,7 +7,7 @@ likely to
 change.](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 [![Coverage
-status](https://codecov.io/gh/ATFutures/calendar/branch/master/graph/badge.svg)](https://codecov.io/github/ATFutures/calendar?branch=master)
+status](https://codecov.io/gh/ATFutures/calendar/branch/master/graph/badge.svg)](https://app.codecov.io/github/ATFutures/calendar?branch=master)
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: end -->
 
@@ -19,7 +19,7 @@ data they represent, in R. iCalendar is an open standard for “exchanging
 calendar and scheduling information between users and computers”
 described at [icalendar.org](https://icalendar.org/) (the full spec can
 be found in a plain text file
-[here](https://tools.ietf.org/rfc/rfc5545.txt)).
+[here](https://www.rfc-editor.org/rfc/rfc5545.txt)).
 
 Recently the UK Government endorsed the iCal format in a
 [publication](https://www.gov.uk/government/publications/open-standards-for-government/exchange-of-calendar-events)
@@ -176,7 +176,7 @@ my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
 -   A Python package for working with ics files:
     <https://github.com/ics-py/ics-py>
 -   A JavaScript package by Mozilla:
-    <https://github.com/mozilla-comm/ical.js/>
+    <https://github.com/kewisch/ical.js>
 -   Ruby library: <https://github.com/icalendar/icalendar>
 -   The ical R package on CRAN for reading .ics files:
     <https://github.com/petermeissner/ical>
