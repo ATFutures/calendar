@@ -12,7 +12,12 @@ Authors@R:
              family = "Hama",
              role = "aut",
              email = "layik.hama@gmail.com",
-             comment = c(ORCID = "0000-0003-1912-4890")))
+             comment = c(ORCID = "0000-0003-1912-4890")),
+      person(given = "Ollie",
+             family = "Lloyd",
+             role = "ctb",
+             email = "o.lloyd@doctors.org.uk",
+             comment = c(ORCID = "0000-0002-9385-1634")))
 Description: Provides function to create, read, write, and work with
     'iCalander' files (which typically have '.ics' or '.ical' extensions),
     and the scheduling data, calendars and timelines of people,
