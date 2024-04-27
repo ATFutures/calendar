@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Creating calendars with calendar • calendar</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">calendar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -64,7 +60,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/atfutures/calendar/">
+  <a href="https://github.com/atfutures/calendar/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -79,70 +75,83 @@
 
       
 
-      </header><script src="ical-creating-calendars_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Creating calendars with calendar</h1>
-                        <h4 class="author">Robin Lovelace</h4>
+                        <h4 data-toc-skip class="author">Robin
+Lovelace</h4>
             
-            <h4 class="date">2021-07-16</h4>
+            <h4 data-toc-skip class="date">2024-04-27</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/atfutures/calendar/blob/master/vignettes/ical-creating-calendars.Rmd"><code>vignettes/ical-creating-calendars.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/atfutures/calendar/blob/HEAD/vignettes/ical-creating-calendars.Rmd" class="external-link"><code>vignettes/ical-creating-calendars.Rmd</code></a></small>
       <div class="hidden name"><code>ical-creating-calendars.Rmd</code></div>
 
     </div>
 
     
     
-<p><strong>calendar</strong> allows you to read-in ‘ical files’ (which typically have the <code>.ics</code> filetype) with <code><a href="../reference/ic_read.html">ic_read()</a></code>. However, often it’s useful to create your own <code>ical</code> object from scratch. The purpose of this vignette is to show how, with reference to a real-world application: creating a timetable for a new module.</p>
-<p>It assumes you’ve installed the package following instructions in the <a href="https://github.com/ATFutures/calendar#installation">README</a> and have attached it as follows:</p>
+<p><strong>calendar</strong> allows you to read-in ‘ical files’ (which
+typically have the <code>.ics</code> filetype) with
+<code><a href="../reference/ic_read.html">ic_read()</a></code>. However, often it’s useful to create your own
+<code>ical</code> object from scratch. The purpose of this vignette is
+to show how, with reference to a real-world application: creating a
+timetable for a new module.</p>
+<p>It assumes you’ve installed the package following instructions in the
+<a href="https://github.com/ATFutures/calendar#installation" class="external-link">README</a>
+and have attached it as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atfutures/calendar">calendar</a></span><span class="op">)</span></code></pre></div>
-<div id="creating-events" class="section level2">
-<h2 class="hasAnchor">
-<a href="#creating-events" class="anchor"></a>Creating events</h2>
-<p>The building blocks of most calendars the event. All events have a start point and an end point (unless they are an all day event) and a summary description. As shown in the example below, they also tend to contain other fields.</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atfutures/calendar" class="external-link">calendar</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="creating-events">Creating events<a class="anchor" aria-label="anchor" href="#creating-events"></a>
+</h2>
+<p>The building blocks of most calendars the event. All events have a
+start point and an end point (unless they are an all day event) and a
+summary description. As shown in the example below, they also tend to
+contain other fields.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># key:value pairs in an ical example:</span>
-<span class="fu"><a href="../reference/ic_list.html">ic_list</a></span><span class="op">(</span><span class="va">ical_example</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
-<span class="co">#&gt;  [1] "DTSTART:20180809T160000Z"                 </span>
-<span class="co">#&gt;  [2] "DTEND:20180809T163000Z"                   </span>
-<span class="co">#&gt;  [3] "DTSTAMP:20180810T094100Z"                 </span>
-<span class="co">#&gt;  [4] "UID:1119ejg4vug5758527atjcrqj3@google.com"</span>
-<span class="co">#&gt;  [5] "CREATED:20180807T133712Z"                 </span>
-<span class="co">#&gt;  [6] "DESCRIPTION:\\n"                          </span>
-<span class="co">#&gt;  [7] "LAST-MODIFIED:20180807T133712Z"           </span>
-<span class="co">#&gt;  [8] "LOCATION:"                                </span>
-<span class="co">#&gt;  [9] "SEQUENCE:0"                               </span>
-<span class="co">#&gt; [10] "STATUS:CONFIRMED"                         </span>
-<span class="co">#&gt; [11] "SUMMARY:ical programming mission"         </span>
-<span class="co">#&gt; [12] "TRANSP:OPAQUE"</span></code></pre></div>
-<p>Fortunately you don’t need to specify all of these when creating events because some will be created manually and some are not necessary. Events can be created as follows (this one creates a 5 day trip):</p>
+<code class="sourceCode R"><span><span class="co"># key:value pairs in an ical example:</span></span>
+<span><span class="fu"><a href="../reference/ic_list.html">ic_list</a></span><span class="op">(</span><span class="va">ical_example</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="co">#&gt;  [1] "DTSTART:20180809T160000Z"                 </span></span>
+<span><span class="co">#&gt;  [2] "DTEND:20180809T163000Z"                   </span></span>
+<span><span class="co">#&gt;  [3] "DTSTAMP:20180810T094100Z"                 </span></span>
+<span><span class="co">#&gt;  [4] "UID:1119ejg4vug5758527atjcrqj3@google.com"</span></span>
+<span><span class="co">#&gt;  [5] "CREATED:20180807T133712Z"                 </span></span>
+<span><span class="co">#&gt;  [6] "DESCRIPTION:\\n"                          </span></span>
+<span><span class="co">#&gt;  [7] "LAST-MODIFIED:20180807T133712Z"           </span></span>
+<span><span class="co">#&gt;  [8] "LOCATION:"                                </span></span>
+<span><span class="co">#&gt;  [9] "SEQUENCE:0"                               </span></span>
+<span><span class="co">#&gt; [10] "STATUS:CONFIRMED"                         </span></span>
+<span><span class="co">#&gt; [11] "SUMMARY:ical programming mission"         </span></span>
+<span><span class="co">#&gt; [12] "TRANSP:OPAQUE"</span></span></code></pre></div>
+<p>Fortunately you don’t need to specify all of these when creating
+events because some will be created manually and some are not necessary.
+Events can be created as follows (this one creates a 5 day trip):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atfutures/calendar">calendar</a></span><span class="op">)</span>
-<span class="va">s</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="st">"2019-01-12"</span><span class="op">)</span>
-<span class="va">e</span> <span class="op">=</span> <span class="va">s</span> <span class="op">+</span> <span class="fl">60</span><span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="fl">24</span> <span class="op">*</span><span class="fl">5</span>
-<span class="va">event</span> <span class="op">=</span> <span class="fu"><a href="../reference/ic_event.html">ic_event</a></span><span class="op">(</span>start <span class="op">=</span> <span class="va">s</span>, end <span class="op">=</span> <span class="va">e</span> , summary <span class="op">=</span> <span class="st">"Research trip"</span><span class="op">)</span>
-<span class="va">event</span>
-<span class="co">#&gt; # A tibble: 1 x 4</span>
-<span class="co">#&gt;   UID                         DTSTART             DTEND               SUMMARY   </span>
-<span class="co">#&gt;   &lt;chr&gt;                       &lt;dttm&gt;              &lt;dttm&gt;              &lt;chr&gt;     </span>
-<span class="co">#&gt; 1 ical-95e2d111-8473-4fac-8a… 2019-01-12 00:00:00 2019-01-17 00:00:00 Research …</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">event</span><span class="op">)</span>
-<span class="co">#&gt; [1] "ical"       "tbl_df"     "tbl"        "data.frame"</span>
-<span class="fu"><a href="../reference/ic_character.html">ic_character</a></span><span class="op">(</span><span class="va">event</span><span class="op">)</span>
-<span class="co">#&gt;  [1] "BEGIN:VCALENDAR"                              </span>
-<span class="co">#&gt;  [2] "PRODID:-//ATFutures/ical //EN"                </span>
-<span class="co">#&gt;  [3] "VERSION:2.0"                                  </span>
-<span class="co">#&gt;  [4] "CALSCALE:GREGORIAN"                           </span>
-<span class="co">#&gt;  [5] "METHOD:PUBLISH"                               </span>
-<span class="co">#&gt;  [6] "BEGIN:VEVENT"                                 </span>
-<span class="co">#&gt;  [7] "UID:ical-95e2d111-8473-4fac-8a20-855f7ec9e54a"</span>
-<span class="co">#&gt;  [8] "DTSTART:20190112T000000"                      </span>
-<span class="co">#&gt;  [9] "DTEND:20190117T000000"                        </span>
-<span class="co">#&gt; [10] "SUMMARY:Research trip"                        </span>
-<span class="co">#&gt; [11] "END:VEVENT"                                   </span>
-<span class="co">#&gt; [12] "END:VCALENDAR"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atfutures/calendar" class="external-link">calendar</a></span><span class="op">)</span></span>
+<span><span class="va">s</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2019-01-12"</span><span class="op">)</span></span>
+<span><span class="va">e</span> <span class="op">=</span> <span class="va">s</span> <span class="op">+</span> <span class="fl">60</span><span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="fl">24</span> <span class="op">*</span><span class="fl">5</span></span>
+<span><span class="va">event</span> <span class="op">=</span> <span class="fu"><a href="../reference/ic_event.html">ic_event</a></span><span class="op">(</span>start <span class="op">=</span> <span class="va">s</span>, end <span class="op">=</span> <span class="va">e</span> , summary <span class="op">=</span> <span class="st">"Research trip"</span><span class="op">)</span></span>
+<span><span class="va">event</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 4</span></span></span>
+<span><span class="co">#&gt;   UID                            DTSTART             DTEND               SUMMARY</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> ical-6058ef88-8df2-4ee8-a186-… 2019-01-12 <span style="color: #949494;">00:00:00</span> 2019-01-17 <span style="color: #949494;">00:00:00</span> Resear…</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">event</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "ical"       "tbl_df"     "tbl"        "data.frame"</span></span>
+<span><span class="fu"><a href="../reference/ic_character.html">ic_character</a></span><span class="op">(</span><span class="va">event</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  [1] "BEGIN:VCALENDAR"                              </span></span>
+<span><span class="co">#&gt;  [2] "PRODID:-//ATFutures/ical //EN"                </span></span>
+<span><span class="co">#&gt;  [3] "VERSION:2.0"                                  </span></span>
+<span><span class="co">#&gt;  [4] "CALSCALE:GREGORIAN"                           </span></span>
+<span><span class="co">#&gt;  [5] "METHOD:PUBLISH"                               </span></span>
+<span><span class="co">#&gt;  [6] "BEGIN:VEVENT"                                 </span></span>
+<span><span class="co">#&gt;  [7] "UID:ical-6058ef88-8df2-4ee8-a186-b70474ee56bf"</span></span>
+<span><span class="co">#&gt;  [8] "DTSTART:20190112T000000"                      </span></span>
+<span><span class="co">#&gt;  [9] "DTEND:20190117T000000"                        </span></span>
+<span><span class="co">#&gt; [10] "SUMMARY:Research trip"                        </span></span>
+<span><span class="co">#&gt; [11] "END:VEVENT"                                   </span></span>
+<span><span class="co">#&gt; [12] "END:VCALENDAR"</span></span></code></pre></div>
 </div>
   </div>
 
@@ -157,11 +166,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Robin Lovelace, Layik Hama.</p>
+  <p></p>
+<p>Developed by Robin Lovelace, Layik Hama.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>
@@ -169,6 +180,8 @@
 
   
 
+
+  
 
   </body>
 </html>
