@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">calendar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ containing <code>NA</code>s to be subsequently populated.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   UID                            DTSTART             DTEND               SUMMARY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ical-6058ef88-8df2-4ee8-a186-… 2024-04-27 <span style="color: #949494;">13:00:00</span> 2024-04-27 <span style="color: #949494;">14:00:00</span> ical e…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ical-6058ef88-8df2-4ee8-a186-… 2024-04-27 <span style="color: #949494;">14:00:00</span> 2024-04-27 <span style="color: #949494;">15:00:00</span> ical e…</span>
 <span class="r-in"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/ymd_hms.html" class="external-link">ymd_h</a></span><span class="op">(</span><span class="st">"2019-01-01 00"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ic_event</span><span class="op">(</span>start_time <span class="op">=</span> <span class="va">s</span>, end_time <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
@@ -144,7 +144,7 @@ containing <code>NA</code>s to be subsequently populated.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   UID                            DTSTART             DTEND               SUMMARY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ical-5a05f23b-f053-45f7-ae0c-… 2024-04-27 <span style="color: #949494;">13:00:00</span> 2024-04-27 <span style="color: #949494;">14:00:00</span> ical e…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ical-5a05f23b-f053-45f7-ae0c-… 2024-04-27 <span style="color: #949494;">14:00:00</span> 2024-04-27 <span style="color: #949494;">15:00:00</span> ical e…</span>
 <span class="r-in"><span><span class="fu">ic_event</span><span class="op">(</span>start_time <span class="op">=</span> <span class="st">"18-10-12"</span>, end_time <span class="op">=</span> <span class="st">"18-10-13"</span>, format <span class="op">=</span> <span class="fu">calendar</span><span class="fu">::</span><span class="va"><a href="formats.html">formats</a></span><span class="op">$</span><span class="va">`yy-mm-dd`</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   UID                            DTSTART             DTEND               SUMMARY</span>

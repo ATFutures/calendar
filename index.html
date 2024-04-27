@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">calendar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
       </span>
     </div>
 
@@ -168,15 +168,15 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ics_df</span> <span class="op">=</span> <span class="fu"><a href="reference/ic_read.html">ic_read</a></span><span class="op">(</span><span class="va">ics_file</span><span class="op">)</span> <span class="co"># read it in</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ics_df</span><span class="op">)</span> <span class="co"># check the results</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 6</span></span>
-<span><span class="co">#&gt;   `DTEND;VALUE=DAT… `DTSTART;VALUE=D… SUMMARY     UID          SEQUENCE DTSTAMP </span></span>
-<span><span class="co">#&gt;   &lt;date&gt;            &lt;date&gt;            &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;   </span></span>
-<span><span class="co">#&gt; 1 2012-01-03        2012-01-02        New Year’s… ca6af7456b0… 0        2018080…</span></span>
-<span><span class="co">#&gt; 2 2012-04-07        2012-04-06        Good Friday ca6af7456b0… 0        2018080…</span></span>
-<span><span class="co">#&gt; 3 2012-04-10        2012-04-09        Easter Mon… ca6af7456b0… 0        2018080…</span></span>
-<span><span class="co">#&gt; 4 2012-05-08        2012-05-07        Early May … ca6af7456b0… 0        2018080…</span></span>
-<span><span class="co">#&gt; 5 2012-06-05        2012-06-04        Spring ban… ca6af7456b0… 0        2018080…</span></span>
-<span><span class="co">#&gt; 6 2012-06-06        2012-06-05        Queen’s Di… ca6af7456b0… 0        2018080…</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 6 × 6</span></span>
+<span><span class="co">#&gt;   `DTEND;VALUE=DATE` `DTSTART;VALUE=DATE` SUMMARY         UID   SEQUENCE DTSTAMP</span></span>
+<span><span class="co">#&gt;   &lt;date&gt;             &lt;date&gt;               &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt; 1 2012-01-03         2012-01-02           New Year’s Day  ca6a… 0        201808…</span></span>
+<span><span class="co">#&gt; 2 2012-04-07         2012-04-06           Good Friday     ca6a… 0        201808…</span></span>
+<span><span class="co">#&gt; 3 2012-04-10         2012-04-09           Easter Monday   ca6a… 0        201808…</span></span>
+<span><span class="co">#&gt; 4 2012-05-08         2012-05-07           Early May bank… ca6a… 0        201808…</span></span>
+<span><span class="co">#&gt; 5 2012-06-05         2012-06-04           Spring bank ho… ca6a… 0        201808…</span></span>
+<span><span class="co">#&gt; 6 2012-06-06         2012-06-05           Queen’s Diamon… ca6a… 0        201808…</span></span></code></pre></div>
 <p>What class is each column?</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply</a></span><span class="op">(</span><span class="va">ics_df</span>, <span class="va">class</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
