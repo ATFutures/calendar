@@ -1,6 +1,4 @@
-# calendar 0.1.0
-
-# calendar 0.0.2
+# calendar 0.1.0 (2024-04)
 
 * assign tz="" to zulu time strings (#48)
 * assign zulu time strings to Zulu time zone then convert to "" time zone which defaults to local system time zone (#48)

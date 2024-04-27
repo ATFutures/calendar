@@ -134,15 +134,15 @@ in progress):
 ``` r
 ics_df = ic_read(ics_file) # read it in
 head(ics_df) # check the results
-#> # A tibble: 6 x 6
-#>   `DTEND;VALUE=DAT… `DTSTART;VALUE=D… SUMMARY     UID          SEQUENCE DTSTAMP 
-#>   <date>            <date>            <chr>       <chr>        <chr>    <chr>   
-#> 1 2012-01-03        2012-01-02        New Year’s… ca6af7456b0… 0        2018080…
-#> 2 2012-04-07        2012-04-06        Good Friday ca6af7456b0… 0        2018080…
-#> 3 2012-04-10        2012-04-09        Easter Mon… ca6af7456b0… 0        2018080…
-#> 4 2012-05-08        2012-05-07        Early May … ca6af7456b0… 0        2018080…
-#> 5 2012-06-05        2012-06-04        Spring ban… ca6af7456b0… 0        2018080…
-#> 6 2012-06-06        2012-06-05        Queen’s Di… ca6af7456b0… 0        2018080…
+#> # A tibble: 6 × 6
+#>   `DTEND;VALUE=DATE` `DTSTART;VALUE=DATE` SUMMARY         UID   SEQUENCE DTSTAMP
+#>   <date>             <date>               <chr>           <chr> <chr>    <chr>  
+#> 1 2012-01-03         2012-01-02           New Year’s Day  ca6a… 0        201808…
+#> 2 2012-04-07         2012-04-06           Good Friday     ca6a… 0        201808…
+#> 3 2012-04-10         2012-04-09           Easter Monday   ca6a… 0        201808…
+#> 4 2012-05-08         2012-05-07           Early May bank… ca6a… 0        201808…
+#> 5 2012-06-05         2012-06-04           Spring bank ho… ca6a… 0        201808…
+#> 6 2012-06-06         2012-06-05           Queen’s Diamon… ca6a… 0        201808…
 ```
 
 What class is each column?
@@ -173,10 +173,9 @@ my_cal$`DTEND;VALUE=DATE`[1] - my_cal$`DTSTART;VALUE=DATE`[1]
 
 ## Related projects
 
--   A Python package for working with ics files:
-    <https://github.com/ics-py/ics-py>
--   A JavaScript package by Mozilla:
-    <https://github.com/kewisch/ical.js>
--   Ruby library: <https://github.com/icalendar/icalendar>
--   The ical R package on CRAN for reading .ics files:
-    <https://github.com/petermeissner/ical>
+- A Python package for working with ics files:
+  <https://github.com/ics-py/ics-py>
+- A JavaScript package by Mozilla: <https://github.com/kewisch/ical.js>
+- Ruby library: <https://github.com/icalendar/icalendar>
+- The ical R package on CRAN for reading .ics files:
+  <https://github.com/petermeissner/ical>
