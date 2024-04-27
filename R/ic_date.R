@@ -17,9 +17,18 @@ ic_datetime <- function(x) {
   }
 
   plain <- gsub("[TZtz]", "", x)
-  datetime <- as.POSIXct(plain, format = "%Y%m%d%H%M%S")
+
+  # if time string has a trailing "Z" assign to zulu timezone  
+  if (any(grepl("Z$", x))) {
+    datetime <- as.POSIXct(plain, tz = "Zulu", format = "%Y%m%d%H%M%S")
+    attr(datetime, "tzone") <- ""  # change tz to "" which defaults to local system timezone; this could be left out if not desired 
+                                   # but as.POSIXct() uses tz = "" as standard argument and this is what is used below if not zulu time
+  } else {
+    datetime <- as.POSIXct(plain, format = "%Y%m%d%H%M%S")
+  }
   datetime
 }
+
 #' Convert ical date into R date
 #' @inheritParams ic_find
 #' @export
