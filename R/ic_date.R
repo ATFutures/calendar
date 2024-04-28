@@ -7,7 +7,7 @@
 #' @examples
 #' ic_datetime("20180809T160000Z")
 #' ic_date("20120103")
-ic_datetime <- function(x, ...) {
+ic_datetime <- function(x, tzone = "") {
 
   # TODO (LH): regex check x timestamp
   if(any(!is.na(x) & !(x == "NA") & !grepl("^\\d{8}T\\d{6}Z?$", x))) {
@@ -24,7 +24,7 @@ ic_datetime <- function(x, ...) {
     attr(datetime, "tzone") <- ""  # change tz to "" which defaults to local system timezone; this could be left out if not desired
                                    # but as.POSIXct() uses tz = "" as standard argument and this is what is used below if not zulu time
   } else {
-    datetime <- as.POSIXct(plain, format = "%Y%m%d%H%M%S", tz = ...)
+    datetime <- as.POSIXct(plain, tz = tzone, format = "%Y%m%d%H%M%S")
   }
   datetime
 }
