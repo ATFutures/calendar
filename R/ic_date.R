@@ -7,7 +7,7 @@
 #' @examples
 #' ic_datetime("20180809T160000Z")
 #' ic_date("20120103")
-ic_datetime <- function(x, tzone = "") {
+ic_datetime <- function(x, tzone = "") {  # allow pass through of time zone to as.POSIXct
 
   # TODO (LH): regex check x timestamp
   if(any(!is.na(x) & !(x == "NA") & !grepl("^\\d{8}T\\d{6}Z?$", x))) {

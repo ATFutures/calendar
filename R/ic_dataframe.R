@@ -19,6 +19,7 @@ ic_dataframe <- function(x) {
 
   if(methods::is(object = x, class2 = "data.frame")) {
     return(x)
+
   }
 
   stopifnot(methods::is(object = x, class2 = "character") | methods::is(object = x, class2 = "list"))
@@ -35,20 +36,20 @@ ic_dataframe <- function(x) {
   x_df <- ic_bind_list(x_list_named)
 
   date_cols <- grepl(pattern = "VALUE=DATE", x = names(x_df))
-  datetime_cols <- names(x_df) %in% grep("^DT[A-Z]+$", names(x_df), value = TRUE) # include any column starting with DT
-  tz_cols <- names(x_df) %in% grep(".*TZID=.*", names(x_df), value = TRUE) # find cols with TZID in name
+  datetime_cols <- names(x_df) %in% grep("^DT[A-Z]+$|CREATED|LAST-MODIFIED", names(x_df), value = TRUE) # include any column starting with DT
+  tzid_cols <- names(x_df) %in% grep(".*TZID=.*", names(x_df), value = TRUE) # find cols with TZID in name
   timezones <- unlist(regmatches(names(x_df), gregexpr("(?<=TZID=).*", names(x_df), perl = TRUE))) # pull tz from col names
 
   if(any(date_cols)) {
-    x_df[date_cols] <- lapply(x_df[, date_cols], ic_date)
+    x_df[date_cols] <- lapply(x_df[date_cols], ic_date)
   }
 
   if(any(datetime_cols)) {
-    if (any(tz_cols)) {
-      x_df[, tz_cols] <-  Map(function(x, y) ic_datetime(x, tzone = y), x_df[, tz_cols], timezones) # apply timezones to tz_cols
-      x_df[, datetime_cols & !tz_cols] <- lapply(x_df[, datetime_cols & !tz_cols], ic_datetime) # set time zone on columns without TZID to local
+    if (any(tzid_cols)) {
+      x_df[tzid_cols] <-  Map(function(x, y) ic_datetime(x, tzone = y), x_df[tzid_cols], timezones) # apply timezones to tzid_cols
+      x_df[datetime_cols & !tzid_cols] <- lapply(x_df[datetime_cols & !tzid_cols], ic_datetime) # set time zone on datetime cols without TZID to local
     } else {
-      x_df[datetime_cols] <- lapply(x_df[, datetime_cols], ic_datetime)
+      x_df[datetime_cols] <- lapply(x_df[datetime_cols], ic_datetime)
     }
   }
   names(x_df) <- gsub(pattern = ";VALUE=DATE", replacement = "", names(x_df))
