@@ -17,6 +17,6 @@ test_that("ic_datetime is NA for empty:", {
 test_that("DTSTART & DTEND time zones equal TZID property", {
   f <- system.file("extdata", "apple_calendar_test.ics", package = "calendar")
   ics_df = ic_read(f)
-  expect_equal(attributes(ics_df$DTSTART)$tzone, "Europe/London")
-  expect_equal(attributes(ics_df$DTEND)$tzone, "Europe/London")
+  expect_equal(attributes(ics_df$DTSTART)$tzone, "Pacific/Auckland") # "Pacific/Auckland" chosen as different to testers local time zone
+  expect_equal(attributes(ics_df$DTEND)$tzone, "Pacific/Auckland")
 })
