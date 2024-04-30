@@ -6,8 +6,8 @@
 \usage{
 ic_attributes_vec(
   x = NULL,
-  ic_attributes = c(BEGIN = "VCALENDAR", PRODID = "ATFutures/calendar", VERSION =
-    "2.0", CALSCALE = "GREGORIAN", METHOD = "PUBLISH")
+  ic_attributes = c(BEGIN = "VCALENDAR", PRODID = "ATFutures/calendar", VERSION = "2.0",
+    CALSCALE = "GREGORIAN", METHOD = "PUBLISH")
 )
 }
 \arguments{
