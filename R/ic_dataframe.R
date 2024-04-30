@@ -38,7 +38,9 @@ ic_dataframe <- function(x) {
   date_cols <- grepl(pattern = "VALUE=DATE", x = names(x_df))
   datetime_cols <- names(x_df) %in% grep("^DT[A-Z]+$|CREATED|LAST-MODIFIED", names(x_df), value = TRUE) # include any column starting with DT
   tzid_cols <- names(x_df) %in% grep(".*TZID=.*", names(x_df), value = TRUE) # find cols with TZID in name
-  timezones <- unlist(regmatches(names(x_df), gregexpr("(?<=TZID=).*", names(x_df), perl = TRUE))) # pull tz from col names
+  timezones <- unlist(regmatches(names(x_df), gregexpr("(?<=TZID=).*", names(x_df), perl = TRUE))) # pull all tzones from col names into vector to apply separately to each column
+                                                                                                   # in case different events have differing tzones although
+                                                                                                   # think most calendar software only uses single tzone
 
   if(any(date_cols)) {
     x_df[date_cols] <- lapply(x_df[date_cols], ic_date)
