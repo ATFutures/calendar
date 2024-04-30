@@ -1,8 +1,12 @@
 #' Convert ical datetime into R datetime
+#'
+#' Convert ical datetime into R datetime
 #' Z at the end of an ical stamp stands of Zulu time
 #' https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
 #' which is UTC = GMT https://greenwichmeantime.com/info/zulu/
 #' @inheritParams ic_find
+#' @param tzone a character string. Time zone specification to be used for the conversion if datetime not Zulu time.
+#'   Defaults to `""` which is the current local system time zone. See \link[OlsonNames]{OlsonNames} for list of time zones.
 #' @export
 #' @examples
 #' ic_datetime("20180809T160000Z")
