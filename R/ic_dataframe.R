@@ -49,7 +49,8 @@ ic_dataframe <- function(x) {
   if(any(datetime_cols)) {
     if (any(tzid_cols)) {
       x_df[tzid_cols] <-  Map(function(x, y) ic_datetime(x, tzone = y), x_df[tzid_cols], timezones) # apply timezones to tzid_cols
-      x_df[datetime_cols & !tzid_cols] <- lapply(x_df[datetime_cols & !tzid_cols], ic_datetime) # set time zone on datetime cols without TZID to local
+      x_df[tzid_cols] <- lapply(x_df[tzid_cols], function(x) {attr(x, "tzone") <- ""; x})           # change tzid_cols to local time zone
+      x_df[datetime_cols & !tzid_cols] <- lapply(x_df[datetime_cols & !tzid_cols], ic_datetime)     # set time zone on datetime cols without TZID to local ic_datetime() does this by default
     } else {
       x_df[datetime_cols] <- lapply(x_df[datetime_cols], ic_datetime)
     }
