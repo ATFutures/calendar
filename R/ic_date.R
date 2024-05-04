@@ -1,13 +1,18 @@
 #' Convert ical datetime into R datetime
-#' Z at the end of an ical stamp stands of Zulu time
+#'
+#' @description
+#' Convert ical datetime into R datetime. Z at the end of an ical stamp stands of Zulu time
+#'
 #' https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-#' which is UTC = GMT https://greenwichmeantime.com/info/zulu/
+#' which is UTC = GMT https://greenwichmeantime.com/articles/history/zulu/
 #' @inheritParams ic_find
+#' @param tzone a character string. Time zone specification to be used for the conversion if datetime not Zulu time.
+#' Defaults to `""` which is the current local system time zone. See \link[base]{OlsonNames} for list of time zones.
 #' @export
 #' @examples
 #' ic_datetime("20180809T160000Z")
 #' ic_date("20120103")
-ic_datetime <- function(x) {
+ic_datetime <- function(x, tzone = "") {  # allow pass through of time zone to as.POSIXct
 
   # TODO (LH): regex check x timestamp
   if(any(!is.na(x) & !(x == "NA") & !grepl("^\\d{8}T\\d{6}Z?$", x))) {
@@ -18,13 +23,13 @@ ic_datetime <- function(x) {
 
   plain <- gsub("[TZtz]", "", x)
 
-  # if time string has a trailing "Z" assign to zulu timezone  
+  # if time string has a trailing "Z" assign to zulu timezone
   if (any(grepl("Z$", x))) {
     datetime <- as.POSIXct(plain, tz = "Zulu", format = "%Y%m%d%H%M%S")
-    attr(datetime, "tzone") <- ""  # change tz to "" which defaults to local system timezone; this could be left out if not desired 
+    attr(datetime, "tzone") <- ""  # change tz to "" which defaults to local system timezone; this could be left out if not desired
                                    # but as.POSIXct() uses tz = "" as standard argument and this is what is used below if not zulu time
   } else {
-    datetime <- as.POSIXct(plain, format = "%Y%m%d%H%M%S")
+    datetime <- as.POSIXct(plain, tz = tzone, format = "%Y%m%d%H%M%S")
   }
   datetime
 }

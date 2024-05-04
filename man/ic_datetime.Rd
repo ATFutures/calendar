@@ -2,21 +2,21 @@
 % Please edit documentation in R/ic_date.R
 \name{ic_datetime}
 \alias{ic_datetime}
-\title{Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
-https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/}
+\title{Convert ical datetime into R datetime}
 \usage{
-ic_datetime(x)
+ic_datetime(x, tzone = "")
 }
 \arguments{
 \item{x}{Lines read-in in from an iCal file}
+
+\item{tzone}{a character string. Time zone specification to be used for the conversion if datetime not Zulu time.
+Defaults to \code{""} which is the current local system time zone. See \link[base]{OlsonNames} for list of time zones.}
 }
 \description{
-Convert ical datetime into R datetime
-Z at the end of an ical stamp stands of Zulu time
+Convert ical datetime into R datetime. Z at the end of an ical stamp stands of Zulu time
+
 https://en.wikipedia.org/wiki/Coordinated_Universal_Time#Time_zones
-which is UTC = GMT https://greenwichmeantime.com/info/zulu/
+which is UTC = GMT https://greenwichmeantime.com/articles/history/zulu/
 }
 \examples{
 ic_datetime("20180809T160000Z")
