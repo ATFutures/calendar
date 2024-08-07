@@ -1,108 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/ical-creating-calendars.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/calendar.html</loc>
-  </url>
-  <url>
-    <loc>/reference/formats.html</loc>
-  </url>
-  <url>
-    <loc>/reference/holidays.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_attributes_vec.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_bind_list.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_char_datetime.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_char_event.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_character.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_dataframe.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_date.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_datetime.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_event.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_extract.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_extract_raw.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_find.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_guid.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_list.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_read.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_spec.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_vector.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ic_write.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ical.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ical_example.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ical_outlook.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/properties.html</loc>
-  </url>
-  <url>
-    <loc>/reference/properties_core.html</loc>
-  </url>
-  <url>
-    <loc>/reference/properties_ical.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/ical-creating-calendars.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/calendar.html</loc></url>
+<url><loc>/reference/formats.html</loc></url>
+<url><loc>/reference/holidays.html</loc></url>
+<url><loc>/reference/ic_attributes_vec.html</loc></url>
+<url><loc>/reference/ic_bind_list.html</loc></url>
+<url><loc>/reference/ic_char_datetime.html</loc></url>
+<url><loc>/reference/ic_char_event.html</loc></url>
+<url><loc>/reference/ic_character.html</loc></url>
+<url><loc>/reference/ic_dataframe.html</loc></url>
+<url><loc>/reference/ic_date.html</loc></url>
+<url><loc>/reference/ic_datetime.html</loc></url>
+<url><loc>/reference/ic_event.html</loc></url>
+<url><loc>/reference/ic_extract.html</loc></url>
+<url><loc>/reference/ic_extract_raw.html</loc></url>
+<url><loc>/reference/ic_find.html</loc></url>
+<url><loc>/reference/ic_guid.html</loc></url>
+<url><loc>/reference/ic_list.html</loc></url>
+<url><loc>/reference/ic_read.html</loc></url>
+<url><loc>/reference/ic_spec.html</loc></url>
+<url><loc>/reference/ic_vector.html</loc></url>
+<url><loc>/reference/ic_write.html</loc></url>
+<url><loc>/reference/ical.html</loc></url>
+<url><loc>/reference/ical_example.html</loc></url>
+<url><loc>/reference/ical_outlook.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/properties.html</loc></url>
+<url><loc>/reference/properties_core.html</loc></url>
+<url><loc>/reference/properties_ical.html</loc></url>
 </urlset>
+
