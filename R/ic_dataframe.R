@@ -17,30 +17,53 @@
 #' identical(x, x_df2)
 ic_dataframe <- function(x) {
 
-  if(methods::is(object = x, class2 = "data.frame")) {
+  if (methods::is(object = x, class2 = "data.frame")) {
+
     return(x)
+
   }
 
   stopifnot(methods::is(object = x, class2 = "character") | methods::is(object = x, class2 = "list"))
 
-  if(methods::is(object = x, class2 = "character")) {
+  if (methods::is(object = x, class2 = "character")) {
+
     x_list <- ic_list(x)
-  } else if(methods::is(object = x, class2 = "list")) {
+
+  } else {
+
     x_list <- x
+
   }
 
-  x_list_named <- lapply(x_list, function(x) {
-    ic_vector(x)
-  })
+  x_list_named <- lapply(
+    X = x_list,
+    FUN = function(x) {
+      ic_vector(x)
+    }
+  )
+
   x_df <- ic_bind_list(x_list_named)
 
   date_cols <- grepl(pattern = "VALUE=DATE", x = names(x_df))
-  if(any(date_cols)) {
-    x_df[date_cols] <- lapply(x_df[, date_cols], ic_date)
+
+  if (any(date_cols)) {
+
+    x_df[date_cols] <- lapply(
+      X   = x_df[date_cols],
+      FUN = ic_date
+    )
+
   }
+
   datetime_cols <- names(x_df) %in% c("DTSTART", "DTEND")
-  if(any(datetime_cols)) {
-    x_df[datetime_cols] <- lapply(x_df[, datetime_cols], ic_datetime)
+
+  if (any(datetime_cols)) {
+
+    x_df[datetime_cols] <- lapply(
+      X   = x_df[datetime_cols],
+      FUN = ic_datetime
+    )
+
   }
 
   # names(x_df) <- gsub(pattern = ".VALUE.DATE", replacement = "", names(x_df))
