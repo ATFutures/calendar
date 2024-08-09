@@ -1,5 +1,5 @@
 Package: calendar
-Title: Create, Read, Write, and Work with 'iCalander' Files, Calendars and
+Title: Create, Read, Write, and Work with 'iCalandar' Files, Calendars and
     Scheduling Data
 Version: 0.1.0
 Authors@R: 
@@ -22,7 +22,13 @@ Authors@R:
              family = "Scarafia",
              role = "ctb",
              email = "franco.scarafia@hotmail.com",
-             comment = c(ORCID = "0009-0005-9822-169X")))
+             comment = c(ORCID = "0009-0005-9822-169X")),
+      person(given   = "Serkan", 
+             family  = "Korkmaz",
+             email   = "serkor1@duck.com", 
+             role    = c("ctb"),
+             comment = c(ORCID = "0000-0002-5052-0982"))
+    )
 Description: Provides function to create, read, write, and work with
     'iCalander' files (which typically have '.ics' or '.ical' extensions),
     and the scheduling data, calendars and timelines of people,
