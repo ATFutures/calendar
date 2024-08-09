@@ -2,6 +2,7 @@
 % Please edit documentation in R/package.R
 \docType{package}
 \name{calendar}
+\alias{calendar-package}
 \alias{calendar}
 \title{ics files with R}
 \description{
@@ -11,4 +12,30 @@ Files adhering to this standard are save as \code{.ics} files.
 }
 \details{
 The \code{ical} package is for interacting with such files
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/atfutures/calendar}
+  \item \url{https://atfutures.github.io/calendar/}
+  \item \url{https://github.com/ATFutures/calendar}
+  \item Report bugs at \url{https://github.com/ATFutures/calendar/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Robin Lovelace \email{rob00x@gmail.com} (\href{https://orcid.org/0000-0001-5679-6536}{ORCID})
+
+Authors:
+\itemize{
+  \item Layik Hama \email{layik.hama@gmail.com} (\href{https://orcid.org/0000-0003-1912-4890}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Ollie Lloyd \email{o.lloyd@doctors.org.uk} (\href{https://orcid.org/0000-0002-9385-1634}{ORCID}) [contributor]
+  \item Franco Scarafia \email{franco.scarafia@hotmail.com} (\href{https://orcid.org/0009-0005-9822-169X}{ORCID}) [contributor]
+  \item Serkan Korkmaz \email{serkor1@duck.com} (\href{https://orcid.org/0000-0002-5052-0982}{ORCID}) [contributor]
+}
+
 }

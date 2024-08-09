@@ -17,15 +17,24 @@
 #' identical(x, x_df2)
 ic_dataframe <- function(x) {
 
-  if (methods::is(object = x, class2 = "data.frame")) {
+  if (inherits(x = x, what = "data.frame")) {
 
     return(x)
 
   }
 
-  stopifnot(methods::is(object = x, class2 = "character") | methods::is(object = x, class2 = "list"))
+  assert(
+    inherits(x = x, what = "character") | inherits(x = x, what = "list"),
+    error_message = c(
+      "x" = sprintf(
+        "{.arg x} is passed as {.cls %s}.",
+        class(x)
+      ),
+      "i" = "{.arg x} has to be {.cls character} or {.cls list}."
+    )
+  )
 
-  if (methods::is(object = x, class2 = "character")) {
+  if (inherits(x = x, what = "character")) {
 
     x_list <- ic_list(x)
 
@@ -44,7 +53,10 @@ ic_dataframe <- function(x) {
 
   x_df <- ic_bind_list(x_list_named)
 
-  date_cols <- grepl(pattern = "VALUE=DATE", x = names(x_df))
+  date_cols <- grepl(
+    pattern = "VALUE=DATE",
+    x = names(x_df)
+  )
 
   if (any(date_cols)) {
 
