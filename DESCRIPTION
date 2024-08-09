@@ -1,5 +1,5 @@
 Package: calendar
-Title: Create, Read, Write, and Work with 'iCalandar' Files, Calendars and
+Title: Create, Read, Write, and Work with 'iCalendar' Files, Calendars and
     Scheduling Data
 Version: 0.1.0
 Authors@R: 
@@ -30,7 +30,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-5052-0982"))
     )
 Description: Provides function to create, read, write, and work with
-    'iCalander' files (which typically have '.ics' or '.ical' extensions),
+    'iCalendar' files (which typically have '.ics' or '.ical' extensions),
     and the scheduling data, calendars and timelines of people,
     organisations and other entities that they represent.  'iCalendar' is
     an open standard for exchanging calendar and scheduling information
@@ -43,7 +43,6 @@ Depends:
 Imports: 
     cli,
     lubridate,
-    methods,
     tibble
 Suggests: 
     covr,
